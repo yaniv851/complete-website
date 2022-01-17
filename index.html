@@ -7,6 +7,60 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <style>
+        /* Split the screen in half */
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-image: url(images/pic1.jpg);
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-image: url(images/pic2.jpg);
+}
+
+/* If you want the content centered horizontally and vertically */
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+/* Style the image inside the centered container, if needed */
+.center button {
+  width: 120px;
+  height: 30px;
+  border-radius: 20px;
+}
+    </style>
+
+
+    <div class="split left">
+        <div class="center">
+            <h1>hello boyyy</h1>
+            <button>Student</button>
+        </div>
+    </div>
+
+    <div class="split right">
+        <div class="center">
+            <h1>hey girllll</h1>
+            <button>Creator</button>
+        </div>
+    </div>
 </body>
 </html>
