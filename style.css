@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 :root {
@@ -86,3 +86,30 @@ body {
     background: url(images/Creator.jpg) center center no-repeat;
     background-size: cover;
   }
+
+  .center{
+    z-index: 1;
+    left: 45%;
+    top: 35%;
+    position: absolute;
+  }
+
+  .center h1{
+      font-weight: bold;
+      color: #fff;
+      font-size: 50px;
+  }
+
+  .center h2{
+    z-index: 1;
+    left: 20%;
+    position: relative;
+    font-weight: bold;
+    color: #fff;
+    font-size: 60px;
+}
+
+.center p{
+    font-weight: bold;
+    color: #fff;
+}
