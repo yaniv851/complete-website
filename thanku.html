@@ -6,9 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LoLstudy</title>
     <link rel="icon" href="images/logo.png">
+
+    <script>
+        // alert("hello man");
+
+        function init() {
+            document.getElementById("change").innerHTML = "js rule!";
+            document.getElementById("change").style.color = "blue";
+        }
+    </script>
 </head>
-<body>
+<body onload="init()">
     <h1>Thanks for signing up!</h1>
-    <h2>you can upload videos to every student from all over the world now</h2>
+    <hr style="width:700px; float: left;">
+    <br>
+    <h2 id="change">Our site will be running online as early as next Thursday!</h2>
 </body>
 </html>
