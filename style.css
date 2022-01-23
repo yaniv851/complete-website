@@ -4,16 +4,9 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-:root {
-  --left-button-hover-color: rgba(92, 92, 92, 0.3);
-  --right-button-hover-color: rgba(92, 92, 92, 0.3);
-  --hover-width: 75%;
-  --other-width: 25%;
-  --speed: 1000ms;
-}
-
 html,
 body {
+  overflow: hidden;
   height: 100%;
 }
 
@@ -94,22 +87,25 @@ body {
     position: absolute;
   }
 
-  .center h1{
-      font-weight: bold;
-      color: #fff;
-      font-size: 50px;
-  }
-
   .center h2{
-    z-index: 1;
-    left: 20%;
-    position: relative;
     font-weight: bold;
     color: #fff;
-    font-size: 60px;
+    position: absolute;
+    width:50%;
+    top: 50%;
+    font-size: 4vw;  
+  -webkit-transform: translate(-50%, -50%);        
+  transform: translate(-50%, -50%);
 }
 
-.center p{
-    font-weight: bold;
-    color: #fff;
+
+@media screen and (min-width: 601px) {
+  .center h2 {
+    font-size: 50px;
+    position: absolute;
+    width:50%;
+    top: 50%;
+  -webkit-transform: translate(-50%, -50%);        
+  transform: translate(-50%, -50%);
+  }
 }
