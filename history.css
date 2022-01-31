@@ -104,7 +104,6 @@ body{
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
     background-color: rgba(51, 51, 51, 0.5);
-    cursor: pointer;
 }
 
 .banner__button:hover, .banner__button:focus{
@@ -113,34 +112,84 @@ body{
     transition: all 0.2s;
 }
 
-.banner__buttons{
-    position: relative;
+
+/* The container must be positioned relative: */
+.custom-select {
     display: inline-block;
-}
-
-.dropdown-content{
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+    width:200px;
+    position: relative;
+    font-family: Arial;
+  }
+  
+  .custom-select select {
+    display: none; /*hide original SELECT element: */
+  }
+  
+  .select-selected {
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    background-color: rgba(51, 51, 51, 0.5);
+    border-radius: 10px;
   }
 
-.dropdown-content a:hover{
-    background-color: #ddd
-}
 
-.show {
-    display:block;
-}
+  .select-selected:hover{
+    color: #000;
+    background-color: #e6e6e6;
+    transition: all 0.2s;
+  }
+  
+  /* Style the arrow inside the select element: */
+  .select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+  }
+
+  /* Point the arrow upwards when the select box is open (active): */
+  .select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 7px;
+  }
+
+
+  /* style the items (options), including the selected item: */
+  .select-items div,.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+  }
+  
+  /* Style items (options): */
+  .select-items {
+    position: absolute;
+    background-color: rgba(51, 51, 51, 0.5);
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+  }
+  
+  /* Hide the items when the select box is closed: */
+  .select-hide {
+    display: none;
+  }
+  
+  .select-items div:hover, .same-as-selected {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
 
 
 .banner--fadeButtom{
