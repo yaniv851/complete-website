@@ -1,104 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LoLstudy</title>
-    <link rel="icon" href="images/logo.png">
-    <link rel="stylesheet" href="log.css">
-
-
-    <script>
-        const loginText = document.querySelector(".title-text .login");
-        const loginForm = document.querySelector("form.login");
-        const loginBtn = document.querySelector("label.login");
-        const signupBtn = document.querySelector("label.signup");
-        const signupLink = document.querySelector("form .signup-link a");
-        signupBtn.onclick = (()=>{
-          loginForm.style.marginLeft = "-50%";
-          loginText.style.marginLeft = "-50%";
-        });
-        loginBtn.onclick = (()=>{
-          loginForm.style.marginLeft = "0%";
-          loginText.style.marginLeft = "0%";
-        });
-        signupLink.onclick = (()=>{
-          signupBtn.click();
-          return false;
-        });
-     </script>
-     
-</head>
-<body>
-    <div class="limg">
-        <div class="logo">
-            <a href="index.html">
-                <img src="images/Logo.png" alt="logo">
-            </a>
-        </div>
-    </div>
-    
-    
-    
-    
-    <div class="wrapper">
-        <div class="title-text">
-           <div class="title login">
-              Login
-           </div>
-           <div class="title signup">
-              Signup
-           </div>
-        </div>
-        <div class="form-container">
-           <div class="slide-controls">
-              <input type="radio" name="slide" id="login" checked>
-              <input type="radio" name="slide" id="signup">
-              <label for="login" class="slide login">Login</label>
-              <label for="signup" class="slide signup">Signup</label>
-              <div class="slider-tab"></div>
-           </div>
-           <div class="form-inner">
-               <!--important form - need to fix some things-->
-              <form action="thanku.html" class="login" method="post">
-                  <!-- ברירת מחדל של גידור טופס הוא גאט -->
-                 <div class="field">
-                    <input type="text" placeholder="Email Address" name="txt_name" required>
-                 </div>
-                 <div class="field">
-                    <input type="password" placeholder="Password" name="txt_password" required>
-                 </div>
-                 <div class="pass-link">
-                    <a href="#">Forgot password?</a>
-                 </div>
-                 <div class="field btn">
-                    <div class="btn-layer"></div>
-                    <input type="submit" value="Login">
-                 </div>
-                 <div class="signup-link">
-                    Not a member? <a href="#">Signup now</a>
-                 </div>
-              </form>
-              <form action="creator.html" class="signup">
-                 <div class="field">
-                    <input type="text" placeholder="Email Address" required>
-                 </div>
-                 <div class="field">
-                    <input type="password" placeholder="Password" required>
-                 </div>
-                 <div class="field">
-                    <input type="password" placeholder="Confirm password" required>
-                 </div>
-                 <div class="field btn">
-                    <div class="btn-layer"></div>
-                    <input type="submit" value="Signup">
-                 </div>
-              </form>
-              <!--end of form-->
-           </div>
-        </div>
-     </div>
-
-</body>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>LoLstudy</title>
+      <link rel="stylesheet" href="log.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <link rel="icon" href="images/logo.png">
+   </head>
+   <body>
+      <div class="container">
+         <header>Signup Form</header>
+         <div class="progress-bar">
+            <div class="step">
+               <p>
+                  Name
+               </p>
+               <div class="bullet">
+                  <span>1</span>
+               </div>
+               <div class="check fas fa-check"></div>
+            </div>
+            <div class="step">
+               <p>
+                  Contact
+               </p>
+               <div class="bullet">
+                  <span>2</span>
+               </div>
+               <div class="check fas fa-check"></div>
+            </div>
+            <div class="step">
+               <p>
+                  Birth
+               </p>
+               <div class="bullet">
+                  <span>3</span>
+               </div>
+               <div class="check fas fa-check"></div>
+            </div>
+            <div class="step">
+               <p>
+                  Submit
+               </p>
+               <div class="bullet">
+                  <span>4</span>
+               </div>
+               <div class="check fas fa-check"></div>
+            </div>
+         </div>
+         <div class="form-outer">
+            <form action="#">
+               <div class="page slide-page">
+                  <div class="title">
+                     Basic Info:
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        First Name
+                     </div>
+                     <input type="text">
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        Last Name
+                     </div>
+                     <input type="text">
+                  </div>
+                  <div class="field">
+                     <button class="firstNext next">Next</button>
+                  </div>
+               </div>
+               <div class="page">
+                  <div class="title">
+                     Contact Info:
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        Email Address
+                     </div>
+                     <input type="text">
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        Phone Number
+                     </div>
+                     <input type="Number">
+                  </div>
+                  <div class="field btns">
+                     <button class="prev-1 prev">Previous</button>
+                     <button class="next-1 next">Next</button>
+                  </div>
+               </div>
+               <div class="page">
+                  <div class="title">
+                     Date of Birth:
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        Date
+                     </div>
+                     <input type="text">
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        Gender
+                     </div>
+                     <select>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                     </select>
+                  </div>
+                  <div class="field btns">
+                     <button class="prev-2 prev">Previous</button>
+                     <button class="next-2 next">Next</button>
+                  </div>
+               </div>
+               <div class="page">
+                  <div class="title">
+                     Login Details:
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        Username
+                     </div>
+                     <input type="text">
+                  </div>
+                  <div class="field">
+                     <div class="label">
+                        Password
+                     </div>
+                     <input type="password">
+                  </div>
+                  <div class="field btns">
+                     <button class="prev-3 prev">Previous</button>
+                     <button class="submit">Submit</button>
+                  </div>
+               </div>
+            </form>
+         </div>
+      </div>
+      <script src="log.js"></script>
+   </body>
 </html>
