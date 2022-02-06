@@ -5,8 +5,121 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        section{
+            position: relative;
+        }
+
+        .container{
+            width: 100%;
+            height: 450px;
+            position: relative;
+        }
+
+        .slides{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            animation: fade 1s ease-in-out;
+        }
+
+        @keyframes fade{
+            to{
+                opacity: 1;
+            }
+            from{
+                opacity: 0;
+            }
+        }
+
+        .slides img{
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            filter: brightness(80%);
+        }
+
+        .slides .content{
+            position: absolute;
+            left: 50px;
+            bottom: 100px;
+            color: white;
+            max-width: 400px;
+            text-shadow: 0 0 1px #000;
+        }
+
+        .content h1{
+            font-size: 2em;
+            letter-spacing: 1px;
+            font-weight: 100px;
+        }
+
+        .content p{
+            line-height: 1.4;
+            margin: 10px 0;
+        }
+        
+        
+
+    </style>
 </head>
 <body>
-    
-</body>
+    <section>
+        <div class="container">
+            <div class="slides">
+                <img src="images/mathlogo.png" alt="math">
+                <div class="content">
+                    <h1>Math</h1>
+                    <p><b>Did you know</b>
+                        <br>
+                    Pi and pizzas are linked</p>
+                    <div class="custom-select">
+                        <select>
+                          <option value="0">Select grade:</option>
+                          <option value="1">Grade 6</option>
+                          <option value="2">Grade 7</option>
+                          <option value="3">Grade 8</option>
+                          <option value="4">Grade 9</option>
+                          <option value="5">Grade 10</option>
+                          <option value="6">Grade 11</option>
+                          <option value="7">Grade 12</option>
+                        </select>
+                      </div>
+                </div>
+            </div>
+
+            <div class="slides">
+                <img src="subject/history.jpeg" alt="history">
+                <div class="content">
+                    <h2>Math</h2>
+                    <p><b>Did you know</b>
+                        <br>
+                    Pi and pizzas are linked</p>
+                </div>
+            </div>
+
+            <div class="slides">
+                <img src="subject/history.jpeg" alt="history">
+                <div class="content">
+                    <h2>Math</h2>
+                    <p><b>Did you know</b>
+                        <br>
+                    Pi and pizzas are linked</p>
+                </div>
+            </div>
+
+            <div class="slides">
+                <img src="subject/history.jpeg" alt="history">
+                <div class="content">
+                    <h2>Math</h2>
+                    <p><b>Did you know</b>
+                        <br>
+                    Pi and pizzas are linked</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
 </html>
