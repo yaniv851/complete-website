@@ -204,10 +204,6 @@ body{
     object-fit: contain;
 }
 
-.fa-user {
-    color: white;
-}
-
 .nav{
     position: fixed;
     top: 0;
