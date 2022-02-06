@@ -7,119 +7,130 @@
     <title>Document</title>
 
     <style>
-        section{
-            position: relative;
-        }
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        .container{
-            width: 100%;
-            height: 450px;
-            position: relative;
-        }
+body{
+    height: 100vh;
+    background-color: #7ae0ee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-        .slides{
-            width: 100%;
-            height: 100%;
-            position: relative;
-            animation: fade 1s ease-in-out;
-        }
+.box{
+    float: left;
+    background-color: #0162b1;
+    color: #fff;
+    width: 125px;
+    line-height: 125px;
+    text-align: center;
+    margin: 10px;
+    display: none;
+}
 
-        @keyframes fade{
-            to{
-                opacity: 1;
-            }
-            from{
-                opacity: 0;
-            }
-        }
+.show{
+    display: block;
+}
 
-        .slides img{
-            width: 100%;
-            height: 100%;
-            display: block;
-            object-fit: cover;
-            filter: brightness(80%);
-        }
+.btn{
+    border: none;
+    outline: none;
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
 
-        .slides .content{
-            position: absolute;
-            left: 50px;
-            bottom: 100px;
-            color: white;
-            max-width: 400px;
-            text-shadow: 0 0 1px #000;
-        }
-
-        .content h1{
-            font-size: 2em;
-            letter-spacing: 1px;
-            font-weight: 100px;
-        }
-
-        .content p{
-            line-height: 1.4;
-            margin: 10px 0;
-        }
-        
-        
-
+.btn:hover{
+    background-color: #ddd;
+}
     </style>
 </head>
 <body>
-    <section>
-        <div class="container">
-            <div class="slides">
-                <img src="images/mathlogo.png" alt="math">
-                <div class="content">
-                    <h1>Math</h1>
-                    <p><b>Did you know</b>
-                        <br>
-                    Pi and pizzas are linked</p>
-                    <div class="custom-select">
-                        <select>
-                          <option value="0">Select grade:</option>
-                          <option value="1">Grade 6</option>
-                          <option value="2">Grade 7</option>
-                          <option value="3">Grade 8</option>
-                          <option value="4">Grade 9</option>
-                          <option value="5">Grade 10</option>
-                          <option value="6">Grade 11</option>
-                          <option value="7">Grade 12</option>
-                        </select>
-                      </div>
-                </div>
-            </div>
 
-            <div class="slides">
-                <img src="subject/history.jpeg" alt="history">
-                <div class="content">
-                    <h2>Math</h2>
-                    <p><b>Did you know</b>
-                        <br>
-                    Pi and pizzas are linked</p>
-                </div>
-            </div>
+<p>Select a new car from the list.</p>
 
-            <div class="slides">
-                <img src="subject/history.jpeg" alt="history">
-                <div class="content">
-                    <h2>Math</h2>
-                    <p><b>Did you know</b>
-                        <br>
-                    Pi and pizzas are linked</p>
-                </div>
-            </div>
 
-            <div class="slides">
-                <img src="subject/history.jpeg" alt="history">
-                <div class="content">
-                    <h2>Math</h2>
-                    <p><b>Did you know</b>
-                        <br>
-                    Pi and pizzas are linked</p>
-                </div>
-            </div>
+<p>When you select a new car, a function is triggered which outputs the value of the selected car.</p>
 
-        </div>
-    </section>
+
+
+<select id="my" onchange="func()">
+    <option class="btn" value="all">All Grades</option>
+    <option class="btn" value="grade 1">Grade 1</option>
+    <option class="btn" value="grade 2">Grade 2</option>
+    <option class="btn" value="grade 3">Grade 3</option>
+    <option class="btn" value="grade 4">Grade 4</option>
+    <option class="btn" value="grade 5">Grade 5</option>
+    <option class="btn" value="grade 6">Grade 6</option>
+    <option class="btn" value="grade 7">Grade 7</option>
+    <option class="btn" value="grade 8">Grade 8</option>
+  </select>
+
+
+  <div class="objects">
+    <div class="box grade 7">
+        <img src="history covers/grade7.jpeg">
+    </div>
+    <div class="box grade 6">
+        <img src="history covers/grade 6.jpeg" alt="">
+    </div>
+    <div class="box grade 8">
+        <img src="history covers/grade8.jpeg" alt="">
+    </div>
+    <div class="box grade 6">
+        <img src="history covers/grade6.jpeg" alt="">
+    </div>
+
+
+
+  <script>
+      filterObjects("all");
+
+    function func() {
+      var x = document.getElementById("my").value;
+      document.getElementById("demo").innerHTML = x + " books";
+    }
+
+    function filterObjects(c) {
+    var x, i;
+    x = document.getElementById("my").value;
+    if (c == "all") c = "";
+    for (i = 0; i < x.length; i++) {
+        removeClass(x[i], "show");
+        if (x[i].className.indexOf(c) > -1) addClass(x[i], "show"); 
+    }
+}
+
+function addClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+        if (arr1.indexOf(arr2[i]) == -1) {
+            element.className += " " + arr2[i];
+        }
+    }
+}
+
+function removeClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+        while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);
+        }
+    }
+    element.className = arr1.join(" ");
+}
+
+    </script>
+
+</body>
 </html>
