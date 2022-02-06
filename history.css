@@ -194,7 +194,7 @@ body{
 
 
 .banner--fadeButtom{
-    margin-top: 145px;
+    margin-top: 14px;
     height: 7.4rem;
     background-image: linear-gradient(180deg, transparent, rgba(37,37,37,0.61), #181818);
 }
@@ -223,6 +223,10 @@ body{
 @media screen and (min-width: 320px) {
   .banner__description{
     width: 10rem;
+  }
+
+  .banner__description p{
+    text-align: left;
   }
   
   .banner__contents{
