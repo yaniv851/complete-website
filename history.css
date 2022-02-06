@@ -219,3 +219,13 @@ body{
     transition-timing-function: ease-in;
     transition: all 0.5s;
 }
+
+@media screen and (min-width: 320px) {
+  .banner__description{
+    width: 10rem;
+  }
+  
+  .banner__contents{
+    margin-left: 50px;
+  }
+}
