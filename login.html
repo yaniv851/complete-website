@@ -49,7 +49,7 @@
             </div>
          </div>
          <div class="form-outer">
-            <form action="#" name="signup" netlify>
+            <form action="#" name="signup" method="post" netlify>
                <div class="page slide-page">
                   <div class="title">
                      Basic Info:
@@ -105,10 +105,10 @@
                      <div class="label">
                         Gender
                      </div>
-                     <select>
-                        <option>Male</option>
-                        <option>Female</option>
-                        <option>Other</option>
+                     <select name="gender[]" >
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
                      </select>
                   </div>
                   <div class="field btns">
