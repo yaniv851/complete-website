@@ -17,7 +17,7 @@ body {
 
 .logo img {
   z-index: 1;
-  width: 84px;
+  width: 104px;
   padding-left: 50px;
   padding-top: 10px;
   position: absolute;
@@ -45,13 +45,15 @@ body {
   }
   
   .split.left .button:hover {
-    background-color: var(--left-button-hover-color);
+    background-image: linear-gradient(120deg, white, gray);
     border-color: var(--left-button-hover-color);
+    color: black;
   }
   
   .split.right .button:hover {
-    background-color: var(--right-button-hover-color);
+    background-image: linear-gradient(120deg, white, gray);
     border-color: var(--right-button-hover-color);
+    color: black;
   }
   
   .container {
@@ -94,7 +96,7 @@ body {
     position: relative;
     width:50%;
     top: 50%;
-    font-size: 4vw;  
+    font-size: 5vw;  
   -webkit-transform: translate(-50%, -50%);        
   transform: translate(-50%, -50%);
 }
@@ -105,23 +107,46 @@ body {
   position: relative;
   width:50%;
   top: 50%;
-  font-size: 4vw;  
+  font-size: 5vw;  
 -webkit-transform: translate(-50%, -50%);        
 transform: translate(-50%, -50%);
 }
 
-@media screen and (max-width:320px) {
+@media screen and (min-width: 768px){
+  .center .first {
+    width: 15rem;
+    font-size: 55px;
+  }
+
+  .center .sec{
+    width: 15rem;
+    font-size: 55px;
+  }
+
+  .button{
+    font-size: 25px;
+    padding: 15px 80px;
+  }
+}
+
+
+@media screen and (min-width: 320px) {
+  .logo img{
+    width: 84px;
+    padding-left: 15px;
+  }
+
   .center .first {
     width: 10rem;
-    font-size: 30px;
+    font-size: 40px;
   }
 
   .center .sec{
     width: 10rem;
-    font-size: 30px;
+    font-size: 40px;
   }
 
   .button{
-    padding: 10px 45px;
+    padding: 9px 35px;
   }
 }
