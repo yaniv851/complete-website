@@ -53,82 +53,67 @@ body{
 </head>
 <body>
 
-<p>Select a new car from the list.</p>
+<p>Select your grade from the list.</p>
 
 
-<p>When you select a new car, a function is triggered which outputs the value of the selected car.</p>
+<p>When you select a grade, a function is triggered which outputs the book covers of the selected grade.</p>
 
 
 
-<select id="my" onchange="func()">
+<select id="my">
     <option class="btn" value="all">All Grades</option>
-    <option class="btn" value="grade 1">Grade 1</option>
-    <option class="btn" value="grade 2">Grade 2</option>
-    <option class="btn" value="grade 3">Grade 3</option>
-    <option class="btn" value="grade 4">Grade 4</option>
-    <option class="btn" value="grade 5">Grade 5</option>
-    <option class="btn" value="grade 6">Grade 6</option>
-    <option class="btn" value="grade 7">Grade 7</option>
-    <option class="btn" value="grade 8">Grade 8</option>
+    <option class="btn" value="1">Grade 1</option>
+    <option class="btn" value="2">Grade 2</option>
+    <option class="btn" value="3">Grade 3</option>
+    <option class="btn" value="4">Grade 4</option>
+    <option class="btn" value="5">Grade 5</option>
+    <option class="btn" value="6">Grade 6</option>
+    <option class="btn" value="7">Grade 7</option>
+    <option class="btn" value="8">Grade 8</option>
   </select>
+  
+  
+  <img src="history covers/grade6.jpeg">
+  <img src="history covers/grade8.jpeg">
+  <img src="history covers/grade7.jpeg">
+  <img src="history covers/grade 6.jpeg">
+
+
+
 
 
   <div class="objects">
+
     <div class="box grade 7">
-        <img src="history covers/grade7.jpeg">
-    </div>
-    <div class="box grade 6">
-        <img src="history covers/grade 6.jpeg" alt="">
-    </div>
-    <div class="box grade 8">
-        <img src="history covers/grade8.jpeg" alt="">
-    </div>
-    <div class="box grade 6">
-        <img src="history covers/grade6.jpeg" alt="">
+        <img src="history covers/grade7.jpeg" >
     </div>
 
+    <div class="box grade 6">
+        <img src="history covers/grade 6.jpeg" >
+    </div>
+
+    <div class="box grade 8">
+        <img src="history covers/grade8.jpeg" >
+    </div>
+
+    <div class="box grade 6">
+        <img src="history covers/grade6.jpeg" >
+    </div>
+</div>
 
 
   <script>
-      filterObjects("all");
+const select = document.querySelector('#my');
+const img = document.querySelector('img');
 
-    function func() {
-      var x = document.getElementById("my").value;
-      document.getElementById("demo").innerHTML = x + " books";
-    }
 
-    function filterObjects(c) {
-    var x, i;
-    x = document.getElementById("my").value;
-    if (c == "all") c = "";
-    for (i = 0; i < x.length; i++) {
-        removeClass(x[i], "show");
-        if (x[i].className.indexOf(c) > -1) addClass(x[i], "show"); 
-    }
-}
+select.addEventListener('change', e => {
 
-function addClass(element, name) {
-    var i, arr1, arr2;
-    arr1 = element.className.split(" ");
-    arr2 = name.split(" ");
-    for (i = 0; i < arr2.length; i++) {
-        if (arr1.indexOf(arr2[i]) == -1) {
-            element.className += " " + arr2[i];
-        }
-    }
-}
-
-function removeClass(element, name) {
-    var i, arr1, arr2;
-    arr1 = element.className.split(" ");
-    arr2 = name.split(" ");
-    for (i = 0; i < arr2.length; i++) {
-        while (arr1.indexOf(arr2[i]) > -1) {
-            arr1.splice(arr1.indexOf(arr2[i]), 1);
-        }
-    }
-    element.className = arr1.join(" ");
-}
+	const gradeString = e.target.value;
+  const url = `history covers/grade${gradeString}.jpeg`;
+	img.src = url;
+  img.alt = `grade ${gradeString}`;
+})
 
     </script>
 
