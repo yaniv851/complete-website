@@ -194,7 +194,7 @@ body{
 
 
 .banner--fadeButtom{
-    margin-top: 14px;
+    margin-top: -65px;
     /* if it interupts the user than  change the height to 5 or more */
     height: 2rem;
     background-image: linear-gradient(180deg, transparent, rgba(37,37,37,0.61), #181818);
