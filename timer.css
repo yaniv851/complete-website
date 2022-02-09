@@ -24,7 +24,7 @@ body, html {
   }
 
   .bgimg {
-    background-image: url(images/CSstudent.jpg);
+    background-image: url(images/Creator.jpg);
     height: 100%;
     background-position: center;
     background-size: cover;
@@ -51,4 +51,15 @@ body, html {
   hr {
     margin: auto;
     width: 40%;
+  }
+
+  @media screen and (max-width: 320px) {
+    .bgimg .middle{
+      width: 200px;
+    }
+
+    .middle h1{
+      text-align: center;
+      font-size: 30px;
+    }
   }
