@@ -37,6 +37,10 @@ body{
     display: block;
 }
 
+.images{
+   display:none;
+}
+
 .btn{
     border: none;
     outline: none;
@@ -53,68 +57,43 @@ body{
 </head>
 <body>
 
-<p>Select your grade from the list.</p>
-
-
-<p>When you select a grade, a function is triggered which outputs the book covers of the selected grade.</p>
-
-
-
-<select id="my">
-    <option class="btn" value="all">All Grades</option>
-    <option class="btn" value="1">Grade 1</option>
-    <option class="btn" value="2">Grade 2</option>
-    <option class="btn" value="3">Grade 3</option>
-    <option class="btn" value="4">Grade 4</option>
-    <option class="btn" value="5">Grade 5</option>
-    <option class="btn" value="6">Grade 6</option>
-    <option class="btn" value="7">Grade 7</option>
-    <option class="btn" value="8">Grade 8</option>
-  </select>
-  
-  
-  <img src="history covers/grade6.jpeg">
-  <img src="history covers/grade8.jpeg">
-  <img src="history covers/grade7.jpeg">
-  <img src="history covers/grade 6.jpeg">
-
-
-
-
-
-  <div class="objects">
-
-    <div class="box grade 7">
-        <img src="history covers/grade7.jpeg" >
-    </div>
-
-    <div class="box grade 6">
-        <img src="history covers/grade 6.jpeg" >
-    </div>
-
-    <div class="box grade 8">
-        <img src="history covers/grade8.jpeg" >
-    </div>
-
-    <div class="box grade 6">
-        <img src="history covers/grade6.jpeg" >
-    </div>
-</div>
-
+    <p>Select your grade from the list.</p>
+    
+    
+    <p>When you select a grade, a function is triggered which outputs the book covers of the selected grade.</p>
+    
+    
+    
+    <select id="my">
+        <option class="btn" value="all">All Grades</option>
+        <option class="btn" value="1">Grade 1</option>
+        <option class="btn" value="2">Grade 2</option>
+        <option class="btn" value="3">Grade 3</option>
+        <option class="btn" value="4">Grade 4</option>
+        <option class="btn" value="5">Grade 5</option>
+        <option class="btn" value="6">Grade 6</option>
+        <option class="btn" value="7">Grade 7</option>
+        <option class="btn" value="8">Grade 8</option>
+      </select>
+      
+      
+      <img class='images' src="history covers/grade6-dor.jpeg">
+      <img class='images' src="history covers/grade8.jpeg">
+      <img class='images' src="history covers/grade7.jpeg">
+      <img class='images' src="history covers/grade6-mahavak.jpeg">
 
   <script>
-const select = document.querySelector('#my');
-const img = document.querySelector('img');
-
-
-select.addEventListener('change', e => {
-
-	const gradeString = e.target.value;
-  const url = `history covers/grade${gradeString}.jpeg`;
-	img.src = url;
-  img.alt = `grade ${gradeString}`;
-})
-
+    const select = document.querySelector('#my');
+    const img = document.querySelectorAll('img');
+    
+    
+    select.addEventListener('change', e => {
+    
+        const gradeString = e.target.value;
+        
+        img[gradeString-1].style.display='block';
+       
+    });
     </script>
 
 </body>
