@@ -81,7 +81,7 @@ body{
 }
 
 .banner__description{
-    width: 45rem;
+    width: 10rem;
     line-height: 1.3;
     padding-top: 1rem;
     font-size: 1rem;
@@ -217,7 +217,7 @@ body{
     transition: all 0.5s;
 }
 
-@media screen and (min-width: 320px) {
+@media screen and (max-width: 425px) {
   .banner__description{
     width: 10rem;
   }
@@ -227,6 +227,6 @@ body{
   }
   
   .banner__contents{
-    margin-left: 50px;
+    margin-left: 25%;
   }
 }
