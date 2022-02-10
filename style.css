@@ -130,7 +130,7 @@ transform: translate(-50%, -50%);
 }
 
 
-@media screen and (max-width: 320px) {
+@media screen and (min-width: 320px) {
   .logo img{
     width: 84px;
     padding-left: 15px;
