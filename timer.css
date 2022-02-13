@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: "Montserrat", sans-serif;
+    font-family: monospace;
   }
 
 body, html {
@@ -24,7 +24,7 @@ body, html {
   }
 
   .bgimg {
-    background-image: url(images/Creator.jpg);
+    background-image: url(images/Creator.webp);
     height: 100%;
     background-position: center;
     background-size: cover;
@@ -32,6 +32,12 @@ body, html {
     color: white;
     font-family: "Courier New", Courier, monospace;
     font-size: 25px;
+  }
+
+  .bgimg h1{
+    background: -webkit-linear-gradient(#eee, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
   
   .bottomleft {
@@ -46,11 +52,12 @@ body, html {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    font-weight: bold;
   }
-  
+
   hr {
     margin: auto;
-    width: 40%;
+    width: 90%;
   }
 
   @media screen and (max-width: 320px) {
