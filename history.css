@@ -8,6 +8,10 @@ body{
     background: #181818;
 }
 
+.row .row__posters .inv {
+  display: none;
+}
+
 ::-webkit-scrollbar{
     width: 10px;
   }
