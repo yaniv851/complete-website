@@ -137,6 +137,11 @@ body{
   .inv {
       display: none;
     }
+
+    h2{
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
   
     .custom-select select {
       cursor: pointer;
