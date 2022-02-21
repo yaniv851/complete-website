@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoLstudy</title>
+    <link rel="icon" href="/images/logo.webp">
+    <link rel="stylesheet" href="english.css">
+</head>
+<body>
+  <div class="nav" id="nav">
+    <a href="index.html"><img src="/images/logo.webp" alt="" class="nav__logo"></a>
+  </div>
+
+
+  <!--header-->
+  <div class="banner">
+    <div class="banner__contents">
+      <h1 class="banner__title">English</h1>
+      <div class="banner__description">
+        <p><b>Did you know</b>
+        The most common letter in English is "e"
+        </p>
+      </div>
+      <div class="custom-select">
+        <select id="target">
+          <option value="All">Select a Grade</option>
+          <option value="Grade 6">Grade 6</option>
+          <option value="Grade 7">Grade 7</option>
+          <option value="Grade 8">Grade 8</option>
+          <option value="Grade 9">Grade 9</option>
+          <option value="Grade 10">Grade 10</option>
+          <option value="Grade 11">Grade 11</option>
+          <option value="Grade 12">Grade 12</option>
+        <select>
+      </div>
+
+      </div>
+    </div>
+    <div class="banner--fadeButtom"></div>
+  </div>
+
+     <!--Top Rated videos-->
+     <div class="row">
+      <div class="row__posters">
+        <!--להוריד מפה את הסרטונים ולשים כריכות של ספרים בתוך לינק שיובל לדף של בחירת תוכן עיניינים-->
+        <!--אחר כך להוסיף דף של הסרטונים ולעשות פופאפ לכל סרטון בעת לחיצה -רמז קטן, זה קשור לג'אבא סקריפט-->
+        <div id="Grade 6" class="inv">
+          <h2>Grade 6</h2>
+          <a href="#"><img src="/history-grade6/dor.webp" class="row__poster row__posterLarge" /></a>
+          <img src="/history-grade6/mahavak.webp" class="row__poster row__posterLarge" />
+          <img src="/history-grade6/crisis.webp" class="row__poster row__posterLarge" />
+          <img src="/history-grade6/masa-yavan.webp" class="row__poster row__posterLarge" />
+          <img src="/history-grade6/modern.webp" class="row__poster row__posterLarge" />
+          <img src="/history-grade6/toldot.webp" class="row__poster row__posterLarge" />
+        </div>
+      
+        <div id="Grade 7" class="inv">
+          <h2>Grade 7</h2>
+          <img src="/history-grade7/grade7-masa16-5.webp" class="row__poster row__posterLarge" />
+        </div>
+      
+        <div id="Grade 8" class="inv">
+          <h2>Grade 8</h2>
+          <img src="/history-grade8/grade8-masa19-16.webp" class="row__poster row__posterLarge" />
+        </div>
+
+      </div>
+    </div> 
+
+    <script>
+          document
+        .getElementById('target')
+        .addEventListener('change', function () {
+            'use strict';
+            var vis = document.querySelector('.vis'),   
+                target = document.getElementById(this.value);
+            if (vis !== null) {
+                vis.className = 'inv';
+            }
+            if (target !== null ) {
+                target.className = 'vis';
+            }
+    });
+  </script>
+</body>
+</html>
