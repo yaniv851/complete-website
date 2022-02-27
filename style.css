@@ -45,13 +45,13 @@ body {
   }
   
   .split.left .button:hover {
-    background-image: linear-gradient(120deg, white, gray);
+    background-image: linear-gradient(120deg,transparent, white, gray, transparent);
     border-color: var(--left-button-hover-color);
     color: black;
   }
   
   .split.right .button:hover {
-    background-image: linear-gradient(120deg, white, gray);
+    background-image: linear-gradient(120deg,transparent, white, gray, transparent);
     border-color: var(--right-button-hover-color);
     color: black;
   }

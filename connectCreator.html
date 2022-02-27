@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoLstudy</title>
+    <link rel="icon" href="/images/logo.webp">
+    <link rel="stylesheet" href="connectCreator.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <form action="#" class="login-form" netlify>
+        <h1>Before we open your channel</h1>
+        <div class="txtb">
+            <input type="text" name="first-name">
+            <span data-placeholder="First Name"></span>
+        </div>
+
+        <div class="txtb">
+            <input type="text" name="last-name">
+            <span data-placeholder="Last Name"></span>
+        </div>
+        <input type="submit" class="logbtn" value="Login">
+        <div class="bottom-text">
+            <p>we will create your channel based on the data you gave us.</p>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        $(".txtb input").on("focus",function(){
+             $(this).addClass("focus"); 
+            });
+
+              $(".txtb input").on("blur",function(){
+                   if($(this).val() == "") 
+                   $(this).removeClass("focus"); 
+                });
+    </script>
+</body>
+</html>
