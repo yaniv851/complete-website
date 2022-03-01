@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+    width: 100%;
+    height: 100%;
+}
+.fade {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    z-index:1001;
+    -moz-opacity: 0.7;
+    opacity:.70;
+    filter: alpha(opacity=70);
+}
+.light {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 200px;
+    margin-left: -150px;
+    margin-top: -100px;
+    padding: 10px;
+    border: 2px solid #FFF;
+    background: #CCC;
+    z-index:1002;
+    overflow:visible;
+}
+    </style>
+</head>
+<body>
+    <a href="#" class="lightbox" onclick="lightbox_open(this)">Open 1</a>
+    <div class="light">div 1</div>
+    <div class="fade" onClick="lightbox_close()"></div>
+
+    <a href="#" class="lightbox" onclick="lightbox_open(this)">Open 2</a>
+    <div class="light">div 2</div>
+    <div class="fade" onClick="lightbox_close()"></div>
+
+    <a href="#" class="lightbox" onclick="lightbox_open(this)">Open 3</a>
+    <div class="light">div 3</div>
+    <div class="fade" onClick="lightbox_close()"></div>
+
+    <script>
+        window.document.onkeydown = function (e) {
+    if (!e) {
+        e = event;
+    }
+
+    if (e.keyCode == 27) {
+        lightbox_close();
+    }
+}
+
+// Note that the function is receiving the clicked element reference.
+function lightbox_open(el) {        
+    window.scrollTo(0,0);
+
+    // All the anchors that have a class lightbox.
+    var anchors = document.querySelectorAll('a.lightbox');
+    // All the elements with class light.
+    var light = document.querySelectorAll('.light');
+    // All the elements with class fade.
+    var fade = document.querySelectorAll('.fade');
+
+    // Iterate over the anchors elements.
+    for (var i = 0; i < anchors.length; i++) {
+        // If the anchor matches the clicked one.
+        if (anchors[i] == el) {
+            // Look for the light and fade with the same index
+            // and display them.
+            light[i].style.display = 'block';
+            fade[i].style.display = 'block';
+        }
+    }
+}
+
+function lightbox_close() {
+    // All the elements with class light or fade.
+    var els = document.querySelectorAll('.light, .fade');
+
+    // Loop through the list.
+    for (var i = 0; i < els.length; i++) {
+        // Hide them.
+        els[i].style.display = 'none';
+    }
+}
+    </script>
+</body>
+</html>
