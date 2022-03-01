@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-    <form action="#" class="login-form" netlify>
+    <form action="#" class="login-form" method="post" netlify>
         <h1>Before we open your channel</h1>
         <div class="txtb">
             <input type="text" name="first-name">
@@ -32,10 +32,10 @@
              $(this).addClass("focus"); 
             });
 
-              $(".txtb input").on("blur",function(){
-                   if($(this).val() == "") 
-                   $(this).removeClass("focus"); 
-                });
+        $(".txtb input").on("blur",function(){
+             if($(this).val() == "") 
+             $(this).removeClass("focus"); 
+          });
     </script>
 </body>
 </html>

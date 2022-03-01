@@ -7,87 +7,118 @@
     <title>Document</title>
 
     <style>
-      .inv {
+      #overlay {
         display: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        background: #999;
+        width: 100%;
+        height: 100%;
+        opacity: 0.8;
+        z-index: 100;
       }
-    </style>
+    
+      #popup {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background: #fff;
+        width: 500px;
+        height: 500px;
+        margin-left: -250px; /*Half the value of width to center div*/
+        margin-top: -250px; /*Half the value of height to center div*/
+        z-index: 200;
+      }
+    
+      #popupclose {
+        float: right;
+        padding: 10px;
+        cursor: pointer;
+      }
+    
+      .popupcontent {
+        padding: 10px;
+      }
+    
+      #button {
+        cursor: pointer;
+      }
+      </style>
 </head>
 <body>
-  <select id="target">
-    <option value="All">All Grades</option>
-    <option value="Grade 6">Grade 6</option>
-    <option value="Grade 7">Grade 7</option>
-    <option value="Grade 8">Grade 8</option>
-    <option value="Grade 9">Grade 9</option>
-    <option value="Grade 10">Grade 10</option>
-    <option value="Grade 11">Grade 11</option>
-    <option value="Grade 12">Grade 12</option>
-<select>
+  
+  <div class="custom-select">
+    <select id="target">
+      <option value="All">All Grades</option>
+      <option value="Grade 6">Grade 6</option>
+      <option value="Grade 7">Grade 7</option>
+      <option value="Grade 8">Grade 8</option>
+      <option value="Grade 9">Grade 9</option>
+      <option value="Grade 10">Grade 10</option>
+      <option value="Grade 11">Grade 11</option>
+      <option value="Grade 12">Grade 12</option>
+    <select>
+    </div>
 
-  <div id="All" class="inv">
-    <img src="/history-grade6/dor.webp">
-    <img src="/history-grade7/grade7-masa16-5.webp" />
-    <img src="/history-grade6/mahavak.webp">
-    <img src="/history-grade6/crisis.webp">
-    <img src="/history-grade8/grade8-masa19-16.webp" />
-    <img src="/history-grade6/masa-yavan.webp">
-    <img src="/history-grade6/modern.webp">
-    <img src="/history-grade6/toldot.webp">
+
+  <div class="row">
+  <div id="Grade 6" class="inv">
+    <h2>Grade 6</h2>
+    <div id="maincontent">
+    <img src="/history-grade6/dor.webp" class="row__poster row__posterLarge" id="button"/>
   </div>
 
-<div id="Grade 6" class="inv">
-  <img src="/history-grade6/dor.webp">
-  <img src="/history-grade6/mahavak.webp">
-  <img src="/history-grade6/crisis.webp">
-  <img src="/history-grade6/masa-yavan.webp">
-  <img src="/history-grade6/modern.webp">
-  <img src="/history-grade6/toldot.webp">
+  <div id="maincontent">
+    <img src="/history-grade6/dor.webp" class="row__poster row__posterLarge" id="button"/>
+  </div> 
+
+  <div id="maincontent">
+    <img src="/history-grade6/dor.webp" class="row__poster row__posterLarge" id="button"/>
+  </div>
+
+    <div id="maincontent">
+    <img src="/history-grade6/dor.webp" class="row__poster row__posterLarge" id="button"/>
+  </div>   
+
+    <div id="maincontent">
+    <img src="/history-grade6/dor.webp" class="row__poster row__posterLarge" id="button"/>
+  </div>
+
+    <div id="maincontent">
+    <img src="/history-grade6/dor.webp" class="row__poster row__posterLarge" id="button"/>
+  </div>
+  </div>
 </div>
 
-<div id="Grade 7" class="inv">
-  <img src="/history-grade7/grade7-masa16-5.webp" />
-  <img src="/history-grade6/mahavak.webp" />
+
+<div id="overlay"></div>
+<div id="popup">
+    <div class="popupcontrols">
+        <span id="popupclose">X</span>
+    </div>
+    <div class="popupcontent">
+        <h1>Some Popup Content</h1>
+    </div>
 </div>
 
-<div id="Grade 8" class="inv">
-  <img src="/history-grade8/grade8-masa19-16.webp" />
-  <img src="/history-grade6/mahavak.webp" />
-</div>
-
-<div id="Grade 9" class="inv">
-  <img src="/history-grade8/grade8-masa19-16.webp">
-  <img src="/history-grade6/mahavak.webp">
-</div>
-
-<div id="Grade 10" class="inv">
-  <img src="/history-grade8/grade8-masa19-16.webp">
-  <img src="/history-grade6/mahavak.webp">
-</div>
-
-<div id="Grade 11" class="inv">
-  <img src="/history-grade8/grade8-masa19-16.webp">
-  <img src="/history-grade6/mahavak.webp">
-</div>
-
-<div id="Grade 12" class="inv">
-  <img src="/history-grade8/grade8-masa19-16.webp">
-  <img src="/history-grade6/mahavak.webp">
-</div>
-
-<script>
-    document
-        .getElementById('target')
-        .addEventListener('change', function () {
-            'use strict';
-            var vis = document.querySelector('.vis'),   
-                target = document.getElementById(this.value);
-            if (vis !== null) {
-                vis.className = 'inv';
-            }
-            if (target !== null ) {
-                target.className = 'vis';
-            }
-    });
-  </script>
+<script type="text/javascript">
+	// Initialize Variables
+	var closePopup = document.getElementById("popupclose");
+	var overlay = document.getElementById("overlay");
+	var popup = document.getElementById("popup");
+	var button = document.getElementById("button");
+	// Close Popup Event
+	closePopup.onclick = function() {
+	  overlay.style.display = 'none';
+	  popup.style.display = 'none';
+	};
+	// Show Overlay and Popup
+	button.onclick = function() {
+	  overlay.style.display = 'block';
+	  popup.style.display = 'block';
+	}
+</script>
 </body>
 </html>
