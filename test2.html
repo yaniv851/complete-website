@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style>
 *{
     margin: 0;
@@ -13,6 +13,7 @@
 }
 
 body{
+    /*   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
     font-family: Arial, Helvetica, sans-serif;
     background: #181818;
 }
@@ -32,36 +33,6 @@ body{
     z-index: 1;
     transition-timing-function: ease-in;
     transition: all 0.5s;
-}
-
-.fade {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    z-index:1001;
-    -moz-opacity: 0.7;
-    opacity:.70;
-    filter: alpha(opacity=70);
-}
-.light {
-    display: none;
-    position: absolute;
-    cursor: pointer;
-    top: 50%;
-    left: 50%;
-    width: 300px;
-    height: 200px;
-    margin-left: -150px;
-    margin-top: -100px;
-    padding: 10px;
-    border: 2px solid #FFF;
-    background: #CCC;
-    z-index:1002;
-    overflow:visible;
 }
 
 .banner {
@@ -242,50 +213,119 @@ option:not(:checked) {
     color: white;
     margin-left: 20px;
 }
-  </style> 
+
+.container {
+  width: 992px;
+  margin: 0 auto;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.9);
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+}
+
+.modal {
+  width: 650px;
+  height: 440px;
+  position: fixed;
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: top 0.3s ease-in-out;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  z-index: 2;
+  background-color: #fff;
+}
+
+.modal.active {
+  top: 50%;
+}
+
+.modal .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.modal .body {
+  padding: 0.75rem;
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#overlay.active {
+  display: block;
+}
+    </style>
 </head>
 <body>
-  <div class="nav" id="nav">
-    <a href="index.html"><img src="/images/logo.webp" alt="" class="nav__logo"></a>
-  </div>
-  
-  
-  <!--header-->
-  <div class="banner">
-    <div class="banner__contents">
-      <h1 class="banner__title">History</h1>
-      <div class="banner__description">
-        <p><b>Did you know</b>
-        Ketchup Was Sold in the 1830s as Medicine</p>
+
+    <div class="nav" id="nav">
+        <a href="index.html"><img src="/images/logo.webp" alt="" class="nav__logo"></a>
       </div>
-      <div class="custom-select">
-        <select id="target">
-          <option value="All">Select a Grade</option>
-          <option value="Grade 6">Grade 6</option>
-          <option value="Grade 7">Grade 7</option>
-          <option value="Grade 8">Grade 8</option>
-          <option value="Grade 9">Grade 9</option>
-          <option value="Grade 10">Grade 10</option>
-          <option value="Grade 11">Grade 11</option>
-          <option value="Grade 12">Grade 12</option>
-        <select>
+      
+      
+      <!--header-->
+      <div class="banner">
+        <div class="banner__contents">
+          <h1 class="banner__title">History</h1>
+          <div class="banner__description">
+            <p><b>Did you know</b>
+            Ketchup Was Sold in the 1830s as Medicine</p>
+          </div>
+          <div class="custom-select">
+            <select id="target">
+              <option value="All">Select a Grade</option>
+              <option value="Grade 6">Grade 6</option>
+              <option value="Grade 7">Grade 7</option>
+              <option value="Grade 8">Grade 8</option>
+              <option value="Grade 9">Grade 9</option>
+              <option value="Grade 10">Grade 10</option>
+              <option value="Grade 11">Grade 11</option>
+              <option value="Grade 12">Grade 12</option>
+            <select>
+          </div>
+    
+          </div>
+        </div>
+        <div class="banner--fadeButtom"></div>
       </div>
 
-      </div>
-    </div>
-    <div class="banner--fadeButtom"></div>
-  </div>
-
-       <!--Top Rated videos-->
-       <div class="row">
+     <!--Top Rated videos-->
+     <div class="row">
         <div class="row__posters">
           <!--להוריד מפה את הסרטונים ולשים כריכות של ספרים בתוך לינק שיובל לדף של בחירת תוכן עיניינים-->
           <!--אחר כך להוסיף דף של הסרטונים ולעשות פופאפ לכל סרטון בעת לחיצה -רמז קטן, זה קשור לג'אבא סקריפט-->
           <div id="Grade 6" class="inv">
             <h2>Grade 6</h2>
-            <a href="#"><img src="/history-grade6/dor.webp" class="row__poster row__posterLarge" /></a>
-            <img src="/history-grade6/mahavak.webp" class="row__poster row__posterLarge" />
-            <img src="/history-grade6/crisis.webp" class="row__poster row__posterLarge" />
+            <a href="#" data-target="#modal1"><img src="/history-grade6/dor.webp" class="row__poster row__posterLarge" /></a>
+            <a href="#" data-target="#modal2"><img src="/history-grade6/mahavak.webp" class="row__poster row__posterLarge" /></a>
+            <a href="#" data-target="#modal3"><img src="/history-grade6/crisis.webp" class="row__poster row__posterLarge" /></a>
             <img src="/history-grade6/masa-yavan.webp" class="row__poster row__posterLarge" />
             <img src="/history-grade6/modern.webp" class="row__poster row__posterLarge" />
             <img src="/history-grade6/toldot.webp" class="row__poster row__posterLarge" />
@@ -300,24 +340,122 @@ option:not(:checked) {
             <h2>Grade 8</h2>
             <img src="/history-grade8/grade8-masa19-16.webp" class="row__poster row__posterLarge" />
           </div>
-  
         </div>
       </div> 
-
-  <a href="#"><img src="/history-grade6/crisis.webp" class="lightbox" onclick="lightbox_open(this)" /></a>
-  <div class="light">div 1</div>
-  <div class="fade" onClick="lightbox_close()"></div>
+      
   
-  <a href="#"><img src="/history-grade6/crisis.webp" class="lightbox" onclick="lightbox_open(this)" /></a>
-  <div class="light">div 2</div>
-  <div class="fade" onClick="lightbox_close()"></div>
+      <div class="modal" id="modal1">
+        <div class="header">
+          <div class="title">Table of contents</div>
+          <button class="btn close-modal">&times;</button>
+        </div>
+        <div class="body">
+          <form action="#">
+              <input type="checkbox">
+          </form>
+        </div>
+      </div>
+
+
+      <div class="modal" id="modal2">
+        <div class="header">
+          <div class="title">Table of contents</div>
+          <button class="btn close-modal">&times;</button>
+        </div>
+        <div class="body">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere ea
+          officia consectetur. Laborum, dolor? Assumenda quo corrupti eveniet
+          velit fugit fugiat odit, dolorum labore obcaecati quia. Commodi
+          assumenda sed maxime!
+        </div>
+      </div>
+
+      <div class="modal" id="modal3">
+        <div class="header">
+          <div class="title">Table of contents</div>
+          <button class="btn close-modal">&times;</button>
+        </div>
+        <div class="body">
+            <form action="#">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+            </form>
+        </div>
+      </div>
+
+
+      <div class="modal" id="modal4">
+        <div class="header">
+          <div class="title">Table of contents</div>
+          <button class="btn close-modal">&times;</button>
+        </div>
+        <div class="body">
+            <form action="#">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+                <input type="checkbox">
+        </div>
+      </div>
+
+      <div class="modal" id="modal5">
+        <div class="header">
+          <div class="title">Table of contents</div>
+          <button class="btn close-modal">&times;</button>
+        </div>
+        <div class="body">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere ea
+          officia consectetur. Laborum, dolor? Assumenda quo corrupti eveniet
+          velit fugit fugiat odit, dolorum labore obcaecati quia. Commodi
+          assumenda sed maxime!
+        </div>
+      </div>
+
+      <div class="modal" id="modal6">
+        <div class="header">
+          <div class="title">Table of contents</div>
+          <button class="btn close-modal">&times;</button>
+        </div>
+        <div class="body">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere ea
+          officia consectetur. Laborum, dolor? Assumenda quo corrupti eveniet
+          velit fugit fugiat odit, dolorum labore obcaecati quia. Commodi
+          assumenda sed maxime!
+        </div>
+      </div>
+
+      <div class="modal" id="modal7">
+        <div class="header">
+          <div class="title">Table of contents</div>
+          <button class="btn close-modal">&times;</button>
+        </div>
+        <div class="body">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere ea
+          officia consectetur. Laborum, dolor? Assumenda quo corrupti eveniet
+          velit fugit fugiat odit, dolorum labore obcaecati quia. Commodi
+          assumenda sed maxime!
+        </div>
+      </div>
+
+      <div class="modal" id="modal8">
+        <div class="header">
+          <div class="title">Table of contents</div>
+          <button class="btn close-modal">&times;</button>
+        </div>
+        <div class="body">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere ea
+          officia consectetur. Laborum, dolor? Assumenda quo corrupti eveniet
+          velit fugit fugiat odit, dolorum labore obcaecati quia. Commodi
+          assumenda sed maxime!
+        </div>
+      </div>
   
-  <a href="#"><img src="/history-grade6/crisis.webp" class="lightbox" onclick="lightbox_open(this)" /></a>
-  <div class="light">div 3</div>
-  <div class="fade" onClick="lightbox_close()"></div>
+      <div id="overlay"></div>
 
-
-<script>
+    <script>
           document
         .getElementById('target')
         .addEventListener('change', function () {
@@ -332,50 +470,40 @@ option:not(:checked) {
             }
     });
 
+const btns = document.querySelectorAll("[data-target]");
+const close_modals = document.querySelectorAll(".close-modal");
+const overlay = document.getElementById("overlay");
 
-window.document.onkeydown = function (e) {
-    if (!e) {
-        e = event;
-    }
+btns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.querySelector(btn.dataset.target).classList.add("active");
+    overlay.classList.add("active");
+  });
+});
 
-    if (e.keyCode == 27) {
-        lightbox_close();
-    }
-}
+close_modals.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const modal = btn.closest(".modal");
+    modal.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+});
 
-// Note that the function is receiving the clicked element reference.
-function lightbox_open(el) {        
-    window.scrollTo(0,0);
+window.onclick = (event) => {
+  if (event.target == overlay) {
+    const modals = document.querySelectorAll(".modal");
+    modals.forEach((modal) => modal.classList.remove("active"));
+    overlay.classList.remove("active");
+  }
+};
 
-    // All the anchors that have a class lightbox.
-    var anchors = document.querySelectorAll('img.lightbox');
-    // All the elements with class light.
-    var light = document.querySelectorAll('.light');
-    // All the elements with class fade.
-    var fade = document.querySelectorAll('.fade');
-
-    // Iterate over the anchors elements.
-    for (var i = 0; i < anchors.length; i++) {
-        // If the anchor matches the clicked one.
-        if (anchors[i] == el) {
-            // Look for the light and fade with the same index
-            // and display them.
-            light[i].style.display = 'block';
-            fade[i].style.display = 'block';
-        }
-    }
-}
-
-function lightbox_close() {
-    // All the elements with class light or fade.
-    var els = document.querySelectorAll('.light, .fade');
-
-    // Loop through the list.
-    for (var i = 0; i < els.length; i++) {
-        // Hide them.
-        els[i].style.display = 'none';
-    }
-}
-</script>
+$('input').on('click', function(){
+  
+  is_checked = $(this).is(':checked');
+  
+  if(is_checked){ $('html').css('display','none') }
+           else { $('html').removeAttr('style') }
+});
+    </script>
 </body>
 </html>
