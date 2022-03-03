@@ -238,7 +238,8 @@ option:not(:checked) {
 }
 
 .modal {
-  width: 650px;
+  max-width:600px;
+  width: 95%;
   height: 440px;
   position: fixed;
   top: -50%;
@@ -266,6 +267,16 @@ option:not(:checked) {
 
 .modal .body {
   padding: 0.75rem;
+  font-size: large;
+}
+
+.modal .body h1{
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.modal .body input{
+  margin-bottom: 20px;
 }
 
 #overlay {
@@ -281,6 +292,9 @@ option:not(:checked) {
 #overlay.active {
   display: block;
 }
+
+
+
     </style>
 </head>
 <body>
@@ -350,8 +364,22 @@ option:not(:checked) {
           <button class="btn close-modal">&times;</button>
         </div>
         <div class="body">
+          <h1>Chapters</h1>
           <form action="#">
-              <input type="checkbox">
+              <label for="content__catalog">
+                <input type="checkbox"> 
+                <strong>Until exile</strong><br>
+                <input type="checkbox"> 
+                <strong>Days of Return to Zion</strong><br>
+                <input type="checkbox"> 
+                <strong>Classical Greece and Hellenism</strong><br>
+                <input type="checkbox"> 
+                <strong>Hasmoneic dynasty</strong><br>
+                <input type="checkbox"> 
+                <strong>Roman Empire</strong><br>
+                <input type="checkbox"> 
+                <strong>Jerusalem and Rome</strong><br>
+              </label>
           </form>
         </div>
       </div>
@@ -497,13 +525,13 @@ window.onclick = (event) => {
   }
 };
 
-$('input').on('click', function(){
+/* $('input').on('click', function(){
   
   is_checked = $(this).is(':checked');
   
   if(is_checked){ $('html').css('display','none') }
            else { $('html').removeAttr('style') }
-});
+});  */
     </script>
 </body>
 </html>
