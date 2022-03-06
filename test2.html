@@ -270,6 +270,8 @@ option:not(:checked) {
 .modal .body {
   padding: 0.75rem;
   font-size: large;
+  min-height:300px;
+  height:300px;
   overflow-y: scroll;
 }
 
@@ -278,12 +280,10 @@ option:not(:checked) {
 }
 
 .modal .body::-webkit-scrollbar-track {
-  border: 5px solid #283a4d;
+    border: 5px solid #283a4d;
     box-shadow: inset 0 0 15px #283a4d;
     border-radius: 50px;
 }
-
-
 
 .modal .body h1{
   text-align: center;
@@ -394,6 +394,7 @@ option:not(:checked) {
                 <strong>Roman Empire</strong><br>
                 <input type="checkbox"> 
                 <strong>Jerusalem and Rome</strong><br>
+                <input type="checkbox"> 
               </label>
           </form>
         </div>

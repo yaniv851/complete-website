@@ -5,11 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <style>
 *{
     margin: 0;
     box-sizing: border-box;
 }
+
+
 
 body{
     /*   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
@@ -237,7 +240,8 @@ option:not(:checked) {
 }
 
 .modal {
-  width: 650px;
+  max-width:600px;
+  width: 95%;
   height: 440px;
   position: fixed;
   top: -50%;
@@ -265,6 +269,37 @@ option:not(:checked) {
 
 .modal .body {
   padding: 0.75rem;
+  font-size: large;
+  min-height:300px;
+  height:300px;
+  overflow-y: scroll;
+}
+
+.modal .body::-webkit-scrollbar{
+  width: 12px;
+}
+
+.modal .body::-webkit-scrollbar-track {
+    border: 5px solid #283a4d;
+    box-shadow: inset 0 0 15px #283a4d;
+    border-radius: 50px;
+}
+
+.modal .body h1{
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.modal .body input{
+  margin-bottom: 20px;
+}
+
+table {
+  width: 300px;
+}
+
+table td.positionning {
+  text-align: center;
 }
 
 #overlay {
@@ -280,6 +315,9 @@ option:not(:checked) {
 #overlay.active {
   display: block;
 }
+
+
+
     </style>
 </head>
 <body>
@@ -349,8 +387,23 @@ option:not(:checked) {
           <button class="btn close-modal">&times;</button>
         </div>
         <div class="body">
+          <h1>Chapters</h1>
           <form action="#">
-              <input type="checkbox">
+              <label for="content__catalog">
+                <input type="checkbox"> 
+                <strong>Until exile</strong><br>
+                <input type="checkbox"> 
+                <strong>Days of Return to Zion</strong><br>
+                <input type="checkbox"> 
+                <strong>Classical Greece and Hellenism</strong><br>
+                <input type="checkbox"> 
+                <strong>Hasmoneic dynasty</strong><br>
+                <input type="checkbox"> 
+                <strong>Roman Empire</strong><br>
+                <input type="checkbox"> 
+                <strong>Jerusalem and Rome</strong><br>
+                <input type="checkbox"> 
+              </label>
           </form>
         </div>
       </div>
@@ -362,10 +415,24 @@ option:not(:checked) {
           <button class="btn close-modal">&times;</button>
         </div>
         <div class="body">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere ea
-          officia consectetur. Laborum, dolor? Assumenda quo corrupti eveniet
-          velit fugit fugiat odit, dolorum labore obcaecati quia. Commodi
-          assumenda sed maxime!
+          <input type='checkbox' onClick='checkCBs(this,"someTable1");'>
+          <strong>Until exile</strong><br>
+          <table>
+            <tr>
+              <td class="positionning">
+                <input type="checkbox" style="text-align:center;" ng-model="x.dedbuffer">
+                <strong>Until exile</strong><br>
+              </td>
+              <td class="positionning">
+                <input type="checkbox" style="text-align:center;" ng-model="x.dedbuffer">
+                <strong>Until exile</strong><br>
+              </td>
+              <td class="positionning">
+                <input type="checkbox" style="text-align:center;" ng-model="x.dedbuffer">
+                <strong>Until exile</strong><br>
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
 
@@ -495,6 +562,14 @@ window.onclick = (event) => {
     overlay.classList.remove("active");
   }
 };
+
+/* $('input').on('click', function(){
+  
+  is_checked = $(this).is(':checked');
+  
+  if(is_checked){ $('html').css('display','none') }
+           else { $('html').removeAttr('style') }
+});  */
     </script>
 </body>
 </html>
