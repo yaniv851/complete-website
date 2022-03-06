@@ -1,33 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+html {
+  font-family: sans-serif;
+}
+
+table {
+  width: 300px;
+}
+
+table td.positionning {
+  text-align: center;
+}
+
+    </style>
 </head>
 <body>
+  <input type='checkbox' onClick='checkCBs(this,"someTable1");'>
+  <strong>Until exile</strong><br>
+  <table>
+    <tr>
+      <td class="positionning">
+        <input type="checkbox" style="text-align:center;" ng-model="x.dedbuffer">
+        <strong>Until exile</strong><br>
+      </td>
+    </tr>
+  </table>
 
-  <p>Select your favorite colors:</p>
-  <label for="c1"> <input type="checkbox" name="color" value="red" id="c1">Red</label>
-  <label for="c2"><input type="checkbox" name="color" value="green" id="c2"> Green</label>
-  <label for="c3"><input type="checkbox" name="color" value="blue" id="c3">Blue</label>
-  <p>
-      <button id="btn">Get Selected Colors</button>
-  </p>
 
 
-  <script>
-        const btn = document.querySelector('#btn');
-        btn.addEventListener('click', (event) => {
-            let checkboxes = document.querySelectorAll('input[name="color"]:checked');
-            let values = [];
-            checkboxes.forEach((checkbox) => {
-                values.push(checkbox.value);
-            });
-            alert(values);
-        });  
+  
+    <!--Script-->
+    <script>
+function checkCBs(box, parent){
+    var parent = document.getElementById(parent),
+        CBs = parent.getElementsByTagName('input'),
+        i;
+    //loop through all input elements
+    for(i=0;i<CBs.length;i++){
+        //make sure the input is a checkbox
+        if(CBs[i].type && CBs[i].type=='checkbox'){
+            //set disabled on this checkbox to opposite
+            //of whether box is checked.
+            CBs[i].disabled = !box.checked;
+        }
+    }
 
-  </script>
+}
+    </script>
 </body>
 </html>
