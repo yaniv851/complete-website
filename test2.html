@@ -127,13 +127,13 @@ body{
       transition: all 0.9s ease-in-out;
      }
   
-    select:hover{
+   .custom-select select:hover{
     color: #000;
     background-color: #e6e6e6;
     transition: all 0.2s ease-in;
   }
 
-  select option {
+  .custom-select select option {
   background-color: rgba(51, 51, 51, 0.5);
   color: white;
   width: 200px;
@@ -143,7 +143,7 @@ body{
   cursor: pointer;
 }
 
-option:not(:checked) {
+.custom-select option:not(:checked) {
   background-color: rgba(51, 51, 51, 0.5);
 }
 
@@ -236,13 +236,20 @@ option:not(:checked) {
 .close-modal {
   background: none;
   border: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
+  color: white;
+  transition: ease-out 1s;
+}
+
+.close-modal:hover{
+  transition: ease-in 0.5s;
+  color: rgb(78, 75, 75);
 }
 
 .modal {
-  max-width:600px;
+  max-width:700px;
   width: 95%;
-  height: 440px;
+  height: 540px;
   position: fixed;
   top: -50%;
   left: 50%;
@@ -251,7 +258,8 @@ option:not(:checked) {
   border: 1px solid #ccc;
   border-radius: 10px;
   z-index: 2;
-  background-color: #fff;
+  background-color: #181818;
+  color: white;
 }
 
 .modal.active {
@@ -265,6 +273,10 @@ option:not(:checked) {
   border-bottom: 1px solid #ccc;
   padding: 0.5rem;
   background-color: rgba(0, 0, 0, 0.05);
+}
+
+.modal .header .title strong{
+  font-size: 20px;
 }
 
 .modal .body {
@@ -375,13 +387,30 @@ option:not(:checked) {
   
       <div class="modal" id="modal1">
         <div class="header">
-          <div class="title">Table of contents</div>
+          <div class="title">
+            <strong>Select a chapter:</strong>
+            <select id="Hero">
+              <option value="Grade 6">Select a Chapter: </option>
+              <option value="topic1">Until exile</option>
+              <option value="topic2">Days of Return to Zion</option>
+              <option value="topic3">Classical Greece and Hellenism</option>
+              <option value="topic4">Hasmoneic dynasty</option>
+              <option value="topic5">Roman Empire</option>
+              <option value="topic6">Jerusalem and Rome</option>
+            </select>
+          </div>
           <button class="btn close-modal">&times;</button>
         </div>
         <div class="body">
-          <h1>Chapters</h1>
+          <h1>Topics</h1>
           <form action="#">
-              <label for="content__catalog">
+            <div id="topic1" class="inv">
+              <input type="checkbox" id="myCheckbox1" />
+              <label for="myCheckbox1"><img src="/history-grade6/crisis.webp" /></label>
+            </div>
+
+
+              <label for="content__catalog" class="inv">
                 <input type="checkbox"> 
                 <strong>Until exile</strong><br>
                 <input type="checkbox"> 
@@ -541,13 +570,19 @@ window.onclick = (event) => {
   }
 };
 
-/* $('input').on('click', function(){
-  
-  is_checked = $(this).is(':checked');
-  
-  if(is_checked){ $('html').css('display','none') }
-           else { $('html').removeAttr('style') }
-});  */
+document
+        .getElementById('Hero')
+        .addEventListener('change', function () {
+            'use strict';
+            var topics = document.querySelector('.topics'),   
+                target = document.getElementById(this.value);
+            if (topics !== null) {
+                topics.className = 'inv';
+            }
+            if (target !== null ) {
+                target.className = 'topics';
+            }
+    });
     </script>
 </body>
 </html>
