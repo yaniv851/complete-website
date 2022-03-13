@@ -450,6 +450,52 @@ label img {
     text-decoration: underline;
 }
 
+/* The container must be positioned relative: */
+.title {
+    display: inline-block;
+    width:200px;
+    height: 35px;
+    position: relative;
+    font-family: Arial;
+    font-size: large;
+  }
+  
+.title select {
+      cursor: pointer;
+      color: white;
+      text-align: center;
+      outline: none;
+      border: none;
+      width: 200px;
+      height: 34px;
+      padding: 5px;
+      background-color: rgba(51, 51, 51, 0.5);
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 10px;
+      transition: all 0.9s ease-in-out;
+     }
+  
+   .title select:hover{
+    color: #000;
+    background-color: #e6e6e6;
+    transition: all 0.2s ease-in;
+  }
+
+  .title select option {
+  background-color: rgba(51, 51, 51, 0.5);
+  color: white;
+  width: 200px;
+  padding: 5px;
+  font-size: 16px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.title option:not(:checked) {
+  background-color: rgba(51, 51, 51, 0.5);
+}
+
     </style>
 </head>
 <body>
@@ -515,11 +561,10 @@ label img {
       <div class="modal" id="modal1">
         <div class="header">
           <div class="title">
-            <strong>Select A chapter:</strong>
             <select id="Hero">
-              <option value="Grade 6">Select a Chapter: </option>
-              <option value="topic1">Until exile</option>
-              <option value="topic2">Days of Return to Zion</option>
+              <option value="Grade 6">Select A Chapter:</option>
+              <option value="chap1">Until exile</option>
+              <option value="chap2">Days of Return to Zion</option>
               <option value="topic3">Classical Greece and Hellenism</option>
               <option value="topic4">Hasmoneic dynasty</option>
               <option value="topic5">Roman Empire</option>
@@ -528,28 +573,43 @@ label img {
           </div>
           <button class="btn close-modal">&times;</button>
         </div>
+
         <div class="body">
           <h1>Topics</h1>
           <form action="#">
-            <div class="inv" id="topic1">
+            <div class="inv" id="chap1">
                <div class="cards">
                  <div class="card">
-                   <img class="card__image" src="/images/historylogo.webp" alt="">
+                   <img class="card__image" src="/images/Canaan_to_israel.jpg" alt="">
                    <div class="card__content">
-                     <h1>Topic 1</h1>
-                     <p>
-                       Alias itaque praesentium eum, pariatur consequatur ducimus asperiores accusantium velit minima?
-                     </p>
+                     <h1>1. From the land of Canaan to the land of Israel</h1>
+                   </div>
+                 </div>
+
+                 <div class="card">
+                  <img class="card__image" src="/images/Canaan_to_israel.jpg" alt="">
+                  <div class="card__content">
+                    <h1>2. Kingdom of David and Solomon</h1>
+                  </div>
+                </div>
+               </div>
+            </div>
+
+            
+          </form>
+
+          <form action="#">
+            <div class="inv" id="chap2">
+               <div class="cards">
+                 <div class="card">
+                   <img class="card__image" src="/images/Canaan_to_israel.jpg" alt="">
+                   <div class="card__content">
+                     <h1>1. From the land of Canaan to the land of Israel</h1>
                    </div>
                  </div>
                </div>
             </div>
 
-
-            <div id="topic1" class="inv">
-              <input type="checkbox" id="myCheckbox1" />
-              <label for="myCheckbox1"><img src="/history-grade6/crisis.webp" /></label>
-            </div>
             
           </form>
         </div>
