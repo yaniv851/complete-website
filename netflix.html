@@ -5,18 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <style>
+
 *{
     margin: 0;
     box-sizing: border-box;
 }
 
-
-
 body{
     /*   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Roboto", sans-serif;
     background: #181818;
 }
 
@@ -36,6 +35,7 @@ body{
     transition-timing-function: ease-in;
     transition: all 0.5s;
 }
+
 
 .banner {
     background-image: url(/images/historylogo.webp);
@@ -283,7 +283,7 @@ body{
   padding: 0.75rem;
   font-size: large;
   min-height:300px;
-  height:300px;
+  height:350px;
   overflow-y: scroll;
 }
 
@@ -299,7 +299,7 @@ body{
 
 .modal .body h1{
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 5px;
 }
 
 .modal .body input{
@@ -380,18 +380,130 @@ label img {
   display: block;
 }
 
+.cards {
+    margin: 0 auto;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+    grid-auto-rows: auto;
+    gap: 20px;
+    font-family: sans-serif;
+    padding-top: 30px;
+}
 
+.body form .cards * {
+    box-sizing: border-box;
+    color: black;
+}
 
+.card__image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    border-top: 2px solid #333333;
+    border-right: 2px solid #333333;
+    border-left: 2px solid #333333;
+}
+
+.card__content {
+    line-height: 1.5;
+    font-size: 0.9em;
+    padding: 15px;
+    background: #fafafa;
+    border-right: 2px solid #333333;
+    border-left: 2px solid #333333;
+}
+
+.card__content > p:first-of-type {
+    margin-top: 0;
+}
+
+.card__content > p:last-of-type {
+    margin-bottom: 0;
+}
+
+.card__info {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #555555;
+    background: #eeeeee;
+    font-size: 0.8em;
+    border-bottom: 2px solid #333333;
+    border-right: 2px solid #333333;
+    border-left: 2px solid #333333;
+}
+
+.card__info i {
+    font-size: 0.9em;
+    margin-right: 8px;
+}
+
+.card__link {
+    color: #64968c;
+    text-decoration: none;
+}
+
+.card__link:hover {
+    text-decoration: underline;
+}
+
+/* The container must be positioned relative: */
+.title {
+    display: inline-block;
+    width:200px;
+    height: 35px;
+    position: relative;
+    font-family: Arial;
+    font-size: large;
+  }
+  
+.title select {
+      cursor: pointer;
+      color: white;
+      text-align: center;
+      outline: none;
+      border: none;
+      width: 200px;
+      height: 34px;
+      padding: 5px;
+      background-color: rgba(51, 51, 51, 0.5);
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 10px;
+      transition: all 0.9s ease-in-out;
+     }
+  
+   .title select:hover{
+    color: #000;
+    background-color: #e6e6e6;
+    transition: all 0.2s ease-in;
+  }
+
+  .title select option {
+  background-color: rgba(51, 51, 51, 0.5);
+  color: white;
+  width: 200px;
+  padding: 5px;
+  font-size: 16px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.title option:not(:checked) {
+  background-color: rgba(51, 51, 51, 0.5);
+}
 
     </style>
 </head>
 <body>
+  <div class="nav" id="nav">
+    <a href="index.html"><img src="/images/logo.webp" alt="" class="nav__logo"></a>
+  </div>
 
-    <div class="nav" id="nav">
-        <a href="index.html"><img src="/images/logo.webp" alt="" class="nav__logo"></a>
-      </div>
-      
-      
+       
       <!--header-->
       <div class="banner">
         <div class="banner__contents">
@@ -449,11 +561,10 @@ label img {
       <div class="modal" id="modal1">
         <div class="header">
           <div class="title">
-            <strong>Select a chapter:</strong>
             <select id="Hero">
-              <option value="Grade 6">Select a Chapter: </option>
-              <option value="topic1">Until exile</option>
-              <option value="topic2">Days of Return to Zion</option>
+              <option value="Grade 6">Select A Chapter:</option>
+              <option value="chap1">Until exile</option>
+              <option value="chap2">Days of Return to Zion</option>
               <option value="topic3">Classical Greece and Hellenism</option>
               <option value="topic4">Hasmoneic dynasty</option>
               <option value="topic5">Roman Empire</option>
@@ -462,135 +573,69 @@ label img {
           </div>
           <button class="btn close-modal">&times;</button>
         </div>
+
         <div class="body">
           <h1>Topics</h1>
           <form action="#">
-            <div id="topic1" class="inv">
-              <input type="checkbox" id="myCheckbox1" />
-              <label for="myCheckbox1"><img src="/history-grade6/crisis.webp" /></label>
+            <div class="inv" id="chap1">
+               <div class="cards">
+                 <div class="card">
+                   <img class="card__image" src="/images/Canaan_to_israel.jpg" alt="">
+                   <div class="card__content">
+                     <h1>1. From the land of Canaan to the land of Israel</h1>
+                   </div>
+                 </div>
+
+                 <div class="card">
+                  <img class="card__image" src="/images/Canaan_to_israel.jpg" alt="">
+                  <div class="card__content">
+                    <h1>2. Kingdom of David and Solomon</h1>
+                  </div>
+                </div>
+               </div>
             </div>
 
+            
+          </form>
 
-              <label for="content__catalog" class="inv">
-                <input type="checkbox"> 
-                <strong>Until exile</strong><br>
-                <input type="checkbox"> 
-                <strong>Days of Return to Zion</strong><br>
-                <input type="checkbox"> 
-                <strong>Classical Greece and Hellenism</strong><br>
-                <input type="checkbox"> 
-                <strong>Hasmoneic dynasty</strong><br>
-                <input type="checkbox"> 
-                <strong>Roman Empire</strong><br>
-                <input type="checkbox"> 
-                <strong>Jerusalem and Rome</strong><br>
-                <input type="checkbox"> 
-              </label>
+          <form action="#">
+            <div class="inv" id="chap2">
+               <div class="cards">
+                 <div class="card">
+                   <img class="card__image" src="/images/Canaan_to_israel.jpg" alt="">
+                   <div class="card__content">
+                     <h1>1. From the land of Canaan to the land of Israel</h1>
+                   </div>
+                 </div>
+               </div>
+            </div>
+
+            
           </form>
         </div>
       </div>
 
-
-      <div class="modal" id="modal2">
-        <div class="header">
-          <div class="title">Table of contents</div>
-          <button class="btn close-modal">&times;</button>
-        </div>
-        <div class="body">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere ea
-          officia consectetur. Laborum, dolor? Assumenda quo corrupti eveniet
-          velit fugit fugiat odit, dolorum labore obcaecati quia. Commodi
-          assumenda sed maxime!
-        </div>
-      </div>
-
-      <div class="modal" id="modal3">
-        <div class="header">
-          <div class="title">Table of contents</div>
-          <button class="btn close-modal">&times;</button>
-        </div>
-        <div class="body">
-            <form action="#">
-                <input type="checkbox">
-                <input type="checkbox">
-                <input type="checkbox">
-            </form>
-        </div>
-      </div>
-
-
-      <div class="modal" id="modal4">
-        <div class="header">
-          <div class="title">Table of contents</div>
-          <button class="btn close-modal">&times;</button>
-        </div>
-        <div class="body">
-            <form action="#">
-                <input type="checkbox">
-                <input type="checkbox">
-                <input type="checkbox">
-                <input type="checkbox">
-                <input type="checkbox">
-                <input type="checkbox">
-        </div>
-      </div>
-
-      <div class="modal" id="modal5">
-        <div class="header">
-          <div class="title">Table of contents</div>
-          <button class="btn close-modal">&times;</button>
-        </div>
-        <div class="body">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere ea
-          officia consectetur. Laborum, dolor? Assumenda quo corrupti eveniet
-          velit fugit fugiat odit, dolorum labore obcaecati quia. Commodi
-          assumenda sed maxime!
-        </div>
-      </div>
-
-      <div class="modal" id="modal6">
-        <div class="header">
-          <div class="title">Table of contents</div>
-          <button class="btn close-modal">&times;</button>
-        </div>
-        <div class="body">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere ea
-          officia consectetur. Laborum, dolor? Assumenda quo corrupti eveniet
-          velit fugit fugiat odit, dolorum labore obcaecati quia. Commodi
-          assumenda sed maxime!
-        </div>
-      </div>
-
-      <div class="modal" id="modal7">
-        <div class="header">
-          <div class="title">Table of contents</div>
-          <button class="btn close-modal">&times;</button>
-        </div>
-        <div class="body">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere ea
-          officia consectetur. Laborum, dolor? Assumenda quo corrupti eveniet
-          velit fugit fugiat odit, dolorum labore obcaecati quia. Commodi
-          assumenda sed maxime!
-        </div>
-      </div>
-
-      <div class="modal" id="modal8">
-        <div class="header">
-          <div class="title">Table of contents</div>
-          <button class="btn close-modal">&times;</button>
-        </div>
-        <div class="body">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere ea
-          officia consectetur. Laborum, dolor? Assumenda quo corrupti eveniet
-          velit fugit fugiat odit, dolorum labore obcaecati quia. Commodi
-          assumenda sed maxime!
-        </div>
-      </div>
-  
+ 
+<!--
+<div class="cards">
+  <div class="card">
+    <img class="card__image" src="/images/historylogo.webp" alt="">
+    <div class="card__content">
+      <h1>Topic 1</h1>
+      <p>
+        Alias itaque praesentium eum, pariatur consequatur ducimus asperiores accusantium velit minima?
+      </p>
+    </div>
+  </div>
+</div>
+    -->
       <div id="overlay"></div>
 
-    <script>
-          document
+
+
+
+      <script>
+                 document
         .getElementById('target')
         .addEventListener('change', function () {
             'use strict';
@@ -644,6 +689,6 @@ document
                 target.className = 'topics';
             }
     });
-    </script>
+      </script>
 </body>
 </html>
