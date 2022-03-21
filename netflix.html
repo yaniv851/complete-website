@@ -631,8 +631,9 @@ label img {
     -->
       <div id="overlay"></div>
 
-
-
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <input type="radio" name="bedStatus" id="allot" checked="checked" value="topic1">Allot
+      <input type="radio" name="bedStatus" id="transfer" value="transfer">Transfer
 
       <script>
                  document
@@ -689,6 +690,17 @@ document
                 target.className = 'topics';
             }
     });
+
+    $('input[type=radio][name=bedStatus]').on('change', function() {
+  switch ($(this).val()) {
+    case 'topic1':
+    window.location.href = "http://www.w3schools.com";
+      break;
+    case 'transfer':
+      alert("are you going to attend this meeting? \n press yes to accept");
+      break;
+  }
+});
       </script>
 </body>
 </html>
