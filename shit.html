@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /*   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+    font-family: "Roboto", sans-serif;
+    background: #181818;
+}
+
+.nav__logo{
+    width: 80px;
+    object-fit: contain;
+}
+
+.nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    z-index: 1;
+    transition-timing-function: ease-in;
+    transition: all 0.5s;
+}
+
+.banner {
+    background-image: url(/images/historylogo.webp);
+    background-size: cover;
+    background-position: center center;
+    color: white;
+    object-fit: contain;
+    height: 448px;
+    margin-bottom: 50px;
+}
+
+.banner__contents{
+    margin-left: 30px;
+    padding-top: 140px;
+    height: 190px;
+}
+
+.banner__title{
+    font-size: 3rem;
+    font-weight: 800;
+    padding-bottom: 0.3rem;
+}
+
+.banner__description{
+    width: 10rem;
+    line-height: 1.3;
+    padding-top: 1rem;
+    font-size: 1rem;
+    max-width: 360px;
+    height: 180px;
+}
+
+.banner__button{
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    font-size: 1em;
+    border-radius: 1vw;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin-right: 1rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    background-color: rgba(51, 51, 51, 0.5);
+}
+
+.banner__button:hover, .banner__button:focus{
+    color: #000;
+    background-color: #e6e6e6;
+    transition: all 0.2s;
+}
+
+
+/* The container must be positioned relative: */
+    .custom-select {
+    display: inline-block;
+    width:200px;
+    height: 35px;
+    position: relative;
+    font-family: Arial;
+    font-size: large;
+  }
+
+  .inv {
+      display: none;
+    }
+
+    h2{
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .custom-select select {
+      cursor: pointer;
+      color: white;
+      text-align: center;
+      outline: none;
+      border: none;
+      width: 200px;
+      height: 34px;
+      padding: 5px;
+      background-color: rgba(51, 51, 51, 0.5);
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 10px;
+      transition: all 0.9s ease-in-out;
+     }
+  
+   .custom-select select:hover{
+    color: #000;
+    background-color: #e6e6e6;
+    transition: all 0.2s ease-in;
+  }
+
+  .custom-select select option {
+  background-color: rgba(51, 51, 51, 0.5);
+  color: white;
+  width: 200px;
+  padding: 5px;
+  font-size: 16px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.custom-select option:not(:checked) {
+  background-color: rgba(51, 51, 51, 0.5);
+}
+
+
+.banner--fadeButtom{
+    margin-top: -65px;
+    /* if it interupts the user than  change the height to 5 or more */
+    height: 2rem;
+    background-image: linear-gradient(180deg, transparent, rgba(37,37,37,0.61), #181818);
+}
+
+
+
+
+.container ,.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.content {
+    position: relative;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid black;
+    width: 50%;
+    min-height: 100px;
+}
+
+
+  .btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+button .card__image{
+  width: 200px;
+}
+
+.content .pages{
+  position: absolute;
+  top: 20%;
+  left: 5%;
+}
+
+.content .pages .dropdown {
+  display: none;
+}
+
+
+
+
+  </style>
+</head>
+<body>
+  <div class="nav" id="nav">
+    <a href="index.html"><img src="/images/logo.webp" alt="LoLstudy logo" class="nav__logo"></a>
+  </div>
+
+  <div class="banner">
+    <div class="banner__contents">
+      <h1 class="banner__title">History</h1>
+      <div class="banner__description">
+        <p><b>Did you know</b>
+        Ketchup Was Sold in the 1830s as Medicine</p>
+      </div>
+      <div class="custom-select">
+        <select id="target">
+          <option value="All">Select a Grade</option>
+          <option value="Grade 6">Grade 6</option>
+          <option value="Grade 7">Grade 7</option>
+          <option value="Grade 8">Grade 8</option>
+          <option value="Grade 9">Grade 9</option>
+          <option value="Grade 10">Grade 10</option>
+          <option value="Grade 11">Grade 11</option>
+          <option value="Grade 12">Grade 12</option>
+        <select>
+      </div>
+
+      </div>
+    </div>
+    <div class="banner--fadeButtom"></div>
+  </div>
+
+          <!--Top Rated videos-->
+          <div class="row">
+            <div class="row__posters">
+              <!--להוריד מפה את הסרטונים ולשים כריכות של ספרים בתוך לינק שיובל לדף של בחירת תוכן עיניינים-->
+              <!--אחר כך להוסיף דף של הסרטונים ולעשות פופאפ לכל סרטון בעת לחיצה -רמז קטן, זה קשור לג'אבא סקריפט-->
+              <div id="Grade 6" class="inv">
+                <h2>Grade 6</h2>
+                <a href="#" data-target="#modal1"><img src="/history-grade6/dor.webp" class="row__poster row__posterLarge" /></a>
+                <a href="#" data-target="#modal2"><img src="/history-grade6/mahavak.webp" class="row__poster row__posterLarge" /></a>
+                <a href="#" data-target="#modal3"><img src="/history-grade6/crisis.webp" class="row__poster row__posterLarge" /></a>
+                <img src="/history-grade6/masa-yavan.webp" class="row__poster row__posterLarge" />
+                <img src="/history-grade6/modern.webp" class="row__poster row__posterLarge" />
+                <img src="/history-grade6/toldot.webp" class="row__poster row__posterLarge" />
+              </div>
+            
+              <div id="Grade 7" class="inv">
+                <h2>Grade 7</h2>
+                <img src="/history-grade7/grade7-masa16-5.webp" class="row__poster row__posterLarge" />
+              </div>
+            
+              <div id="Grade 8" class="inv">
+                <h2>Grade 8</h2>
+                <img src="/history-grade8/grade8-masa19-16.webp" class="row__poster row__posterLarge" />
+              </div>
+    
+              <div id="Grade 11" class="inv">
+                <h2>Grade 11</h2>
+                <a href="#" data-target="#modal1"><img src="/history-grade11/Bonim_Medina.webp" class="row__poster row__posterLarge" /></a>
+              </div>
+    
+            </div>
+          </div> 
+
+          
+
+  
+  <div class="container">
+    <div class="content">
+      <h1 class="relativeTopic">Topics</h1>
+
+      <div class="cards">
+        <button id="btn1" class="btn" value="firstVal" onclick="button1function('topic1')">
+          <img class="card__image" src="/images/Canaan_to_israel.jpg">
+          <div class="card__content">
+            <h1>1. From the land of Canaan to the land of Israel</h1>
+          </div>
+        </button>
+  
+        <button id="btn2" class="btn" value="secVal" onclick="button2function('topic2')">
+          <img class="card__image" src="/images/Canaan_to_israel.jpg">
+          <div class="card__content">
+            <h1>2. Kingdom of David and Solomon</h1>
+          </div>
+        </button>
+  
+      </div>
+
+      <div class="pages">
+
+        <select id="topic1" class="dropdown">
+          <option value="1">Page 1</option>
+          <option value="2">Page 2</option>
+        </select>
+  
+        
+        <select id="topic2" class="dropdown">
+          <option value="iwilliams">Ian Williams</option>
+          <option value="arobinson">Andrew Robinson</option>
+        </select>
+  
+      </div>
+
+
+    </div>
+  </div>
+
+
+  
+
+
+
+
+
+  <script>
+
+      let btn = document.querySelector('.cards');
+      let heading = document.querySelector('.relativeTopic');
+
+      btn.addEventListener('click', () => {
+        heading.innerHTML = 'Pages';
+        btn.style.visibility = "hidden";
+      });
+
+      window.onload = function() 
+      { 
+          document.getElementById('topic1').style.display = 'none';
+          document.getElementById('topic2').style.display = 'none';
+      };
+
+      function button1function(id){
+      
+          if(document.getElementById(id).style.display == 'none'){
+              document.getElementById(id).style.display = 'initial';
+          }else{
+              document.getElementById(id).style.display = 'none';
+          }
+      }
+      function button2function(id){
+          if(document.getElementById(id).style.display == 'none'){
+              document.getElementById(id).style.display = 'initial';
+          }else{
+              document.getElementById(id).style.display = 'none';
+          }
+      }
+  </script>
+</body>
+</html>
