@@ -716,8 +716,10 @@ document
             'use strict';
             var topics = document.querySelector('.topics'),   
                 target = document.getElementById(this.value);
+            let buttonDisplay = document.querySelector('#topic1');
             if (topics !== null) {
                 topics.className = 'inv';
+                buttonDisplay.style.display = 'none';
             }
             if (target !== null ) {
                 target.className = 'topics';
