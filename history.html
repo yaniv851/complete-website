@@ -47,7 +47,6 @@ body{
 }
 
 .banner__contents{
-    margin-left: 30px;
     padding-top: 140px;
     height: 190px;
 }
@@ -93,10 +92,10 @@ body{
 
 /* The container must be positioned relative: */
     .custom-select {
+    position: relative;
     display: inline-block;
     width:200px;
     height: 35px;
-    position: relative;
     font-family: Arial;
     font-size: large;
   }
@@ -455,6 +454,40 @@ body{
   border-radius: 10px;
   transition: all 0.9s ease-in-out;
 }
+
+@media screen and (min-width: 768px){
+  .banner__description{
+    width: 10rem;
+    font-size: 16px;
+  }
+  
+  .banner__contents{
+    margin-left: 30px;
+  }
+}
+  
+
+
+@media screen and (max-width: 425px) {
+
+  .banner__title{
+    text-align: center;
+  }
+
+  .banner__description {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .custom-select select{
+    position: relative;
+    margin-left: 30px;
+  }
+  
+}
+
+
+
 
 
     </style>
