@@ -90,6 +90,10 @@ body{
     transition: all 0.2s;
 }
 
+.inv {
+      display: none;
+    }
+
 .banner--fadeButtom{
     margin-top: -65px;
     /* if it interupts the user than  change the height to 5 or more */
@@ -150,6 +154,21 @@ body{
                 <h2>Page 7</h2>
                 <img src="/history-grade6/toldot.webp" class="row__poster row__posterLarge" />
               </div>
+
+              <div id="page 9" class="inv">
+                <h2>Page 9</h2>
+                <img src="/history-grade6/toldot.webp" class="row__poster row__posterLarge" />
+              </div>
+
+              <div id="page 11" class="inv">
+                <h2>Page 11</h2>
+                <img src="/history-grade6/toldot.webp" class="row__poster row__posterLarge" />
+              </div>
+
+              <div id="page 13" class="inv">
+                <h2>Page 13</h2>
+                <img src="/history-grade6/toldot.webp" class="row__poster row__posterLarge" />
+              </div>
             
     
             </div>
@@ -160,6 +179,31 @@ body{
         if (localStorage.getItem("Pages") == "page 7"){
             //Tommorow you need to create call an id of page 7 in which will contain all the videos made for this page. 
             alert("The Value Recived Is " + page);
+            var callpage7 = document.getElementById('page 7');
+            var checkifhidden = callpage7.style.display;
+
+            if (checkifhidden == 'block'){
+              callpage7.style.display = 'none';
+            }
+            
+            else {
+              callpage7.style.display = 'block';
+            }
+        }
+
+        if (localStorage.getItem("Pages") == "page 9"){
+            //Tommorow you need to create call an id of page 7 in which will contain all the videos made for this page. 
+            alert("The Value Recived Is " + page);
+            var callpage7 = document.getElementById('page 9');
+            var checkifhidden = callpage7.style.display;
+
+            if (checkifhidden == 'block'){
+              callpage7.style.display = 'none';
+            }
+            
+            else {
+              callpage7.style.display = 'block';
+            }
         }
     </script>
 </body>
