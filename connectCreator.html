@@ -40,7 +40,6 @@
   }
   
   .txtb{
-    border-bottom: 2px solid #adadad;
     position: relative;
     margin: 30px 0;
   }
@@ -107,21 +106,28 @@
     </style>
 </head>
 <body>
-    <form action="#" class="login-form" method="post">
-        <h1>Before we open your channel</h1>
-        <div class="txtb">
-            <input type="text" name="first-name" id="fname" required>
-            <span data-placeholder="First Name"></span>
-        </div>
+    <form action="#" class="login-form" name="Creator Submission" data-netlify-honeypot="bot-field" method="post">
+        <h1>Upload a video!</h1>
+        
+        <select>
+          <option>Select a grade:</option>
+          <option value="Grade 6">Grade 6</option>
+          <option value="Grade 7">Grade 7</option>
+          <option value="Grade 8">Grade 8</option>
+          <option value="Grade 9">Grade 9</option>
+          <option value="Grade 10">Grade 10</option>
+          <option value="Grade 11">Grade 11</option>
+          <option value="Grade 12">Grade 12</option>
+        </select>
 
         <div class="txtb">
-            <input type="text" name="last-name" id="lname" required>
-            <span data-placeholder="Last Name"></span>
+            <input type="file" name="video" id="video" required>
         </div>
-        <input type="submit" class="logbtn" value="Login">
-        <div class="bottom-text">
-            <p>we will create your channel based on the data you gave us.</p>
-        </div>
+
+
+
+
+        <input type="submit" class="logbtn" value="Publish">
     </form>
 
     <script>
@@ -133,11 +139,7 @@
              if($(this).val() == "") 
              $(this).removeClass("focus"); 
           });
-
-          var firstVal = document.getElementById('fname').value;
-          var secVal = document.getElementById('lname').value;
-          // need to make var result and store it to the database
-          //can give an onclick function to the submit input
+ 
     </script>
 </body>
 </html>
