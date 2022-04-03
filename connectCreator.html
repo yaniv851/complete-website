@@ -106,19 +106,65 @@
     </style>
 </head>
 <body>
+  
+<form name="form1" id="form1" action="#">
+  <select name="subject" id="subject">
+      <option value="" selected="selected">Select A Grade:</option>
+    </select>
+    <br><br>
+  <select name="topic" id="topic">
+      <option value="" selected="selected">Select A Book</option>
+    </select>
+    <br><br>
+  <select name="chapter" id="chapter">
+      <option value="" selected="selected">Select A Chapter:</option>
+    </select>
+    <br><br>
+    <input type="submit" value="Submit">  
+  </form>
+  
+
     <form action="#" class="login-form" name="Creator Submission" data-netlify-honeypot="bot-field" method="post">
         <h1>Upload a video!</h1>
         
-        <select>
-          <option>Select a grade:</option>
-          <option value="Grade 6">Grade 6</option>
-          <option value="Grade 7">Grade 7</option>
-          <option value="Grade 8">Grade 8</option>
-          <option value="Grade 9">Grade 9</option>
-          <option value="Grade 10">Grade 10</option>
-          <option value="Grade 11">Grade 11</option>
-          <option value="Grade 12">Grade 12</option>
-        </select>
+        <div class="custom-select">
+          <select id="Grades">
+            <option value="All">Select A Grade</option>
+            <option value="Grade 6">Grade 6</option>
+            <option value="Grade 7">Grade 7</option>
+            <option value="Grade 8">Grade 8</option>
+            <option value="Grade 9">Grade 9</option>
+            <option value="Grade 10">Grade 10</option>
+            <option value="Grade 11">Grade 11</option>
+            <option value="Grade 12">Grade 12</option>
+          <select>
+        </div>
+
+        <div class="custom-select">
+          <select id="Books">
+            <option value="All">Select A Book</option>
+            <option value="Grade 6">Grade 6</option>
+            <option value="Grade 7">Grade 7</option>
+            <option value="Grade 8">Grade 8</option>
+            <option value="Grade 9">Grade 9</option>
+            <option value="Grade 10">Grade 10</option>
+            <option value="Grade 11">Grade 11</option>
+            <option value="Grade 12">Grade 12</option>
+          <select>
+        </div>
+
+        <div class="custom-select">
+          <select id="topics_for_Pages">
+            <option value="All">Select A Topic</option>
+            <option value="Grade 6">Grade 6</option>
+            <option value="Grade 7">Grade 7</option>
+            <option value="Grade 8">Grade 8</option>
+            <option value="Grade 9">Grade 9</option>
+            <option value="Grade 10">Grade 10</option>
+            <option value="Grade 11">Grade 11</option>
+            <option value="Grade 12">Grade 12</option>
+          <select>
+        </div>
 
         <div class="txtb">
             <input type="file" name="video" id="video" required>
@@ -140,6 +186,44 @@
              $(this).removeClass("focus"); 
           });
  
+
+          var subjectObject = {
+  "Front-end": {
+    "HTML": ["Links", "Images", "Tables", "Lists"],
+    "CSS": ["Borders", "Margins", "Backgrounds", "Float"],
+    "JavaScript": ["Variables", "Operators", "Functions", "Conditions"]    
+  },
+  "Back-end": {
+    "PHP": ["Variables", "Strings", "Arrays"],
+    "SQL": ["SELECT", "UPDATE", "DELETE"]
+  }
+}
+window.onload = function() {
+  var subjectSel = document.getElementById("Grades");
+  var topicSel = document.getElementById("topic");
+  var chapterSel = document.getElementById("chapter");
+  for (var x in subjectObject) {
+    subjectSel.options[subjectSel.options.length] = new Option(x, x);
+  }
+  subjectSel.onchange = function() {
+    //empty Chapters- and Topics- dropdowns
+    chapterSel.length = 1;
+    topicSel.length = 1;
+    //display correct values
+    for (var y in subjectObject[this.value]) {
+      topicSel.options[topicSel.options.length] = new Option(y, y);
+    }
+  }
+  topicSel.onchange = function() {
+    //empty Chapters dropdown
+    chapterSel.length = 1;
+    //display correct values
+    var z = subjectObject[subjectSel.value][this.value];
+    for (var i = 0; i < z.length; i++) {
+      chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
+    }
+  }
+}
     </script>
 </body>
 </html>
