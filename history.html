@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testing</title>
+    <title>LoLstudy</title>
+    <link rel="icon" href="/images/logo.webp">
 
     <style>
        *{
@@ -529,29 +530,10 @@ body{
             <div class="row__posters">
               <!--להוריד מפה את הסרטונים ולשים כריכות של ספרים בתוך לינק שיובל לדף של בחירת תוכן עיניינים-->
               <!--אחר כך להוסיף דף של הסרטונים ולעשות פופאפ לכל סרטון בעת לחיצה -רמז קטן, זה קשור לג'אבא סקריפט-->
-              <div id="Grade 6" class="inv">
-                <h2>Grade 6</h2>
-                <a href="#" data-target="#modal1"><img src="/history-grade6/dor.webp" class="row__poster row__posterLarge" /></a>
-                <a href="#" data-target="#modal2"><img src="/history-grade6/mahavak.webp" class="row__poster row__posterLarge" /></a>
-                <a href="#" data-target="#modal3"><img src="/history-grade6/crisis.webp" class="row__poster row__posterLarge" /></a>
-                <img src="/history-grade6/masa-yavan.webp" class="row__poster row__posterLarge" />
-                <img src="/history-grade6/modern.webp" class="row__poster row__posterLarge" />
-                <img src="/history-grade6/toldot.webp" class="row__poster row__posterLarge" />
-              </div>
-            
-              <div id="Grade 7" class="inv">
-                <h2>Grade 7</h2>
-                <img src="/history-grade7/grade7-masa16-5.webp" class="row__poster row__posterLarge" />
-              </div>
-            
-              <div id="Grade 8" class="inv">
-                <h2>Grade 8</h2>
-                <img src="/history-grade8/grade8-masa19-16.webp" class="row__poster row__posterLarge" />
-              </div>
-    
               <div id="Grade 11" class="inv">
                 <h2>Grade 11</h2>
-                <a href="#" data-target="#modal1"><img src="/history-grade11/Bonim_Medina.webp" class="row__poster row__posterLarge" /></a>
+                <a href="#" data-target="#modal1"><img src="/history-grade11/natzizem&shoa.webp" class="row__poster row__posterLarge" /></a>
+                <a href="#" data-target="#modal2"><img src="/history-grade11/Bonim_Medina.webp" class="row__poster row__posterLarge" /></a>
               </div>
     
             </div>
@@ -563,12 +545,8 @@ body{
               <div class="title">
                 <select id="Hero">
                   <option value="Grade 6">Select A Chapter:</option>
-                  <option value="chap1">Until exile</option>
-                  <option value="chap2">Days of Return to Zion</option>
-                  <option value="topic3">Classical Greece and Hellenism</option>
-                  <option value="topic4">Hasmoneic dynasty</option>
-                  <option value="topic5">Roman Empire</option>
-                  <option value="topic6">Jerusalem and Rome</option>
+                  <option value="chap1">המשטר הטוטליטרי</option>
+                  <option value="chap2">מיעוטים באירופה בין שתי מלחמות עולם )1919-1839)</option>
                 </select>
               </div>
               <button class="btn close-modal">&times;</button>
@@ -584,7 +562,7 @@ body{
                       <button id="btn1" class="btn" value="firstVal" onclick="button1function('topic1')">
                         <img class="card__image" src="/images/Canaan_to_israel.jpg">
                         <div class="card__content">
-                          <h1>1. From the land of Canaan to the land of Israel</h1>
+                          <h1>1. השינויים שחלו באירופה במהלך ובעקבות המלחמה</h1>
                         </div>
                       </button>
                     </div>
@@ -593,7 +571,7 @@ body{
                       <button id="btn2" class="btn" value="secVal" onclick="button2function('topic2')">
                         <img class="card__image" src="/images/Canaan_to_israel.jpg">
                         <div class="card__content">
-                          <h1>2. Kingdom of David and Solomon</h1>
+                          <h1>2. שבעה מאפיינים מרכזיים של המשטר הטוטליטרי</h1>
                         </div>
                       </button>
                     </div>
@@ -602,8 +580,10 @@ body{
                 <div class="pages">
 
                   <select id="topic1" class="dropdown">
-                    <option value="1">Page 1</option>
-                    <option value="2">Page 2</option>
+                    <option value="none">Select A Page:</option>
+                    <option value="page 10">Page 10</option>
+                    <option value="page 13">Page 13</option>
+                    <option value="page 14">Page 14</option>
                   </select>
             
                   
@@ -623,71 +603,6 @@ body{
                    <div class="cards">
                      <div class="card">
                        <img class="card__image" src="/images/Canaan_to_israel.jpg" alt="">
-                     </div>
-                   </div>
-                </div>
-    
-                
-              </form>
-            </div>
-          </div>
-    
-          <div class="modal" id="modal1">
-            <div class="header">
-              <div class="title">
-                <select id="Hero">
-                  <option value="Grade 6">Select A Chapter:</option>
-                  <option value="chap1">Until exile</option>
-                  <option value="chap2">Days of Return to Zion</option>
-                  <option value="topic3">Classical Greece and Hellenism</option>
-                  <option value="topic4">Hasmoneic dynasty</option>
-                  <option value="topic5">Roman Empire</option>
-                  <option value="topic6">Jerusalem and Rome</option>
-                </select>
-              </div>
-              <button class="btn close-modal">&times;</button>
-            </div>
-    
-            <div class="body">
-              <h1 class="relativeTopic">Topics</h1>
-              <form action="#">
-                <div class="inv" id="chap1">
-                   <div class="cards">
-                     
-                     <div class="card">
-                      <button id="btn1" class="btn" value="firstVal" onclick="button1function('topic1')">
-                        <img class="card__image" src="/images/Canaan_to_israel.jpg">
-                        <div class="card__content">
-                          <h1>1. From the land of Canaan to the land of Israel</h1>
-                        </div>
-                      </button>
-                    </div>
-    
-    
-                     <div class="card">
-                      <button id="btn2" class="btn" value="secVal" onclick="button2function('topic2')">
-                        <img class="card__image" src="/images/Canaan_to_israel.jpg">
-                        <div class="card__content">
-                          <h1>2. Kingdom of David and Solomon</h1>
-                        </div>
-                      </button>
-
-                    </div>
-                   </div>
-                </div>
-    
-                
-              </form>
-    
-              
-              <form action="#">
-                <div class="inv" id="chap2">
-                   <div class="cards">
-                     <div class="card">
-                       <img class="card__image" src="/images/Canaan_to_israel.jpg" alt="">
-                       <div class="card__content">
-                         <h1>1. From the land of Canaan to the land of Israel</h1>
-                       </div>
                      </div>
                    </div>
                 </div>
