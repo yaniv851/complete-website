@@ -560,7 +560,7 @@ body{
                      
                      <div class="card">
                       <button id="btn1" class="btn" value="firstVal" onclick="button1function('topic1')">
-                        <img class="card__image" src="/images/Canaan_to_israel.jpg">
+                        <img class="card__image" src="/history-grade11/natzizem&shoa_topics/leomiootIn1900.webp">
                         <div class="card__content">
                           <h1>1. השינויים שחלו באירופה במהלך ובעקבות המלחמה</h1>
                         </div>
@@ -569,7 +569,7 @@ body{
 
                      <div class="card">
                       <button id="btn2" class="btn" value="secVal" onclick="button2function('topic2')">
-                        <img class="card__image" src="/images/Canaan_to_israel.jpg">
+                        <img class="card__image" src="/history-grade11/natzizem&shoa_topics/mishtar.webp">
                         <div class="card__content">
                           <h1>2. שבעה מאפיינים מרכזיים של המשטר הטוטליטרי</h1>
                         </div>
@@ -579,7 +579,7 @@ body{
                 </div>
                 <div class="pages">
 
-                  <select id="topic1" class="dropdown">
+                  <select id="topic1" class="dropdown" onchange="refer(this.value)">
                     <option value="none">Select A Page:</option>
                     <option value="page 10">Page 10</option>
                     <option value="page 13">Page 13</option>
@@ -587,7 +587,7 @@ body{
                   </select>
             
                   
-                  <select id="topic2" class="dropdown">
+                  <select id="topic2" class="dropdown" onchange="refer(this.value)">
                     <option value="iwilliams">Ian Williams</option>
                     <option value="arobinson">Andrew Robinson</option>
                   </select>
@@ -703,6 +703,11 @@ document
           }else{
               document.getElementById(id).style.display = 'none';
           }
+      }
+
+      function refer(selectedValue){
+        localStorage.setItem("Pages", selectedValue);
+        window.location.href="history_videos.html";
       }
 
     </script>
