@@ -221,6 +221,63 @@ body{
   background-color: rgba(255, 255, 255, .9);
 }
 
+#fade {
+  display: none;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.8;
+  opacity: .80;
+  filter: alpha(opacity=80);
+}
+
+#light {
+  display: none;
+  position: absolute;
+  top: 25%;
+  left: 55%;
+  margin-left: -300px;
+  margin-top: -180px;
+  z-index: 1002;
+  overflow: visible;
+}
+
+#VisaChipCardVideo {
+  width: 350px;
+  height: 740px;
+}
+
+#boxclose {
+  cursor: pointer;
+  color: #fff;
+  border: 1px solid #AEAEAE;
+  border-radius: 3px;
+  background: #222222;
+  font-size: 31px;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 0px;
+  padding: 11px 3px;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  z-index: 1002;
+  opacity: 0.9;
+}
+
+#fade:hover ~ #boxclose {
+  display:none;
+}
+
+.test:hover ~ .test2 {
+  display: none;
+}
+
+
 @media (max-width: 1000px) {
   .slider {
     --items-per-screen: 3;
@@ -239,6 +296,16 @@ body{
   .slider {
     --items-per-screen: 2;
   }
+
+  #light {
+    top: 30%;
+    left: 105%;
+  }
+
+  #VisaChipCardVideo {
+  width: 250px;
+  height: 540px;
+}
 }
 
     </style>
@@ -264,6 +331,17 @@ body{
               </div>
 
 
+              <div id="light">
+                <video id="VisaChipCardVideo" preload="metadata" controls>
+                    <source src="/history-grade11/natzizem&shoa_topics/videos/yonatan_said.mp4" type="video/mp4">
+                    <!--Browser does not support <video> tag -->
+                  </video>
+              </div>
+
+              <div id="fade" onClick="lightbox_close();"></div>
+
+
+
                        <!--Top Rated videos-->
               <!--להוריד מפה את הסרטונים ולשים כריכות של ספרים בתוך לינק שיובל לדף של בחירת תוכן עיניינים-->
               <!--אחר כך להוסיף דף של הסרטונים ולעשות פופאפ לכל סרטון בעת לחיצה -רמז קטן, זה קשור לג'אבא סקריפט-->
@@ -278,7 +356,7 @@ body{
                           <div class="text">&#8249;</div>
                         </button>
                         <div class="slider">
-                         <a href="#"><video src="history-grade11/natzizem&shoa_topics/videos/firstvid.mp4"></video></a> 
+                         <a href="#" onclick="lightbox_open();"><video src="history-grade11/natzizem&shoa_topics/videos/yonatan_said.mp4" height="240px"></video></a> 
                         </div>
                         <button class="handle right-handle">
                           <div class="text">&#8250;</div>
@@ -504,6 +582,30 @@ function throttle(cb, delay = 1000) {
     shouldWait = true
     setTimeout(timeoutFunc, delay)
   }
+}
+
+window.document.onkeydown = function(e) {
+  if (!e) {
+    e = event;
+  }
+  if (e.keyCode == 27) {
+    lightbox_close();
+  }
+}
+
+function lightbox_open() {
+  var lightBoxVideo = document.getElementById("VisaChipCardVideo");
+  window.scrollTo(0, 0);
+  document.getElementById('light').style.display = 'block';
+  document.getElementById('fade').style.display = 'block';
+  lightBoxVideo.play();
+}
+
+function lightbox_close() {
+  var lightBoxVideo = document.getElementById("VisaChipCardVideo");
+  document.getElementById('light').style.display = 'none';
+  document.getElementById('fade').style.display = 'none';
+  lightBoxVideo.pause();
 }
     </script>
 </body>
