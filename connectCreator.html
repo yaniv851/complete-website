@@ -26,7 +26,7 @@
     width: 360px;
     background: #f1f1f1;
     height: 580px;
-    padding: 80px 40px;
+    padding: 50px 40px;
     border-radius: 10px;
     position: absolute;
     left: 50%;
@@ -36,12 +36,11 @@
   
   .login-form h1{
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
   }
   
   .txtb{
     position: relative;
-    margin: 30px 0;
   }
   
   .txtb input{
@@ -103,78 +102,64 @@
     text-align: center;
     font-size: 13px;
   }
+
+  .custom-select select{
+    margin-bottom: 20px;
+    border-radius: 20px;
+  }
+
+  .login-form video {
+  height: 250px;
+  width: 250px;
+  display:none;
+}
+
+.preview video{
+  float: right;
+}
+
+
     </style>
 </head>
 <body>
-  
-<form name="form1" id="form1" action="#">
-  <select name="subject" id="subject">
-      <option value="" selected="selected">Select A Grade:</option>
-    </select>
-    <br><br>
-  <select name="topic" id="topic">
-      <option value="" selected="selected">Select A Book</option>
-    </select>
-    <br><br>
-  <select name="chapter" id="chapter">
-      <option value="" selected="selected">Select A Chapter:</option>
-    </select>
-    <br><br>
-    <input type="submit" value="Submit">  
-  </form>
-  
 
     <form action="#" class="login-form" name="Creator Submission" data-netlify-honeypot="bot-field" method="post">
         <h1>Upload a video!</h1>
-        
+
         <div class="custom-select">
-          <select id="Grades">
-            <option value="All">Select A Grade</option>
-            <option value="Grade 6">Grade 6</option>
-            <option value="Grade 7">Grade 7</option>
-            <option value="Grade 8">Grade 8</option>
-            <option value="Grade 9">Grade 9</option>
-            <option value="Grade 10">Grade 10</option>
-            <option value="Grade 11">Grade 11</option>
-            <option value="Grade 12">Grade 12</option>
-          <select>
+          Subjects: <select name="subject" id="subject">
+            <option value="" selected="selected">Select subject</option>
+          </select>
         </div>
 
         <div class="custom-select">
-          <select id="Books">
-            <option value="All">Select A Book</option>
-            <option value="Grade 6">Grade 6</option>
-            <option value="Grade 7">Grade 7</option>
-            <option value="Grade 8">Grade 8</option>
-            <option value="Grade 9">Grade 9</option>
-            <option value="Grade 10">Grade 10</option>
-            <option value="Grade 11">Grade 11</option>
-            <option value="Grade 12">Grade 12</option>
-          <select>
+          Books: <select name="book" id="book">
+            <option value="" selected="selected">Please select subject first</option>
+          </select>
         </div>
 
         <div class="custom-select">
-          <select id="topics_for_Pages">
-            <option value="All">Select A Topic</option>
-            <option value="Grade 6">Grade 6</option>
-            <option value="Grade 7">Grade 7</option>
-            <option value="Grade 8">Grade 8</option>
-            <option value="Grade 9">Grade 9</option>
-            <option value="Grade 10">Grade 10</option>
-            <option value="Grade 11">Grade 11</option>
-            <option value="Grade 12">Grade 12</option>
-          <select>
+          Page: <select name="page" id="page">
+            <option value="" selected="selected">Please select a book first</option>
+          </select>
         </div>
 
         <div class="txtb">
-            <input type="file" name="video" id="video" required>
+          <input type="file" id="file-ip-1" accept="video/*" onchange="showPreview(event);">
         </div>
 
+
+        <div class="preview">
+          <video id="file-ip-1-preview">
+            <source src="">
+        </div>
 
 
 
         <input type="submit" class="logbtn" value="Publish">
     </form>
+
+
 
     <script>
         $(".txtb input").on("focus",function(){
@@ -188,40 +173,48 @@
  
 
           var subjectObject = {
-  "Front-end": {
-    "HTML": ["Links", "Images", "Tables", "Lists"],
-    "CSS": ["Borders", "Margins", "Backgrounds", "Float"],
+  "History": {
+    "נאציזם ושואה": ["10", "13", "14"],
     "JavaScript": ["Variables", "Operators", "Functions", "Conditions"]    
   },
-  "Back-end": {
-    "PHP": ["Variables", "Strings", "Arrays"],
-    "SQL": ["SELECT", "UPDATE", "DELETE"]
+    "English": {
+    "PHP": ["12", "13", "14"]
   }
 }
+
 window.onload = function() {
-  var subjectSel = document.getElementById("Grades");
-  var topicSel = document.getElementById("topic");
-  var chapterSel = document.getElementById("chapter");
+  var subjectSel = document.getElementById("subject");
+  var bookSel = document.getElementById("book");
+  var pageSel = document.getElementById("page");
   for (var x in subjectObject) {
     subjectSel.options[subjectSel.options.length] = new Option(x, x);
   }
   subjectSel.onchange = function() {
     //empty Chapters- and Topics- dropdowns
-    chapterSel.length = 1;
-    topicSel.length = 1;
+    pageSel.length = 1;
+    bookSel.length = 1;
     //display correct values
     for (var y in subjectObject[this.value]) {
-      topicSel.options[topicSel.options.length] = new Option(y, y);
+      bookSel.options[bookSel.options.length] = new Option(y, y);
     }
   }
-  topicSel.onchange = function() {
+  bookSel.onchange = function() {
     //empty Chapters dropdown
-    chapterSel.length = 1;
+    pageSel.length = 1;
     //display correct values
     var z = subjectObject[subjectSel.value][this.value];
     for (var i = 0; i < z.length; i++) {
-      chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
+      pageSel.options[pageSel.options.length] = new Option(z[i], z[i]);
     }
+  }
+}
+
+function showPreview(event){
+  if(event.target.files.length > 0){
+    var src = URL.createObjectURL(event.target.files[0]);
+    var preview = document.getElementById("file-ip-1-preview");
+    preview.src = src;
+    preview.style.display = "block";
   }
 }
     </script>
