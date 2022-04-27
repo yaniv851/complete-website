@@ -4,19 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>LoLstudy</title>
+    <link rel="icon" href="images/logo.webp">
 
     <style>
-
-*{
+       *{
     margin: 0;
     box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+  height: 0;
+  width: 0;
 }
 
 body{
     /*   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
     font-family: "Roboto", sans-serif;
     background: #181818;
+    color: white;
+    margin: 0;
 }
 
 .nav__logo{
@@ -36,9 +52,8 @@ body{
     transition: all 0.5s;
 }
 
-
-.banner {
-    background-image: url(/images/historylogo.webp);
+        .banner {
+    background-image: url(/images/englishlogo.webp);
     background-size: cover;
     background-position: center center;
     color: white;
@@ -91,72 +106,15 @@ body{
     transition: all 0.2s;
 }
 
-
-/* The container must be positioned relative: */
-    .custom-select {
-    display: inline-block;
-    width:200px;
-    height: 35px;
-    position: relative;
-    font-family: Arial;
-    font-size: large;
-  }
-
-  .inv {
+.inv {
       display: none;
     }
-
-    h2{
-      margin-left: 20px;
-      margin-bottom: 20px;
-    }
-  
-    .custom-select select {
-      cursor: pointer;
-      color: white;
-      text-align: center;
-      outline: none;
-      border: none;
-      width: 200px;
-      height: 34px;
-      padding: 5px;
-      background-color: rgba(51, 51, 51, 0.5);
-      font-size: 16px;
-      font-weight: bold;
-      border-radius: 10px;
-      transition: all 0.9s ease-in-out;
-     }
-  
-   .custom-select select:hover{
-    color: #000;
-    background-color: #e6e6e6;
-    transition: all 0.2s ease-in;
-  }
-
-  .custom-select select option {
-  background-color: rgba(51, 51, 51, 0.5);
-  color: white;
-  width: 200px;
-  padding: 5px;
-  font-size: 16px;
-  height: 34px;
-  cursor: pointer;
-}
-
-.custom-select option:not(:checked) {
-  background-color: rgba(51, 51, 51, 0.5);
-}
-
 
 .banner--fadeButtom{
     margin-top: -65px;
     /* if it interupts the user than  change the height to 5 or more */
     height: 2rem;
     background-image: linear-gradient(180deg, transparent, rgba(37,37,37,0.61), #181818);
-}
-
-.row .row__posters .inv {
-  display: none;
 }
 
 ::-webkit-scrollbar{
@@ -173,522 +131,1040 @@ body{
     border-radius: 50px;
   }
 
-.row__poster{
-    width: 100%;
-    object-fit: contain;
-    max-height: 250px;
-    margin-right: 10px;
-    transition: transform 450ms;
+  *, *::after, *::before {
+  box-sizing: border-box;
 }
 
-.row__posters{
-    display: flex;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    padding: 20px;
-}
-
-.row__poster:hover{
-    transform: scale(1.08);
-}
-
-.row__posters::-webkit-scrollbar{
-    display: none;
-}
-
-.row__posterLarge{
-  height: 190px;
-  width: 150px;
-  overflow: hidden;
-}
-
-.row__posterLarge img{
-  height: auto;
- width: 140px;
-}
-
-.row__posterLarge:hover{
-    transform: scale(1.09);
-}
-
-.row{
-    color: white;
-    margin-left: 20px;
+:root {
+  --handle-size: 3rem;
+  --img-gap: .25rem;
 }
 
 .container {
-  width: 992px;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
 }
 
-.btn {
-  padding: 0.5rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  cursor: pointer;
-  outline: none;
+.slider {
+  --items-per-screen: 4;
+  --slider-index: 0;
+  display: flex;
+  flex-grow: 1;
+  margin: 0 var(--img-gap);
+  transform: translateX(calc(var(--slider-index) * -100%));
+  transition: transform 250ms ease-in-out;
 }
 
-.btn:active {
-  transform: scale(0.9);
+a video{
+    width: 100%; 
+    border-radius: 1rem;
 }
 
-.close-modal {
-  background: none;
+.staff{
+  margin-right: 10px;
+}
+
+.handle {
   border: none;
+  border-radius: 1rem;
+  flex-grow: 0;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, .25);
+  z-index: 10;
+  margin: var(--img-gap) 0;
+  width: var(--handle-size);
+  cursor: pointer;
+  font-size: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  line-height: 0;
+  transition: background-color 150ms ease-in-out;
+}
+
+.left-handle {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-right: 10px;
+}
+
+.right-handle {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.handle:hover,
+.handle:focus {
+  background-color: rgba(255, 255, 255, .5);
+}
+
+.text {
+  transition: transform 150ms ease-in-out;
+}
+
+.handle:hover .text,
+.handle:focus .text {
+  transform: scale(1.2);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: .5rem calc(var(--img-gap) * 2 + var(--handle-size));
+  align-items: center;
+}
+
+.title {
   font-size: 2rem;
-  color: white;
-  transition: ease-out 1s;
+  margin: 0;
 }
 
-.close-modal:hover{
-  transition: ease-in 0.5s;
-  color: rgb(78, 75, 75);
+.progress-bar {
+  display: flex;
+  gap: .25rem;
 }
 
-.modal {
-  max-width:700px;
-  width: 95%;
-  height: 540px;
+.progress-item {
+  flex: 0 0 1.5rem;
+  min-width: 1.5rem;
+  height: .5rem;
+  background-color: rgba(255, 255, 255, .5);
+}
+
+.progress-item.active {
+  background-color: rgba(255, 255, 255, .9);
+}
+
+#fade {
+  display: none;
   position: fixed;
-  top: -50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: top 0.3s ease-in-out;
-  border: 1px solid #ccc;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.8;
+  opacity: .80;
+  filter: alpha(opacity=80);
+}
+
+#boxclose {
+  cursor: pointer;
+  color: #fff;
+  border: 1px solid #AEAEAE;
+  border-radius: 3px;
+  background: #222222;
+  font-size: 31px;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 0px;
+  padding: 11px 3px;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  z-index: 1002;
+  opacity: 0.9;
+}
+
+#fade:hover ~ #boxclose {
+  display:none;
+}
+
+.test:hover ~ .test2 {
+  display: none;
+}
+
+#video-placing{
+  display:inline-block;
+  position: absolute;
+  top: 25%;
+  left: 60%;
+  margin-left: -300px;
+  margin-top: -180px;
+  width:auto;
+  height: auto;
+  z-index: 1002;
+  overflow: auto;
+}
+
+/* main styling */
+.video-first {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+}
+
+.video-container {
+  position: relative;
   border-radius: 10px;
-  z-index: 2;
-  background-color: #181818;
-  color: white;
+  height: 659px;
+  width: 330px;
+  box-shadow: 0 0 50px #000;
+  margin: auto;
+  overflow: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-snap-align: center;
 }
-
-.modal.active {
-  top: 50%;
-}
-
-.modal .header {
+/* video container header */
+.video-container-header {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ccc;
-  padding: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.modal .header .title strong{
-  font-size: 20px;
-}
-
-.modal .body {
-  padding: 0.75rem;
-  font-size: large;
-  min-height:300px;
-  height:350px;
-  overflow-y: scroll;
-}
-
-.modal .body::-webkit-scrollbar{
-  width: 12px;
-}
-
-.modal .body::-webkit-scrollbar-track {
-    border: 5px solid #283a4d;
-    box-shadow: inset 0 0 15px #283a4d;
-    border-radius: 50px;
-}
-
-.modal .body h1{
   text-align: center;
-  margin-bottom: 5px;
+  z-index: 3;
 }
-
-.modal .body input{
-  margin-bottom: 20px;
-}
-
-input[type="checkbox"][id^="cb"] {
-  display: none;
-}
-
-label {
-  border: 1px solid #fff;
-  padding: 10px;
-  display: block;
-  position: relative;
-  margin: 10px;
-  cursor: pointer;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-label::before {
-  background-color: white;
-  color: white;
-  content: " ";
-  display: block;
-  border-radius: 50%;
-  border: 1px solid grey;
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  width: 25px;
-  height: 25px;
-  text-align: center;
-  line-height: 28px;
-  transition-duration: 0.4s;
-  transform: scale(0);
-}
-
-label img {
-  height: 100px;
-  width: 100px;
-  transition-duration: 0.2s;
-  transform-origin: 50% 50%;
-}
-
-:checked+label {
-  border-color: #ddd;
-}
-
-:checked+label::before {
-  content: "✓";
-  background-color: grey;
-  transform: scale(1);
-}
-
-:checked+label img {
-  transform: scale(0.9);
-  box-shadow: 0 0 5px #333;
-  z-index: -1;
-}
-
-#overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
+.video-container-header div {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  font-size: 15px;
+  color: #ccc;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.video-container-header div.active {
+  font-size: 20px;
+  color: #fff;
+}
+.post {
+  position: relative;
+  height: 659px;
+  width: 330px;
+  overflow: hidden;
+  scroll-snap-align: center;
 }
 
-#overlay.active {
-  display: block;
-}
-
-.cards {
-    margin: 0 auto;
-    max-width: 1000px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
-    grid-auto-rows: auto;
-    gap: 20px;
-    font-family: sans-serif;
-    padding-top: 30px;
-}
-
-.body form .cards * {
-    box-sizing: border-box;
-    color: black;
-}
-
-.card__image {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    display: block;
-    border-top: 2px solid #333333;
-    border-right: 2px solid #333333;
-    border-left: 2px solid #333333;
-}
-
-.card__content {
-    line-height: 1.5;
-    font-size: 0.9em;
-    padding: 15px;
-    background: #fafafa;
-    border-right: 2px solid #333333;
-    border-left: 2px solid #333333;
-}
-
-.card__content > p:first-of-type {
-    margin-top: 0;
-}
-
-.card__content > p:last-of-type {
-    margin-bottom: 0;
-}
-
-.card__info {
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #555555;
-    background: #eeeeee;
-    font-size: 0.8em;
-    border-bottom: 2px solid #333333;
-    border-right: 2px solid #333333;
-    border-left: 2px solid #333333;
-}
-
-.card__info i {
-    font-size: 0.9em;
-    margin-right: 8px;
-}
-
-.card__link {
-    color: #64968c;
-    text-decoration: none;
-}
-
-.card__link:hover {
-    text-decoration: underline;
-}
-
-/* The container must be positioned relative: */
-.title {
-    display: inline-block;
-    width:200px;
-    height: 35px;
-    position: relative;
-    font-family: Arial;
-    font-size: large;
-  }
-  
-.title select {
-      cursor: pointer;
-      color: white;
-      text-align: center;
-      outline: none;
-      border: none;
-      width: 200px;
-      height: 34px;
-      padding: 5px;
-      background-color: rgba(51, 51, 51, 0.5);
-      font-size: 16px;
-      font-weight: bold;
-      border-radius: 10px;
-      transition: all 0.9s ease-in-out;
-     }
-  
-   .title select:hover{
-    color: #000;
-    background-color: #e6e6e6;
-    transition: all 0.2s ease-in;
-  }
-
-  .title select option {
-  background-color: rgba(51, 51, 51, 0.5);
-  color: white;
-  width: 200px;
-  padding: 5px;
-  font-size: 16px;
-  height: 34px;
+.username-link{
+  text-decoration: none;
+  color: #333;
   cursor: pointer;
 }
 
-.title option:not(:checked) {
-  background-color: rgba(51, 51, 51, 0.5);
+.video-player {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+.video-player::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  box-shadow: inset 0 0 120px #000;
+}
+.side-bar {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  z-index: 2;
+  transform: translate(0, -50%);
+}
+.post-footer {
+  position: absolute;
+  width: 80%;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  color: #fff;
+  z-index: 2;
+}
+.post-footer a {
+  color: #fff;
+}
+.post-footer .username {
+  display: flex;
+  height: 30px;
+  align-items: center;
+}
+.post-footer .username .username-link::before {
+  content: "@ ";
+  color: #fff;
+}
+.verfied .verfied-icon,
+.post-comment-user-verified {
+  height: 20px;
+  width: 20px;
+  margin-left: 10px;
+  font-size: 9px;
+  border-radius: 50%;
+  background-color: #008abf;
+  display: grid;
+  place-items: center;
+}
+.post-description {
+  padding-left: 10px;
+  font-size: 10px;
+}
+
+.side-bar .side-icon {
+  cursor: pointer;
+  padding: 20px;
+  font-size: 25px;
+  text-align: center;
+  color: #fff;
+}
+.side-icon p {
+  font-size: 10px;
+  padding-top: 5px;
+}
+/* post comments */
+.post-comments {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  height: 50%;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  padding: 10px;
+  background-color: #fff;
+  z-index: 5;
+  transition: all 0.5s ease;
+}
+.post-comments::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  width: 50%;
+  padding: 1px;
+  background-color: #333;
+  border-radius: 50px;
+  transform: translate(-50%);
+}
+.post-comments.open {
+  bottom: 0;
+}
+.close-comment {
+  color: #181818;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 300px;
+}
+.post-comments-area {
+  color: #181818;
+  height: 250px;
+  overflow: scroll;
+  margin-top: 20px;
+}
+.post-comment {
+  margin: 10px auto;
+  display: flex;
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+}
+.post-comment-user-name {
+  display: flex;
+}
+.post-comment-user-img {
+  overflow: hidden;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+.post-comment-user-verified {
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+}
+.post-comment-user-msg {
+  font-size: 14px;
+}
+.post-comment-like-btn {
+  text-align: center;
+  cursor: pointer;
+}
+.post-comment-like-btn p {
+  font-size: 10px;
+}
+.post-comment-like-btn .post-comment-like-icon.liked {
+  color: #ff2828;
+}
+.post-comment-content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  justify-content: center;
+  width: 100%;
+}
+.post-comment-input {
+  display: flex;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+}
+.post-comment-text {
+  height: 40px;
+  width: 100%;
+  border: 0;
+  padding: 10px 20px;
+}
+.post-comment-send {
+  height: 40px;
+  width: 40px;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+video.post-video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+
+@media (max-width: 1000px) {
+  .slider {
+    --items-per-screen: 3;
+  }
+}
+
+@media (max-width: 500px) {
+  .title{
+    font-size: 1.5rem;
+  }
+
+  .text{
+    height: 15px;
+  }
+
+  .slider {
+    --items-per-screen: 2;
+  }
+  
+  #video-placing {
+    top: 30%;
+    left: 100%;
+  }
+
+  .video-player {
+  width: 270px;
+  height: 540px;
+}
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes disc-anime {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
     </style>
 </head>
 <body>
-  <div class="nav" id="nav">
-    <a href="index.html"><img src="/images/logo.webp" alt="" class="nav__logo"></a>
-  </div>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-       
-      <!--header-->
-      <div class="banner">
-        <div class="banner__contents">
-          <h1 class="banner__title">History</h1>
-          <div class="banner__description">
-            <p><b>Did you know</b>
-            Ketchup Was Sold in the 1830s as Medicine</p>
-          </div>
-          <div class="custom-select">
-            <select id="target">
-              <option value="All">Select a Grade</option>
-              <option value="Grade 6">Grade 6</option>
-              <option value="Grade 7">Grade 7</option>
-              <option value="Grade 8">Grade 8</option>
-              <option value="Grade 9">Grade 9</option>
-              <option value="Grade 10">Grade 10</option>
-              <option value="Grade 11">Grade 11</option>
-              <option value="Grade 12">Grade 12</option>
-            <select>
-          </div>
-    
-          </div>
-        </div>
-        <div class="banner--fadeButtom"></div>
+    <div class="nav" id="nav">
+        <a href="index.html"><img src="/images/logo.webp" alt="" class="nav__logo"></a>
       </div>
-
-     <!--Top Rated videos-->
-     <div class="row">
-        <div class="row__posters">
-          <!--להוריד מפה את הסרטונים ולשים כריכות של ספרים בתוך לינק שיובל לדף של בחירת תוכן עיניינים-->
-          <!--אחר כך להוסיף דף של הסרטונים ולעשות פופאפ לכל סרטון בעת לחיצה -רמז קטן, זה קשור לג'אבא סקריפט-->
-          <div id="Grade 6" class="inv">
-            <h2>Grade 6</h2>
-            <a href="#" data-target="#modal1"><img src="/history-grade6/dor.webp" class="row__poster row__posterLarge" /></a>
-            <a href="#" data-target="#modal2"><img src="/history-grade6/mahavak.webp" class="row__poster row__posterLarge" /></a>
-            <a href="#" data-target="#modal3"><img src="/history-grade6/crisis.webp" class="row__poster row__posterLarge" /></a>
-            <img src="/history-grade6/masa-yavan.webp" class="row__poster row__posterLarge" />
-            <img src="/history-grade6/modern.webp" class="row__poster row__posterLarge" />
-            <img src="/history-grade6/toldot.webp" class="row__poster row__posterLarge" />
-          </div>
-        
-          <div id="Grade 7" class="inv">
-            <h2>Grade 7</h2>
-            <img src="/history-grade7/grade7-masa16-5.webp" class="row__poster row__posterLarge" />
-          </div>
-        
-          <div id="Grade 8" class="inv">
-            <h2>Grade 8</h2>
-            <img src="/history-grade8/grade8-masa19-16.webp" class="row__poster row__posterLarge" />
-          </div>
-        </div>
-      </div> 
-      
-  
-      <div class="modal" id="modal1">
-        <div class="header">
-          <div class="title">
-            <select id="Hero">
-              <option value="Grade 6">Select A Chapter:</option>
-              <option value="chap1">Until exile</option>
-              <option value="chap2">Days of Return to Zion</option>
-              <option value="topic3">Classical Greece and Hellenism</option>
-              <option value="topic4">Hasmoneic dynasty</option>
-              <option value="topic5">Roman Empire</option>
-              <option value="topic6">Jerusalem and Rome</option>
-            </select>
-          </div>
-          <button class="btn close-modal">&times;</button>
-        </div>
-
-        <div class="body">
-          <h1>Topics</h1>
-          <form action="#">
-            <div class="inv" id="chap1">
-               <div class="cards">
-                 <div class="card">
-                   <img class="card__image" src="/images/Canaan_to_israel.jpg" alt="">
-                   <div class="card__content">
-                     <h1>1. From the land of Canaan to the land of Israel</h1>
-                   </div>
-                 </div>
-
-                 <div class="card">
-                  <img class="card__image" src="/images/Canaan_to_israel.jpg" alt="">
-                  <div class="card__content">
-                    <h1>2. Kingdom of David and Solomon</h1>
+    
+              <!--header-->
+              <div class="banner">
+                <div class="banner__contents">
+                    <h1>This is english's video page!</h1>
+                    <div class="banner__description">
+                    <p><b>Did you know?</b>
+                      The most common letter in English is "e"
+                    </p>
+                  </div>
+            
                   </div>
                 </div>
-               </div>
+                <div class="banner--fadeButtom"></div>
+              </div>
+
+
+              <div class="video-first" id="video-placing">
+                <div class="video-container">
+                  <div class="post">
+                    <div class="video-player">
+                      <video poster="https://wallpapercave.com/wp/wp4273083.jpg" autoplay="" loop="" class="post-video" id="video">
+                          <source src="history-grade11/natzizem&shoa_topics/videos/yonatan_said.mp4" type="video/mp4">
+              
+                      </video>
+              
+                      
+                    </div>
+                    <div class="side-bar">
+              
+                      <div class="side-icon like-btn">
+                        <i class="fa fa-heart-o like-icon"></i>
+                        <p class="like-number">789</p>
+                      </div>
+              
+                      <div class="side-icon comment-btn">
+                        <i class="fa fa-comment comment-icon"></i>
+                        <p class="comment-number">184</p>
+                      </div>
+              
+                      <div class="side-icon share-btn">
+                        <i class="fa fa-share share-icon"></i>
+                        <p class="share-number">10</p>
+                      </div>
+              
+                    </div>
+                    <div class="post-comments ">
+                      <span class="close-comment">&times;</span>
+                      <div class="post-comments-area">
+                        <div class="post-comment">
+                          <div class="post-comment-user">
+                            <img src="https://assets.codepen.io/2483051/internal/avatars/users/default.png?fit=crop&format=auto&height=80&version=1636466200&width=80" class="post-comment-user-img">
+                          </div>
+                          <div class="post-comment-content">
+                            <div class="post-comment-user-name verfied">
+                              <a href="https://instagram.com/sahilverma.dev">sahilverma.dev</a>
+                              <i class="fa fa-check post-comment-user-verified"></i>
+                            </div>
+                            <div class="post-comment-user-msg">
+                              Follow me on instagram
+                            </div>
+                          </div>
+                          <div class="post-comment-like-btn">
+                            <i class="fa fa-heart-o post-comment-like-icon"></i>
+                            <p class="post-comment-like-number">9</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="post-comment-input">
+                        <input type="text" name="" class="post-comment-text" placeholder="Enter somethings good...." />
+                        <button class="post-comment-send"><i class="fa fa-send send-btn"></i></button>
+                      </div>
+                    </div>
+                    <div class="post-footer">
+                      <div class="username verfied">
+                        <a href="https://www.instagram.com/yonatansaid123/" class="username-link">Yonatan Said</a>
+                        <i class="fa fa-check verfied-icon"></i>
+                      </div>
+                      <p class="post-description">
+                        אם אי פעם תהיתם כיצד האינפלציה השפיעה על האזרח הקטן לאחר מלחמת העולם הראשונה אז הסרטון הזה הוא בשבילכם.
+                      </p>
+              
+                    </div>
+                  </div>
+              
+                </div>
+              </div>
+              
+
+              <div id="fade" onClick="lightbox_close();"></div>
+
+
+
+                       <!--Top Rated videos-->
+              <!--להוריד מפה את הסרטונים ולשים כריכות של ספרים בתוך לינק שיובל לדף של בחירת תוכן עיניינים-->
+              <!--אחר כך להוסיף דף של הסרטונים ולעשות פופאפ לכל סרטון בעת לחיצה -רמז קטן, זה קשור לג'אבא סקריפט-->
+              <div id="page 10" class="inv">
+                  <div class="row">
+                    <div class="header">
+                        <h3 class="title">page 10</h3>
+                        <div class="progress-bar"></div>
+                      </div>
+                      <div class="container">
+                        <button class="handle left-handle">
+                          <div class="text">&#8249;</div>
+                        </button>
+                        <div class="slider">
+                         <a href="#" onclick="lightbox_open();" class="staff">
+                          <video src="history-grade11/natzizem&shoa_topics/videos/yonatan_said.mp4" height="240px"></video>
+                        </a> 
+                        <a href="#" onclick="lightbox_open();">
+                          <video src="history-grade11/natzizem&shoa_topics/videos/yonatan_said.mp4" height="240px"></video>
+                        </a> 
+                        </div>
+                        <button class="handle right-handle">
+                          <div class="text">&#8250;</div>
+                        </button>
+                      </div>
+                  </div>
+              </div>
+
+
+
+
+              <div id="page 13" class="inv">
+                <div class="row">
+                  <div class="header">
+                      <h3 class="title">page 13</h3>
+                      <div class="progress-bar"></div>
+                    </div>
+                    <div class="container">
+                      <button class="handle left-handle">
+                        <div class="text">&#8249;</div>
+                      </button>
+                      <div class="slider">
+                        <img src="https://via.placeholder.com/210/00FF00?text=1">
+                        <img src="https://via.placeholder.com/220/00FF00?text=2">
+                        <img src="https://via.placeholder.com/230/00FF00?text=3">
+                        <img src="https://via.placeholder.com/240/00FF00?text=4">
+                        <img src="https://via.placeholder.com/250/00FF00?text=5">
+                        <img src="https://via.placeholder.com/260/00FF00?text=6">
+                        <img src="https://via.placeholder.com/270/00FF00?text=7">
+                        <img src="https://via.placeholder.com/280/00FF00?text=8">
+                        <img src="https://via.placeholder.com/250/00FF00?text=9">
+                        <img src="https://via.placeholder.com/260/00FF00?text=10">
+                        <img src="https://via.placeholder.com/270/00FF00?text=11">
+                        <img src="https://via.placeholder.com/280/00FF00?text=12">
+                      </div>
+                      <button class="handle right-handle">
+                        <div class="text">&#8250;</div>
+                      </button>
+                    </div>
+                </div>
             </div>
 
-            
-          </form>
 
-          <form action="#">
-            <div class="inv" id="chap2">
-               <div class="cards">
-                 <div class="card">
-                   <img class="card__image" src="/images/Canaan_to_israel.jpg" alt="">
-                   <div class="card__content">
-                     <h1>1. From the land of Canaan to the land of Israel</h1>
-                   </div>
-                 </div>
-               </div>
+
+
+
+            <div id="page 14" class="inv">
+                <div class="row">
+                  <div class="header">
+                      <h3 class="title">page 14</h3>
+                      <div class="progress-bar"></div>
+                    </div>
+                    <div class="container">
+                      <button class="handle left-handle">
+                        <div class="text">&#8249;</div>
+                      </button>
+                      <div class="slider">
+                        <img src="/images/historylogo.webp">
+                        <img src="/images/biologylogo.webp">
+                        <img src="/images/englishlogo.webp">
+                        <img src="/images/mathlogo.webp">
+                        <img src="https://via.placeholder.com/250/00FF00?text=5">
+                        <img src="https://via.placeholder.com/260/00FF00?text=6">
+                        <img src="https://via.placeholder.com/270/00FF00?text=7">
+                        <img src="https://via.placeholder.com/280/00FF00?text=8">
+                        <img src="https://via.placeholder.com/250/00FF00?text=9">
+                        <img src="https://via.placeholder.com/260/00FF00?text=10">
+                        <img src="https://via.placeholder.com/270/00FF00?text=11">
+                        <img src="https://via.placeholder.com/280/00FF00?text=12">
+                      </div>
+                      <button class="handle right-handle">
+                        <div class="text">&#8250;</div>
+                      </button>
+                    </div>
+                </div>
             </div>
 
+
+    <script>
+        var page = localStorage.getItem("Pages");
+        if (localStorage.getItem("Pages") == "page 10"){
+            //Tommorow you need to create call an id of page 7 in which will contain all the videos made for this page. 
+            alert("The Value Recived Is " + page);
+            var callpage7 = document.getElementById('page 10');
+            var checkifhidden = callpage7.style.display;
+
+            if (checkifhidden == 'block'){
+              callpage7.style.display = 'none';
+            }
             
-          </form>
-        </div>
-      </div>
-
- 
-<!--
-<div class="cards">
-  <div class="card">
-    <img class="card__image" src="/images/historylogo.webp" alt="">
-    <div class="card__content">
-      <h1>Topic 1</h1>
-      <p>
-        Alias itaque praesentium eum, pariatur consequatur ducimus asperiores accusantium velit minima?
-      </p>
-    </div>
-  </div>
-</div>
-    -->
-      <div id="overlay"></div>
-
-
-
-
-      <script>
-                 document
-        .getElementById('target')
-        .addEventListener('change', function () {
-            'use strict';
-            var vis = document.querySelector('.vis'),   
-                target = document.getElementById(this.value);
-            if (vis !== null) {
-                vis.className = 'inv';
+            else {
+              callpage7.style.display = 'block';
             }
-            if (target !== null ) {
-                target.className = 'vis';
+        }
+
+        if (localStorage.getItem("Pages") == "page 13"){
+            //Tommorow you need to create call an id of page 7 in which will contain all the videos made for this page. 
+            alert("The Value Recived Is " + page);
+            var callpage7 = document.getElementById('page 13');
+            var checkifhidden = callpage7.style.display;
+
+            if (checkifhidden == 'block'){
+              callpage7.style.display = 'none';
             }
-    });
+            
+            else {
+              callpage7.style.display = 'block';
+            }
+        }
 
-const btns = document.querySelectorAll("[data-target]");
-const close_modals = document.querySelectorAll(".close-modal");
-const overlay = document.getElementById("overlay");
+        if (localStorage.getItem("Pages") == "page 14"){
+            //Tommorow you need to create call an id of page 7 in which will contain all the videos made for this page. 
+            alert("The Value Recived Is " + page);
+            var callpage7 = document.getElementById('page 14');
+            var checkifhidden = callpage7.style.display;
 
-btns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    document.querySelector(btn.dataset.target).classList.add("active");
-    overlay.classList.add("active");
-  });
-});
+            if (checkifhidden == 'block'){
+              callpage7.style.display = 'none';
+            }
+            
+            else {
+              callpage7.style.display = 'block';
+            }
+        }
 
-close_modals.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const modal = btn.closest(".modal");
-    modal.classList.remove("active");
-    overlay.classList.remove("active");
-  });
-});
 
-window.onclick = (event) => {
-  if (event.target == overlay) {
-    const modals = document.querySelectorAll(".modal");
-    modals.forEach((modal) => modal.classList.remove("active"));
-    overlay.classList.remove("active");
+        document.addEventListener("click", e => {
+  let handle
+  if (e.target.matches(".handle")) {
+    handle = e.target
+  } else {
+    handle = e.target.closest(".handle")
   }
-};
+  if (handle != null) onHandleClick(handle)
+})
 
-document
-        .getElementById('Hero')
-        .addEventListener('change', function () {
-            'use strict';
-            var topics = document.querySelector('.topics'),   
-                target = document.getElementById(this.value);
-            if (topics !== null) {
-                topics.className = 'inv';
-            }
-            if (target !== null ) {
-                target.className = 'topics';
-            }
+const throttleProgressBar = throttle(() => {
+  document.querySelectorAll(".progress-bar").forEach(calculateProgressBar)
+}, 250)
+window.addEventListener("resize", throttleProgressBar)
+
+document.querySelectorAll(".progress-bar").forEach(calculateProgressBar)
+
+function calculateProgressBar(progressBar) {
+  progressBar.innerHTML = ""
+  const slider = progressBar.closest(".row").querySelector(".slider")
+  const itemCount = slider.children.length
+  const itemsPerScreen = parseInt(
+    getComputedStyle(slider).getPropertyValue("--items-per-screen")
+  )
+  let sliderIndex = parseInt(
+    getComputedStyle(slider).getPropertyValue("--slider-index")
+  )
+  const progressBarItemCount = Math.ceil(itemCount / itemsPerScreen)
+
+  if (sliderIndex >= progressBarItemCount) {
+    slider.style.setProperty("--slider-index", progressBarItemCount - 1)
+    sliderIndex = progressBarItemCount - 1
+  }
+
+  for (let i = 0; i < progressBarItemCount; i++) {
+    const barItem = document.createElement("div")
+    barItem.classList.add("progress-item")
+    if (i === sliderIndex) {
+      barItem.classList.add("active")
+    }
+    progressBar.append(barItem)
+  }
+}
+
+function onHandleClick(handle) {
+  const progressBar = handle.closest(".row").querySelector(".progress-bar")
+  const slider = handle.closest(".container").querySelector(".slider")
+  const sliderIndex = parseInt(
+    getComputedStyle(slider).getPropertyValue("--slider-index")
+  )
+  const progressBarItemCount = progressBar.children.length
+  if (handle.classList.contains("left-handle")) {
+    if (sliderIndex - 1 < 0) {
+      slider.style.setProperty("--slider-index", progressBarItemCount - 1)
+      progressBar.children[sliderIndex].classList.remove("active")
+      progressBar.children[progressBarItemCount - 1].classList.add("active")
+    } else {
+      slider.style.setProperty("--slider-index", sliderIndex - 1)
+      progressBar.children[sliderIndex].classList.remove("active")
+      progressBar.children[sliderIndex - 1].classList.add("active")
+    }
+  }
+
+  if (handle.classList.contains("right-handle")) {
+    if (sliderIndex + 1 >= progressBarItemCount) {
+      slider.style.setProperty("--slider-index", 0)
+      progressBar.children[sliderIndex].classList.remove("active")
+      progressBar.children[0].classList.add("active")
+    } else {
+      slider.style.setProperty("--slider-index", sliderIndex + 1)
+      progressBar.children[sliderIndex].classList.remove("active")
+      progressBar.children[sliderIndex + 1].classList.add("active")
+    }
+  }
+}
+
+function throttle(cb, delay = 1000) {
+  let shouldWait = false
+  let waitingArgs
+  const timeoutFunc = () => {
+    if (waitingArgs == null) {
+      shouldWait = false
+    } else {
+      cb(...waitingArgs)
+      waitingArgs = null
+      setTimeout(timeoutFunc, delay)
+    }
+  }
+
+  return (...args) => {
+    if (shouldWait) {
+      waitingArgs = args
+      return
+    }
+
+    cb(...args)
+    shouldWait = true
+    setTimeout(timeoutFunc, delay)
+  }
+}
+
+window.document.onkeydown = function(e) {
+  if (!e) {
+    e = event;
+  }
+  if (e.keyCode == 27) {
+    lightbox_close();
+  }
+}
+
+function lightbox_open() {
+  var lightBoxVideo = document.getElementById("video");
+  window.scrollTo(0, 0);
+  document.getElementById('video-placing').style.display = 'block';
+  document.getElementById('fade').style.display = 'block';
+  lightBoxVideo.play();
+}
+
+function lightbox_close() {
+  var lightBoxVideo = document.getElementById("video");
+  document.getElementById('video-placing').style.display = 'none';
+  document.getElementById('fade').style.display = 'none';
+  lightBoxVideo.pause();
+}
+
+if (lightbox_close() == true){
+  document.getElementById("video").pause();
+}
+
+
+const postVideo = document.querySelectorAll(".post-video");
+const videoPlayer = document.querySelectorAll(".video-player");
+const post = document.querySelectorAll(".post");
+let isPlaying = true;
+
+postVideo.forEach((item, index) => {
+  item.loop = true;
+  item.autoBuffer = true;
+  videoPlayer[index].addEventListener("click", function () {
+    isPlaying ? pauseVideo(index) : playVideo(index);
+  });
+});
+
+function playVideo(index) {
+  postVideo[index].play();
+  isPlaying = true;
+}
+
+function pauseVideo(index) {
+  postVideo[index].pause();
+  isPlaying = false;
+}
+
+// disc icon
+const discSrc =
+  "data:image/png;base64,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";
+const discContainer = document.createElement("div");
+const discImg = document.createElement("img");
+discContainer.setAttribute("class", "disc-logo");
+discImg.src = discSrc;
+discImg.setAttribute("class", "disc-logo-img");
+discContainer.appendChild(discImg);
+post.forEach((item, index) => {
+  post[index].appendChild(discContainer);
+});
+
+// like button
+const likeBtn = document.querySelectorAll(".like-btn");
+const likeBtnIcon = document.querySelectorAll(".like-icon");
+const likeBtnNum = document.querySelectorAll(".like-number");
+let isLiked = false;
+
+likeBtn.forEach((item, index) => {
+  likeBtn[index].addEventListener("click", function () {
+    //changing like Number
+    let likeNum = Math.floor(likeBtnNum[index].innerText);
+    // change like button
+    isLiked ? unLikePost(index, likeNum) : likePost(index, likeNum);
+  });
+});
+
+function likePost(index, likeNum) {
+  isLiked = true;
+  likeBtnIcon[index].classList.replace("fa-heart-o", "fa-heart");
+  likeBtnNum[index].innerText = likeNum + 1;
+}
+
+function unLikePost(index, likeNum) {
+  isLiked = false;
+  likeBtnIcon[index].classList.replace("fa-heart", "fa-heart-o");
+  likeBtnNum[index].innerText = likeNum - 1;
+}
+
+// post comment box
+const postComments = document.querySelectorAll(".post-comments");
+const commentBtn = document.querySelectorAll(".comment-btn");
+const commentClose = document.querySelectorAll(".close-comment");
+
+postComments.forEach((item, index) => {
+  commentBtn[index].addEventListener("click", function () {
+    postComments[index].classList.add("open");
+  });
+
+  commentClose[index].addEventListener("click", function () {
+    postComments[index].classList.remove("open");
+  });
+});
+
+//add coments to post
+
+const postCommentSendBtn = document.querySelectorAll(".send-btn");
+const postCommentText = document.querySelectorAll(".post-comment-text");
+const postCommentArea = document.querySelectorAll(".post-comments-area");
+
+postCommentSendBtn.forEach((item, index) => {
+  if (postCommentText[index].value == "") {
+    window.addEventListener("keydown", (evnt) => {
+      if (evnt.keyCode == 13) submitComment();
     });
-      </script>
+  }
+  postCommentSendBtn[index].addEventListener("click", function () {
+    if (postCommentText[index].value != "") {
+      const postComment = document.createElement("div");
+      const postCommentUser = document.createElement("div");
+      const postCommentContent = document.createElement("div");
+      const postCommentLikeBtn = document.createElement("div");
+
+      // postCommentUser
+      //adding class to postCommentUser
+      postCommentUser.setAttribute("class", "post-comment-user");
+      postCommentUser.classList.add("verified");
+      //creating child elements to postCommentUser
+      const postCommentUserImg = document.createElement("img");
+      postCommentUserImg.setAttribute("class", "post-comment-user-img");
+      postCommentUserImg.setAttribute(
+        "src",
+        "http://dankmemeryt.000webhostapp.com/wp-content/uploads/2020/12/logo.webp"
+      );
+      //appending to postCommentUser
+      postCommentUser.appendChild(postCommentUserImg);
+
+      //postCommentContent
+      // adding class to postCommentContent
+      postCommentContent.setAttribute("class", "post-comment-content");
+      //creating child elements to postCommentContent
+      const postCommentUserName = document.createElement("div");
+      const postCommentUserMsg = document.createElement("div");
+      postCommentUserName.setAttribute("class", "post-comment-user-name");
+      postCommentUserName.classList.add("verified");
+      postCommentUserName.innerHTML = "<a href='#'>theviralboy.ig</a>";
+      if (postCommentUserName == "verified") {
+        const postCommentUserVerifiedIcon = document.createElement(i);
+        postCommentUserVerifiedIcon.setAttribute(
+          "class",
+          "fa fa-check post-comment-user-verified"
+        );
+
+        postCommentUserName.appendChild(postCommentUserVerifiedIcon);
+      }
+      postCommentUserMsg.setAttribute("class", "post-comment-user-msg");
+      postCommentUserMsg.innerText = postCommentText[index].value;
+
+      //appending to postCommentContent
+      postCommentContent.appendChild(postCommentUserName);
+      postCommentContent.appendChild(postCommentUserMsg);
+
+      //postCommentLikeBtn
+      postCommentLikeBtn.setAttribute("class", "post-comment-like-btn");
+
+      const postCommentLikeBtnIcon = document.createElement("i");
+      postCommentLikeBtnIcon.setAttribute(
+        "class",
+        "fa fa-heart-o post-comment-like-icon"
+      );
+      const postCommentLikeNum = document.createElement("p");
+      postCommentLikeNum.setAttribute("class", "post-comment-like-number");
+      postCommentLikeNum.innerText = 9;
+
+      //appending elements to postCommentLikeBtn
+      postCommentLikeBtn.appendChild(postCommentLikeBtnIcon);
+      postCommentLikeBtn.appendChild(postCommentLikeNum);
+
+      postComment.setAttribute("class", "post-comment");
+
+      postComment.appendChild(postCommentUser);
+      postComment.appendChild(postCommentContent);
+      postComment.appendChild(postCommentLikeBtn);
+      //appending comment into post comment
+      postCommentArea[index].appendChild(postComment);
+
+      //blanking out postCommentText
+      postCommentText[index].value = "";
+    }
+  });
+});
+
+// post comments like
+const postCommentLikeBtn = document.querySelectorAll(".post-comment-like-btn");
+const postCommentLikeIcon = document.querySelectorAll(
+  ".post-comment-like-icon"
+);
+const postCommentLikeNum = document.querySelectorAll(
+  ".post-comment-like-number"
+);
+let isPostCommentLiked = false;
+
+postCommentLikeBtn.forEach((item, index) => {
+  postCommentLikeBtn[index].addEventListener("click", function () {
+    let num = Math.floor(postCommentLikeNum[index].innerText);
+    isPostCommentLiked
+      ? unLikePostComment(index, num)
+      : likePostComment(index, num);
+  });
+});
+
+function likePostComment(index, num) {
+  isPostCommentLiked = true;
+  num += 1;
+  postCommentLikeIcon[index].classList.replace("fa-heart-o", "fa-heart");
+  postCommentLikeIcon[index].classList.add("liked");
+  postCommentLikeNum[index].innerText = num;
+}
+
+function unLikePostComment(index, num) {
+  isPostCommentLiked = false;
+  num -= 1;
+  postCommentLikeIcon[index].classList.replace("fa-heart", "fa-heart-o");
+  postCommentLikeIcon[index].classList.remove("liked");
+  postCommentLikeNum[index].innerText = num;
+}
+
+
+
+    </script>
 </body>
 </html>
