@@ -1,113 +1,580 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-  <style>
-#fade {
+    <style>
+        /* core styling */
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+*::-webkit-scrollbar {
   display: none;
-  position: fixed;
-  top: 0%;
-  left: 0%;
+  height: 0;
+  width: 0;
+}
+body {
+  background-color: #333;
+  font-family: Sans-Serif;
+}
+
+/* main styling */
+.container {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.video-container {
+  position: relative;
+  border-radius: 10px;
+  height: 659px;
+  width: 330px;
+  box-shadow: 0 0 50px #000;
+  margin: auto;
+  overflow: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-snap-align: center;
+}
+/* video container header */
+.video-container-header {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  z-index: 3;
+}
+.video-container-header div {
   width: 100%;
   height: 100%;
-  background-color: black;
-  z-index: 1001;
-  -moz-opacity: 0.8;
-  opacity: .80;
-  filter: alpha(opacity=80);
-}
-
-#light {
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  max-width: 600px;
-  max-height: 360px;
-  margin-left: -300px;
-  margin-top: -180px;
-  z-index: 1002;
-  overflow: visible;
-}
-
-#boxclose {
+  display: flex;
+  font-size: 15px;
+  color: #ccc;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
+}
+.video-container-header div.active {
+  font-size: 20px;
   color: #fff;
-  border: 1px solid #AEAEAE;
-  border-radius: 3px;
-  background: #222222;
-  font-size: 31px;
-  font-weight: bold;
-  display: inline-block;
-  line-height: 0px;
-  padding: 11px 3px;
+}
+.post {
+  position: relative;
+  height: 659px;
+  width: 330px;
+  overflow: hidden;
+  scroll-snap-align: center;
+}
+
+.username-link{
+  text-decoration: none;
+  color: #333;
+  cursor: pointer;
+}
+
+.video-player {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+.video-player::before {
+  content: "";
   position: absolute;
-  right: 2px;
-  top: 2px;
-  z-index: 1002;
-  opacity: 0.9;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  box-shadow: inset 0 0 120px #000;
+}
+.side-bar {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  z-index: 2;
+  transform: translate(0, -50%);
+}
+.post-footer {
+  position: absolute;
+  width: 80%;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  color: #fff;
+  z-index: 2;
+}
+.post-footer a {
+  color: #fff;
+}
+.post-footer .username {
+  display: flex;
+  height: 30px;
+  align-items: center;
+}
+.post-footer .username .username-link::before {
+  content: "@ ";
+  color: #fff;
+}
+.verfied .verfied-icon,
+.post-comment-user-verified {
+  height: 20px;
+  width: 20px;
+  margin-left: 10px;
+  font-size: 9px;
+  border-radius: 50%;
+  background-color: #008abf;
+  display: grid;
+  place-items: center;
+}
+.post-description {
+  padding-left: 10px;
+  font-size: 10px;
 }
 
-#fade:hover ~ #boxclose {
-  display:none;
+.side-bar .side-icon {
+  cursor: pointer;
+  padding: 20px;
+  font-size: 25px;
+  text-align: center;
+  color: #fff;
+}
+.side-icon p {
+  font-size: 10px;
+  padding-top: 5px;
+}
+/* post comments */
+.post-comments {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  height: 50%;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  padding: 10px;
+  background-color: #fff;
+  z-index: 5;
+  transition: all 0.5s ease;
+}
+.post-comments::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  width: 50%;
+  padding: 1px;
+  background-color: #333;
+  border-radius: 50px;
+  transform: translate(-50%);
+}
+.post-comments.open {
+  bottom: 0;
+}
+.close-comment {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 300px;
+}
+.post-comments-area {
+  height: 250px;
+  overflow: scroll;
+  margin-top: 20px;
+}
+.post-comment {
+  margin: 10px auto;
+  display: flex;
+  width: 100%;
+  height: 50px;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+}
+.post-comment-user-name {
+  display: flex;
+}
+.post-comment-user-img {
+  overflow: hidden;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+.post-comment-user-verified {
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+}
+.post-comment-user-msg {
+  font-size: 14px;
+}
+.post-comment-like-btn {
+  text-align: center;
+  cursor: pointer;
+}
+.post-comment-like-btn p {
+  font-size: 10px;
+}
+.post-comment-like-btn .post-comment-like-icon.liked {
+  color: #ff2828;
+}
+.post-comment-content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+  justify-content: center;
+  width: 100%;
+}
+.post-comment-input {
+  display: flex;
+  height: 50px;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+}
+.post-comment-text {
+  height: 40px;
+  width: 100%;
+  border: 0;
+  padding: 10px 20px;
+}
+.post-comment-send {
+  height: 40px;
+  width: 40px;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+video.post-video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
-.test:hover ~ .test2 {
-  display: none;
+
+body {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  display: grid;
+  place-items: center;
+  font-size: 20px;
+  color: #000;
+  animation: gradient 15s ease infinite;
 }
-  </style>
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes disc-anime {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+    </style>
 </head>
 <body>
-  <h1>CSS/Javascript popup with Lightbox effect</h1>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container">
+  <div class="video-container">
+    <div class="post">
+      <div class="video-player">
+        <video poster="https://wallpapercave.com/wp/wp4273083.jpg" autoplay="" loop="" class="post-video">
+            <source src="history-grade11/natzizem&shoa_topics/videos/yonatan_said.mp4" type="video/mp4">
 
-<div id="light">
-  <video id="VisaChipCardVideo" preload="metadata" width="600" controls>
-      <source src="/history-grade11/natzizem&shoa_topics/videos/firstvid.mp4" type="video/mp4">
-      <!--Browser does not support <video> tag -->
-    </video>
-</div>
+        </video>
 
-<div class="video-controls hidden" id="video-controls">
-  <!-- Custom controls are defined here -->
+        
+      </div>
+      <div class="side-bar">
+
+        <div class="side-icon like-btn">
+          <i class="fa fa-heart-o like-icon"></i>
+          <p class="like-number">789</p>
+        </div>
+
+        <div class="side-icon comment-btn">
+          <i class="fa fa-comment comment-icon"></i>
+          <p class="comment-number">184</p>
+        </div>
+
+        <div class="side-icon share-btn">
+          <i class="fa fa-share share-icon"></i>
+          <p class="share-number">10</p>
+        </div>
+
+      </div>
+      <div class="post-comments ">
+        <span class="close-comment">&times;</span>
+        <div class="post-comments-area">
+          <div class="post-comment">
+            <div class="post-comment-user">
+              <img src="https://assets.codepen.io/2483051/internal/avatars/users/default.png?fit=crop&format=auto&height=80&version=1636466200&width=80" class="post-comment-user-img">
+            </div>
+            <div class="post-comment-content">
+              <div class="post-comment-user-name verfied">
+                <a href="https://instagram.com/sahilverma.dev">sahilverma.dev</a>
+                <i class="fa fa-check post-comment-user-verified"></i>
+              </div>
+              <div class="post-comment-user-msg">
+                Follow me on instagram
+              </div>
+            </div>
+            <div class="post-comment-like-btn">
+              <i class="fa fa-heart-o post-comment-like-icon"></i>
+              <p class="post-comment-like-number">9</p>
+            </div>
+          </div>
+        </div>
+        <div class="post-comment-input">
+          <input type="text" name="" class="post-comment-text" placeholder="Enter somethings good...." />
+          <button class="post-comment-send"><i class="fa fa-send send-btn"></i></button>
+        </div>
+      </div>
+      <div class="post-footer">
+        <div class="username verfied">
+          <a href="https://www.instagram.com/yonatansaid123/" class="username-link">Yonatan Said</a>
+          <i class="fa fa-check verfied-icon"></i>
+        </div>
+        <p class="post-description">
+          אם אי פעם תהיתם כיצד האינפלציה השפיעה על האזרח הקטן לאחר מלחמת העולם הראשונה אז הסרטון הזה הוא בשבילכם.
+        </p>
+
+      </div>
+    </div>
+
   </div>
-
-<div id="fade" onClick="lightbox_close();"></div>
-
-<div>
-  <a href="#" onclick="lightbox_open();">Watch video</a>
 </div>
 
-<a href="#" onclick="lightbox_open();"><video width="600" src="/history-grade11/natzizem&shoa_topics/videos/firstvid.mp4"></video></a>
+<script>
+const postVideo = document.querySelectorAll(".post-video");
+const videoPlayer = document.querySelectorAll(".video-player");
+const post = document.querySelectorAll(".post");
+let isPlaying = true;
 
+postVideo.forEach((item, index) => {
+  item.loop = true;
+  item.autoBuffer = true;
+  videoPlayer[index].addEventListener("click", function () {
+    isPlaying ? pauseVideo(index) : playVideo(index);
+  });
+});
 
-  <script>
-window.document.onkeydown = function(e) {
-  if (!e) {
-    e = event;
+function playVideo(index) {
+  postVideo[index].play();
+  isPlaying = true;
+}
+
+function pauseVideo(index) {
+  postVideo[index].pause();
+  isPlaying = false;
+}
+
+// disc icon
+const discSrc =
+  "data:image/png;base64,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";
+const discContainer = document.createElement("div");
+const discImg = document.createElement("img");
+discContainer.setAttribute("class", "disc-logo");
+discImg.src = discSrc;
+discImg.setAttribute("class", "disc-logo-img");
+discContainer.appendChild(discImg);
+post.forEach((item, index) => {
+  post[index].appendChild(discContainer);
+});
+
+// like button
+const likeBtn = document.querySelectorAll(".like-btn");
+const likeBtnIcon = document.querySelectorAll(".like-icon");
+const likeBtnNum = document.querySelectorAll(".like-number");
+let isLiked = false;
+
+likeBtn.forEach((item, index) => {
+  likeBtn[index].addEventListener("click", function () {
+    //changing like Number
+    let likeNum = Math.floor(likeBtnNum[index].innerText);
+    // change like button
+    isLiked ? unLikePost(index, likeNum) : likePost(index, likeNum);
+  });
+});
+
+function likePost(index, likeNum) {
+  isLiked = true;
+  likeBtnIcon[index].classList.replace("fa-heart-o", "fa-heart");
+  likeBtnNum[index].innerText = likeNum + 1;
+}
+
+function unLikePost(index, likeNum) {
+  isLiked = false;
+  likeBtnIcon[index].classList.replace("fa-heart", "fa-heart-o");
+  likeBtnNum[index].innerText = likeNum - 1;
+}
+
+// post comment box
+const postComments = document.querySelectorAll(".post-comments");
+const commentBtn = document.querySelectorAll(".comment-btn");
+const commentClose = document.querySelectorAll(".close-comment");
+
+postComments.forEach((item, index) => {
+  commentBtn[index].addEventListener("click", function () {
+    postComments[index].classList.add("open");
+  });
+
+  commentClose[index].addEventListener("click", function () {
+    postComments[index].classList.remove("open");
+  });
+});
+
+//add coments to post
+
+const postCommentSendBtn = document.querySelectorAll(".send-btn");
+const postCommentText = document.querySelectorAll(".post-comment-text");
+const postCommentArea = document.querySelectorAll(".post-comments-area");
+
+postCommentSendBtn.forEach((item, index) => {
+  if (postCommentText[index].value == "") {
+    window.addEventListener("keydown", (evnt) => {
+      if (evnt.keyCode == 13) submitComment();
+    });
   }
-  if (e.keyCode == 27) {
-    lightbox_close();
-  }
+  postCommentSendBtn[index].addEventListener("click", function () {
+    if (postCommentText[index].value != "") {
+      const postComment = document.createElement("div");
+      const postCommentUser = document.createElement("div");
+      const postCommentContent = document.createElement("div");
+      const postCommentLikeBtn = document.createElement("div");
+
+      // postCommentUser
+      //adding class to postCommentUser
+      postCommentUser.setAttribute("class", "post-comment-user");
+      postCommentUser.classList.add("verified");
+      //creating child elements to postCommentUser
+      const postCommentUserImg = document.createElement("img");
+      postCommentUserImg.setAttribute("class", "post-comment-user-img");
+      postCommentUserImg.setAttribute(
+        "src",
+        "http://dankmemeryt.000webhostapp.com/wp-content/uploads/2020/12/logo.webp"
+      );
+      //appending to postCommentUser
+      postCommentUser.appendChild(postCommentUserImg);
+
+      //postCommentContent
+      // adding class to postCommentContent
+      postCommentContent.setAttribute("class", "post-comment-content");
+      //creating child elements to postCommentContent
+      const postCommentUserName = document.createElement("div");
+      const postCommentUserMsg = document.createElement("div");
+      postCommentUserName.setAttribute("class", "post-comment-user-name");
+      postCommentUserName.classList.add("verified");
+      postCommentUserName.innerHTML = "<a href='#'>theviralboy.ig</a>";
+      if (postCommentUserName == "verified") {
+        const postCommentUserVerifiedIcon = document.createElement(i);
+        postCommentUserVerifiedIcon.setAttribute(
+          "class",
+          "fa fa-check post-comment-user-verified"
+        );
+
+        postCommentUserName.appendChild(postCommentUserVerifiedIcon);
+      }
+      postCommentUserMsg.setAttribute("class", "post-comment-user-msg");
+      postCommentUserMsg.innerText = postCommentText[index].value;
+
+      //appending to postCommentContent
+      postCommentContent.appendChild(postCommentUserName);
+      postCommentContent.appendChild(postCommentUserMsg);
+
+      //postCommentLikeBtn
+      postCommentLikeBtn.setAttribute("class", "post-comment-like-btn");
+
+      const postCommentLikeBtnIcon = document.createElement("i");
+      postCommentLikeBtnIcon.setAttribute(
+        "class",
+        "fa fa-heart-o post-comment-like-icon"
+      );
+      const postCommentLikeNum = document.createElement("p");
+      postCommentLikeNum.setAttribute("class", "post-comment-like-number");
+      postCommentLikeNum.innerText = 9;
+
+      //appending elements to postCommentLikeBtn
+      postCommentLikeBtn.appendChild(postCommentLikeBtnIcon);
+      postCommentLikeBtn.appendChild(postCommentLikeNum);
+
+      postComment.setAttribute("class", "post-comment");
+
+      postComment.appendChild(postCommentUser);
+      postComment.appendChild(postCommentContent);
+      postComment.appendChild(postCommentLikeBtn);
+      //appending comment into post comment
+      postCommentArea[index].appendChild(postComment);
+
+      //blanking out postCommentText
+      postCommentText[index].value = "";
+    }
+  });
+});
+
+// post comments like
+const postCommentLikeBtn = document.querySelectorAll(".post-comment-like-btn");
+const postCommentLikeIcon = document.querySelectorAll(
+  ".post-comment-like-icon"
+);
+const postCommentLikeNum = document.querySelectorAll(
+  ".post-comment-like-number"
+);
+let isPostCommentLiked = false;
+
+postCommentLikeBtn.forEach((item, index) => {
+  postCommentLikeBtn[index].addEventListener("click", function () {
+    let num = Math.floor(postCommentLikeNum[index].innerText);
+    isPostCommentLiked
+      ? unLikePostComment(index, num)
+      : likePostComment(index, num);
+  });
+});
+
+function likePostComment(index, num) {
+  isPostCommentLiked = true;
+  num += 1;
+  postCommentLikeIcon[index].classList.replace("fa-heart-o", "fa-heart");
+  postCommentLikeIcon[index].classList.add("liked");
+  postCommentLikeNum[index].innerText = num;
 }
 
-function lightbox_open() {
-  var lightBoxVideo = document.getElementById("VisaChipCardVideo");
-  window.scrollTo(0, 0);
-  document.getElementById('light').style.display = 'block';
-  document.getElementById('fade').style.display = 'block';
-  lightBoxVideo.play();
+function unLikePostComment(index, num) {
+  isPostCommentLiked = false;
+  num -= 1;
+  postCommentLikeIcon[index].classList.replace("fa-heart", "fa-heart-o");
+  postCommentLikeIcon[index].classList.remove("liked");
+  postCommentLikeNum[index].innerText = num;
 }
 
-function lightbox_close() {
-  var lightBoxVideo = document.getElementById("VisaChipCardVideo");
-  document.getElementById('light').style.display = 'none';
-  document.getElementById('fade').style.display = 'none';
-  lightBoxVideo.pause();
-}
-  </script>
+</script>
 </body>
 </html>
