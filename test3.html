@@ -560,7 +560,17 @@ video.post-video {
 
   .video-player {
   width: 270px;
-  height: 540px;
+  height: 640px;
+}
+
+.post-footer{
+  position: absolute;
+  top: 85%;
+}
+
+.side-bar{
+  position: absolute;
+  right: 17%;
 }
 }
 
@@ -703,9 +713,7 @@ video.post-video {
                          <a href="#" onclick="lightbox_open();" class="staff">
                           <video src="history-grade11/natzizem&shoa_topics/videos/yonatan_said.mp4" height="240px"></video>
                         </a> 
-                        <a href="#" onclick="lightbox_open();">
-                          <video src="history-grade11/natzizem&shoa_topics/videos/yonatan_said.mp4" height="240px"></video>
-                        </a> 
+
                         </div>
                         <button class="handle right-handle">
                           <div class="text">&#8250;</div>
@@ -984,19 +992,6 @@ function pauseVideo(index) {
   postVideo[index].pause();
   isPlaying = false;
 }
-
-// disc icon
-const discSrc =
-  "data:image/png;base64,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";
-const discContainer = document.createElement("div");
-const discImg = document.createElement("img");
-discContainer.setAttribute("class", "disc-logo");
-discImg.src = discSrc;
-discImg.setAttribute("class", "disc-logo-img");
-discContainer.appendChild(discImg);
-post.forEach((item, index) => {
-  post[index].appendChild(discContainer);
-});
 
 // like button
 const likeBtn = document.querySelectorAll(".like-btn");
