@@ -540,7 +540,7 @@ video.post-video {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 425px) {
   .title{
     font-size: 1.5rem;
   }
@@ -552,14 +552,26 @@ video.post-video {
   .slider {
     --items-per-screen: 2;
   }
-  
+
+  .post{
+    width: 254px;
+  }
+
+  .video-container{
+    width: 264px;
+  }
+
+  .video-first{
+    left: 105%;
+  }
+
   #video-placing {
     top: 30%;
     left: 100%;
   }
 
   .video-player {
-  width: 270px;
+  width: 247px;
   height: 640px;
 }
 
@@ -574,11 +586,11 @@ video.post-video {
 .post-footer{
   position: absolute;
   top: 85%;
+  width: 85%;
 }
 
 .side-bar{
   position: absolute;
-  right: 17%;
 }
 }
 
@@ -1162,6 +1174,8 @@ function unLikePostComment(index, num) {
   postCommentLikeIcon[index].classList.remove("liked");
   postCommentLikeNum[index].innerText = num;
 }
+
+
     </script>
 </body>
 </html>
