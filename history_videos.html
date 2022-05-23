@@ -644,8 +644,6 @@ video.post-video {
                   <div class="post">
                     <div class="video-player">
                       <video autoplay="" loop="" class="post-video" id="video">
-                          <source src="history-grade11/natzizem&shoa_topics/videos/yonatan_said.webm">
-              
                       </video>
               
                       
@@ -709,6 +707,8 @@ video.post-video {
               
                 </div>
               </div>
+
+              
               
 
               <div id="fade" onClick="lightbox_close();"></div>
@@ -730,12 +730,12 @@ video.post-video {
                           <div class="text">&#8249;</div>
                         </button>
                         <div class="slider">
-                          <a href="#" onclick="lightbox_open();" class="staff">
+                          <a href="#" onclick="lightbox_open('yonatan_said.webm');" class="staff">
                             <video src="history-grade11/natzizem&shoa_topics/videos/yonatan_said.webm" height="240px"></video>
                           </a>
 
-                          <a href="#" onclick="lightbox_open();" class="staff">
-                            <video src="history-grade11/natzizem&shoa_topics/videos/yonatan_said.webm" height="240px"></video>
+                          <a href="#" onclick="lightbox_open('ringworld-ep1.webm');" class="staff">
+                            <video src="history-grade11/natzizem&shoa_topics/videos/ringworld-ep1.webm" height="240px"></video>
                           </a>
                          </div>
                         <button class="handle right-handle">
@@ -972,8 +972,11 @@ window.document.onkeydown = function(e) {
   }
 }
 
-function lightbox_open() {
+function lightbox_open(src) {
   var lightBoxVideo = document.getElementById("video");
+  var source = document.createElement('source');
+  source.src = `history-grade11/natzizem&shoa_topics/videos/${src}`;
+  lightBoxVideo.appendChild(source);
   window.scrollTo(0, 0);
   document.getElementById('video-placing').style.display = 'block';
   document.getElementById('fade').style.display = 'block';
