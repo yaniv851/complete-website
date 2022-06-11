@@ -161,6 +161,11 @@ a video{
     border-radius: 1rem;
 }
 
+a iframe{
+    width: 100%;
+    border-radius: 1rem;
+}
+
 .staff{
   margin-right: 10px;
 }
@@ -533,6 +538,12 @@ video.post-video {
   object-fit: cover;
 }
 
+iframe.post-video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 
 @media (max-width: 1000px) {
   .slider {
@@ -576,6 +587,10 @@ video.post-video {
 }
 
 .video-player video{
+  border-radius: 10px;
+}
+
+.video-player iframe{
   border-radius: 10px;
 }
 
@@ -645,6 +660,9 @@ video.post-video {
                     <div class="video-player">
                       <video autoplay="" loop="" class="post-video" id="video">
                       </video>
+
+                      <iframe autoplay="" loop="" class="post-video" id="video">
+                      </iframe>
               
                       
                     </div>
@@ -730,6 +748,8 @@ video.post-video {
                           <div class="text">&#8249;</div>
                         </button>
                         <div class="slider">
+
+
                           <a href="#" onclick="lightbox_open('yonatan_said.webm');" class="staff">
                             <video src="history-grade11/natzizem&shoa_topics/videos/yonatan_said.webm" height="240px"></video>
                           </a>
@@ -738,6 +758,10 @@ video.post-video {
                             <video src="history-grade11/natzizem&shoa_topics/videos/ringworld-ep1.webm" height="240px"></video>
                           </a>
 
+                          
+                          <a href="#" onclick="lightbox_open('pUpvpZO86qU');" class="staff">
+                            <iframe height="240px" src="https://www.youtube.com/embed/pUpvpZO86qU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                          </a>
                          </div>
                         <button class="handle right-handle">
                           <div class="text">&#8250;</div>
@@ -973,8 +997,9 @@ window.document.onkeydown = function(e) {
   }
 }
 
-function lightbox_open(src, src1) {
+function lightbox_open(src) {
   var lightBoxVideo = document.getElementById("video");
+
   lightBoxVideo.src = `history-grade11/natzizem&shoa_topics/videos/${src}`;
   window.scrollTo(0, 0);
   document.getElementById('video-placing').style.display = 'block';
