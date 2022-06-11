@@ -737,6 +737,7 @@ video.post-video {
                           <a href="#" onclick="lightbox_open('ringworld-ep1.webm');" class="staff">
                             <video src="history-grade11/natzizem&shoa_topics/videos/ringworld-ep1.webm" height="240px"></video>
                           </a>
+
                          </div>
                         <button class="handle right-handle">
                           <div class="text">&#8250;</div>
@@ -972,11 +973,9 @@ window.document.onkeydown = function(e) {
   }
 }
 
-function lightbox_open(src) {
+function lightbox_open(src, src1) {
   var lightBoxVideo = document.getElementById("video");
-  var source = document.createElement('source');
-  source.src = `history-grade11/natzizem&shoa_topics/videos/${src}`;
-  lightBoxVideo.appendChild(source);
+  lightBoxVideo.src = `history-grade11/natzizem&shoa_topics/videos/${src}`;
   window.scrollTo(0, 0);
   document.getElementById('video-placing').style.display = 'block';
   document.getElementById('fade').style.display = 'block';
