@@ -49,10 +49,11 @@
     border: none;
     width: 100%;
     outline: none;
-    background: none;
     padding: 0 5px;
     height: 40px;
+
   }
+
   
   .txtb span::before{
     content: attr(data-placeholder);
@@ -118,6 +119,13 @@
   float: right;
 }
 
+.ig_li{
+  border: 1.7px solid #333;
+  border-radius: 5px;
+  height: 23px;
+  margin-bottom: 15px;
+}
+
 
     </style>
 </head>
@@ -144,14 +152,20 @@
           </select>
         </div>
 
+        <input type="text" id="IG_link" class="ig_li" placeholder="your instagram link:">
+        <label for="IG_link"></label>
+
+
         <div class="txtb">
-          <input type="file" id="file-ip-1" accept="video/*" onchange="showPreview(event);">
+          <input type="file" id="file-ip-1" accept="video/mp4" onchange="showPreview(event);">
         </div>
 
 
         <div class="preview">
           <video id="file-ip-1-preview">
         </div>
+
+        
 
 
 
@@ -173,11 +187,14 @@
 
           var subjectObject = {
   "History": {
-    "נאציזם ושואה": ["10", "13", "14"],
+    "נאציזם ושואה": ["page 10", "page 13", "page 14"],
     "JavaScript": ["Variables", "Operators", "Functions", "Conditions"]    
   },
     "English": {
     "PHP": ["12", "13", "14"]
+  }, 
+  "Math": {
+    "ahsf": ["12", "13", "14"]
   }
 }
 
@@ -192,6 +209,7 @@ window.onload = function() {
     //empty Chapters- and Topics- dropdowns
     pageSel.length = 1;
     bookSel.length = 1;
+    console.log(subjectSel.value);
     //display correct values
     for (var y in subjectObject[this.value]) {
       bookSel.options[bookSel.options.length] = new Option(y, y);
@@ -200,12 +218,17 @@ window.onload = function() {
   bookSel.onchange = function() {
     //empty Chapters dropdown
     pageSel.length = 1;
+    console.log(bookSel.value);
     //display correct values
     var z = subjectObject[subjectSel.value][this.value];
     for (var i = 0; i < z.length; i++) {
       pageSel.options[pageSel.options.length] = new Option(z[i], z[i]);
     }
   }
+  pageSel.onchange = function() {
+    console.log(pageSel.value);
+  }
+
 }
 
 function showPreview(event){

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/9.8.3/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/9.8.3/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/9.8.3/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/9.8.3/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/9.8.3/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/9.8.3/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/9.8.3/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/9.8.3/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/9.8.3/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/9.8.3/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+  </head>
+  <body>
+
+    <form action="#" class="login-form" name="Creator Submission">
+
+      <div class="custom-select">
+        Subjects: <select name="subject" id="subject">
+          <option value="" selected="selected">Select subject</option>
+        </select>
+      </div>
+
+      <div class="custom-select">
+        Books: <select name="book" id="book">
+          <option value="" selected="selected">Please select subject first</option>
+        </select>
+      </div>
+
+      <div class="custom-select">
+        Page: <select name="page" id="page">
+          <option value="" selected="selected">Please select a book first</option>
+        </select>
+      </div>
+
+      <input type="url" id="IG_link" pattern="https://.*" class="ig_li" placeholder="your instagram link:">
+      <label for="IG_link"></label>
+
+      <input type="submit" class="logbtn" value="Publish">
+
+  </form>
+
+    
+    <script src="app.js"></script>
+  </body>
+</html>
