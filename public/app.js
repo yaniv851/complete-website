@@ -32,13 +32,13 @@ db.collection('videos').onSnapshot(snapshot => {
 function uploadVid(files) {
   const file = files.item(0);
 
-  const storageRef = firebase.storage().ref("history/").put(file);
+  const storageRef = firebase.storage().ref();
+  //upload video to history folder inside storage.
+  const vidRef = storageRef.child('history');
+  var spaceRef = vidRef.child('filename').put(file);
+  //מחר השאילתא תתבצע באמצעות משפטי תנאי וכמובן לא צריך לשבור את הראש מכיוון שהקוד הנדרש כבר מוכן ונמצא בין הצ'אטים שלי ושל אייל
+  //מה שנדרש ממך זה לשים את קטע הקוד הנ"ל בתוך משפט התנאי ולהגיד שאם בחרתי במקצוע היסטוריה תעביר לתיקיה היסטוריה
 
-  storageRef.then(snapshot => {
-    console.log(snapshot)
-    const url = snapshot.downloadURL
-    document.getElementById('file-ip-1-preview').setAttribute('src', url)
-  })
 }
 
 const formA = document.querySelector(".login-form");
