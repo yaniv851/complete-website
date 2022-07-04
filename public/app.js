@@ -11,10 +11,14 @@
 // });
 
 
+
+
 document.addEventListener("DOMContentLoaded", event => {
     const app = firebase.app();
  
     const db = firebase.firestore();
+
+    
 
 db.collection('videos').onSnapshot(snapshot => {
 
@@ -24,6 +28,18 @@ db.collection('videos').onSnapshot(snapshot => {
   })
 })
 });
+
+function uploadVid(files) {
+  const file = files.item(0);
+
+  const storageRef = firebase.storage().ref("history/").put(file);
+
+  storageRef.then(snapshot => {
+    console.log(snapshot)
+    const url = snapshot.downloadURL
+    document.getElementById('file-ip-1-preview').setAttribute('src', url)
+  })
+}
 
 const formA = document.querySelector(".login-form");
 
@@ -39,10 +55,16 @@ var subjectObject = {
       "ahsf": ["12", "13", "14"]
     }
   }
+
+  
+
+
   window.onload = function() {
     var subjectSel = document.getElementById("subject");
     var bookSel = document.getElementById("book");
     var pageSel = document.getElementById("page");
+    const IGLink = document.querySelector("#IG_link");
+
     for (var x in subjectObject) {
       subjectSel.options[subjectSel.options.length] = new Option(x, x);
     }
@@ -64,8 +86,7 @@ var subjectObject = {
         pageSel.options[pageSel.options.length] = new Option(z[i], z[i]);
       }
     }
-    const IGLink = document.querySelector("#IG_link");
-
+    
 
     // Click submit in add modal
 formA.addEventListener('submit', e => {
@@ -77,8 +98,15 @@ formA.addEventListener('submit', e => {
     page: pageSel.value,
     IGLink: IGLink.value,
   });
+
 });
+
+
   }
+
+
+  
+  
 
 
 
