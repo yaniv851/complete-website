@@ -34,8 +34,10 @@ function uploadVid(files) {
 
   const storageRef = firebase.storage().ref();
   //upload video to history folder inside storage.
-  const vidRef = storageRef.child('history');
-  var spaceRef = vidRef.child('filename').put(file);
+  const vidRef = storageRef.child('נאציזם ושואה');
+  var spaceRef = vidRef.child('page 10');
+  var random = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+  var ref = spaceRef.child(random).put(file);
   //מחר השאילתא תתבצע באמצעות משפטי תנאי וכמובן לא צריך לשבור את הראש מכיוון שהקוד הנדרש כבר מוכן ונמצא בין הצ'אטים שלי ושל אייל
   //מה שנדרש ממך זה לשים את קטע הקוד הנ"ל בתוך משפט התנאי ולהגיד שאם בחרתי במקצוע היסטוריה תעביר לתיקיה היסטוריה
 
