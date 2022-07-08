@@ -27,12 +27,12 @@ formA.addEventListener('submit', e => {
   e.preventDefault();
   const db = firebase.firestore();
   db.collection('videos').add({
-    book: bookSel,
-    page: pageSel,
-    IGLink: IGLink,
+    book: bookSel.value,
+    page: pageSel.value,
+    IGLink: IGLink.value,
   });
   if(bookSel.value == "נאציזם ושואה"){
-    window.open("history_videos.html");
+    location.href = "history_videos.html";
   }
 });
 
