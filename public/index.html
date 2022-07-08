@@ -1,188 +1,189 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to Firebase Hosting</title>
-
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/9.8.3/firebase-app-compat.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/9.8.3/firebase-auth-compat.js"></script>
-    <script defer src="/__/firebase/9.8.3/firebase-database-compat.js"></script>
-    <script defer src="/__/firebase/9.8.3/firebase-firestore-compat.js"></script>
-    <script defer src="/__/firebase/9.8.3/firebase-functions-compat.js"></script>
-    <script defer src="/__/firebase/9.8.3/firebase-messaging-compat.js"></script>
-    <script defer src="/__/firebase/9.8.3/firebase-storage-compat.js"></script>
-    <script defer src="/__/firebase/9.8.3/firebase-analytics-compat.js"></script>
-    <script defer src="/__/firebase/9.8.3/firebase-remote-config-compat.js"></script>
-    <script defer src="/__/firebase/9.8.3/firebase-performance-compat.js"></script>
-    <!-- 
-      initialize the SDK after all desired features are loaded, set useEmulator to false
-      to avoid connecting the SDK to running emulators.
-    -->
-    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoLstudy</title>
+    <link rel="icon" href="images/logo.webp">
     <style>
-              *{
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    font-family: sans-serif;
-    box-sizing: border-box;
-  }
-  
-  body{
-    min-height: 100vh;
-    background-image: linear-gradient(120deg,#3498db,#8e44ad);
-  }
-  
-  .login-form{
-    width: 360px;
-    background: #f1f1f1;
-    height: 580px;
-    padding: 50px 40px;
-    border-radius: 10px;
+      * {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+  overflow: hidden;
+  height: 100%;
+}
+
+.wrapper {
+  width: 1170px;
+  margin: auto;
+}
+
+.logo img {
+  z-index: 1;
+  width: 104px;
+  padding-left: 50px;
+  padding-top: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.button {
+    font-size: 16px;
+    color: #fff;
+    border: #fff solid 2px;
+    padding: 15px 70px;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    outline: none;
+    border-radius: 100px;
+    display: block;
     position: absolute;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
+    top: 85%;
+    text-decoration: none;
+    transform: translateX(-50%);
   }
   
-  .login-form h1{
-    text-align: center;
-    margin-bottom: 20px;
+  .split.left .button:hover {
+    background-image: linear-gradient(120deg,transparent, white, gray, transparent);
+    border-color: var(--left-button-hover-color);
+    color: black;
   }
   
-  .txtb{
+  .split.right .button:hover {
+    background-image: linear-gradient(120deg,transparent, white, gray, transparent);
+    border-color: var(--right-button-hover-color);
+    color: black;
+  }
+  
+  .container {
     position: relative;
-  }
-  
-  .txtb input{
-    font-size: 15px;
-    color: #333;
-    border: none;
     width: 100%;
-    outline: none;
-    padding: 0 5px;
-    height: 40px;
-
+    height: 100%;
+    background: var(--container-bg-color);
   }
-
   
-  .txtb span::before{
-    content: attr(data-placeholder);
+  .split {
     position: absolute;
-    top: 50%;
-    left: 5px;
-    color: #adadad;
-    transform: translateY(-50%);
-    z-index: -1;
-    transition: .5s;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
   }
   
-  .txtb span::after{
-    content: '';
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    transition: .5s;
+  .split.left {
+    left:0;
+    background: url(/images/CSstudent.webp) center center no-repeat;
+    background-size: cover;
   }
-  
-  .focus + span::before{
-    top: -5px;
+
+  .split.right {
+    right:0;
+    background: url(/images/Creator.webp) center center no-repeat;
+    background-size: cover;
   }
-  .focus + span::after{
-    width: 100%;
-  }
-  
-  .logbtn{
-    display: block;
-    width: 100%;
-    height: 50px;
-    border: none;
-    background: linear-gradient(120deg,#3498db,#8e44ad,#3498db);
-    background-size: 200%;
-    color: #fff;
-    outline: none;
-    cursor: pointer;
-    transition: .5s;
-  }
-  
-  .logbtn:hover{
-    background-position: right;
-  }
-  
-  .bottom-text{
-    margin-top: 60px;
+
+  .container .center{
+    z-index: 1;
+    left: 50%;
+    top: 35%;
     text-align: center;
-    font-size: 13px;
+    position: absolute;
   }
 
-  .custom-select select{
-    margin-bottom: 20px;
-    border-radius: 20px;
+  .center .first {
+    font-weight: bold;
+    color: #fff;
+    position: relative;
+    width:50%;
+    top: 50%;
+    font-size: 5vw;  
+  -webkit-transform: translate(-50%, -50%);        
+  transform: translate(-50%, -50%);
+}
+
+.center .sec{
+  font-weight: bold;
+  color: #fff;
+  position: relative;
+  width:50%;
+  top: 50%;
+  font-size: 5vw;  
+-webkit-transform: translate(-50%, -50%);        
+transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 768px){
+  .center .first {
+    width: 15rem;
+    font-size: 55px;
   }
 
-  .login-form video {
-  height: 250px;
-  width: 250px;
-  display:none;
+  .center .sec{
+    width: 15rem;
+    font-size: 55px;
+  }
+
+  .button{
+    font-size: 25px;
+    padding: 15px 80px;
+  }
 }
 
-.preview video{
-  float: right;
-}
 
-.ig_li{
-  border: 1.7px solid #333;
-  border-radius: 5px;
-  height: 23px;
-  margin-bottom: 15px;
-}
+@media screen and (min-width: 320px) {
+  .logo img{
+    width: 84px;
+    padding-left: 15px;
+  }
 
+  .center .first {
+    width: 10rem;
+    font-size: 40px;
+  }
+
+  .center .sec{
+    width: 10rem;
+    font-size: 40px;
+  }
+
+  .button{
+    padding: 9px 35px;
+  }
+}
     </style>
-  </head>
-  <body>
-
-    <form action="#" class="login-form" name="Creator Submission">
-
-      <div class="custom-select">
-        Book: <select name="book" id="book">
-          <option value="none" selected="selected">Select a book</option>
-          <option value="נאציזם ושואה">נאציזם ושואה</option>
-        </select>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="logo">
+          <a href="index.html">
+            <img src="/images/logo.webp" alt="Logo" />
+          </a>
+        </div>
       </div>
 
-      <div class="custom-select">
-        Page: <select name="page" id="page">
-          <option value="none" selected="selected">Select a page</option>
-          <option value="page 10">page 10</option>
-          <option value="page 13">page 13</option>
-
-        </select>
+      
+      <div class="container">
+        <div class="center">
+            <h2 class="first">For The Students</h2>
+            <h2 class="sec">For Everyone!</h2>
+        </div>
+        <div class="split left">
+            <!--need to add links to buttons-->
+          <a href="subcat.html" class="button">Student</a>
+        </div>
+        <div class="split right">
+          <a href="connectCreator.html" class="button">Creator</a>
+        </div>
       </div>
 
-
-
-      <input type="url" id="IG_link" pattern="https://.*" class="ig_li" placeholder="your instagram link:">
-      <label for="IG_link"></label>
-
-              <div class="txtb">
-          <input type="file" id="file-ip-1" accept="video/webm" onchange="uploadVid(this.files);">
-        </div>
-
-
-        <div class="preview">
-          <video id="file-ip-1-preview" src="">
-        </div>
-
-
-      <input type="submit" class="logbtn" value="Publish">
-
-  </form>
-
-    
-    <script src="app.js"></script>
-  </body>
+</body>
 </html>
