@@ -148,22 +148,22 @@
     <form action="#" class="login-form" name="Creator Submission">
 
       <div class="custom-select">
-        Subjects: <select name="subject" id="subject">
-          <option value="" selected="selected">Select subject</option>
-        </select>
-      </div>
-
-      <div class="custom-select">
-        Books: <select name="book" id="book">
-          <option value="" selected="selected">Please select subject first</option>
+        Book: <select name="book" id="book">
+          <option value="none" selected="selected">Select a book</option>
+          <option value="נאציזם ושואה">נאציזם ושואה</option>
         </select>
       </div>
 
       <div class="custom-select">
         Page: <select name="page" id="page">
-          <option value="" selected="selected">Please select a book first</option>
+          <option value="none" selected="selected">Select a page</option>
+          <option value="page 10">page 10</option>
+          <option value="page 13">page 13</option>
+
         </select>
       </div>
+
+
 
       <input type="url" id="IG_link" pattern="https://.*" class="ig_li" placeholder="your instagram link:">
       <label for="IG_link"></label>
