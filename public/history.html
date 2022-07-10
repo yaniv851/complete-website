@@ -534,7 +534,7 @@ body{
               <div id="Grade 11" class="inv">
                 <h2>Grade 11</h2>
                 <a href="#" data-target="#modal1"><img src="history-grade11/natzizem&shoa.webp" class="row__poster row__posterLarge" /></a>
-                <a href="#" data-target="#modal2"><img src="history-grade11/Bonim_Medina.webp" class="row__poster row__posterLarge" /></a>
+                <a href="timer.html" data-target="#modal2"><img src="history-grade11/Bonim_Medina.webp" class="row__poster row__posterLarge" /></a>
               </div>
     
             </div>
@@ -545,7 +545,7 @@ body{
             <div class="header">
               <div class="title">
                 <select id="Hero">
-                  <option value="Grade 6">Select A Chapter:</option>
+                  <option value="none">Select A Chapter:</option>
                   <option value="chap1">המשטר הטוטליטרי</option>
                   <option value="chap2">מיעוטים באירופה בין שתי מלחמות עולם )1919-1839)</option>
                 </select>
@@ -705,11 +705,23 @@ document
           }else{
               document.getElementById(id).style.display = 'none';
           }
+          location.href = "timer.html";
+
       }
 
       function refer(selectedValue){
         localStorage.setItem("Pages", selectedValue);
-        window.location.href="history_videos.html";
+        if(localStorage.getItem("Pages") == "page 13"){
+          location.href = "timer.html";
+        }
+
+        if(localStorage.getItem("Pages") == "page 14"){
+          location.href = "timer.html";
+        }
+
+        if(localStorage.getItem("Pages") == "page 10"){
+          window.location.href="history_videos.html";
+        }
       }
 
     </script>
