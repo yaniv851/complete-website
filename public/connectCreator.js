@@ -64,6 +64,12 @@ formA.addEventListener('submit', e => {
       var random = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
       var ref = spaceRef.child(random).put(file);
     }
+
+    if(pageSel.value == "שם המספר"){
+      var spaceRef = vidRef2.child('number');
+      var random = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+      var ref = spaceRef.child(random).put(file);
+    }
   
     //מחר השאילתא תתבצע באמצעות משפטי תנאי וכמובן לא צריך לשבור את הראש מכיוון שהקוד הנדרש כבר מוכן ונמצא בין הצ'אטים שלי ושל אייל
     //מה שנדרש ממך זה לשים את קטע הקוד הנ"ל בתוך משפט התנאי ולהגיד שאם בחרתי במקצוע היסטוריה תעביר לתיקיה היסטוריה
