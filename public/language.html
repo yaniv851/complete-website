@@ -534,7 +534,7 @@ body{
               <div id="Grade 11" class="inv">
                 <h2>Grade 11</h2>
                 <a onclick="gotopage()" href="#"><img src="language-grade11/Group-1.webp" class="row__poster row__posterLarge" /></a>
-                <a href="timer.html"><img src="language-grade11/Group-2.webp" class="row__poster row__posterLarge" /></a>
+                <a onclick="gotopage1()" href="#"><img src="language-grade11/Group-2.webp" class="row__poster row__posterLarge" /></a>
                 <a href="timer.html"><img src="language-grade11/Group-3.webp" class="row__poster row__posterLarge" /></a>
               </div>
     
@@ -613,6 +613,11 @@ window.onclick = (event) => {
 
       function gotopage() {
         localStorage.setItem("topics", "pronouncing");
+        location.href = "language_videos.html";
+      }
+
+      function gotopage1() {
+        localStorage.setItem("topics", "number");
         location.href = "language_videos.html";
       }
       
