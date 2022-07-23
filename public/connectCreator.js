@@ -34,6 +34,9 @@ formA.addEventListener('submit', e => {
   if(bookSel.value == "נאציזם ושואה"){
     location.href = "history_videos.html";
   }
+  if(bookSel.value == "לשון"){
+    location.href = "language_videos.html";
+  }
 });
 
 
