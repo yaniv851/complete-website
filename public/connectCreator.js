@@ -46,6 +46,8 @@ formA.addEventListener('submit', e => {
     const storageRef = firebase.storage().ref();
     //upload video to history folder inside storage.
     const vidRef = storageRef.child('נאציזם ושואה');
+    const vidRef2 = storageRef.child('לשון');
+
     if(pageSel.value == "page 10"){
       var spaceRef = vidRef.child('page 10');
       var random = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
@@ -53,6 +55,12 @@ formA.addEventListener('submit', e => {
     }
     if(pageSel.value == "page 13"){
       var spaceRef = vidRef.child('page 13');
+      var random = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+      var ref = spaceRef.child(random).put(file);
+    }
+
+    if(pageSel.value == "הגייה"){
+      var spaceRef = vidRef2.child('pronouncing');
       var random = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
       var ref = spaceRef.child(random).put(file);
     }
