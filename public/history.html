@@ -534,7 +534,7 @@ body{
               <div id="Grade 11" class="inv">
                 <h2>Grade 11</h2>
                 <a href="#" data-target="#modal1"><img src="history-grade11/natzizem&shoa.webp" class="row__poster row__posterLarge" /></a>
-                <a href="timer.html" data-target="#modal2"><img src="history-grade11/Bonim_Medina.webp" class="row__poster row__posterLarge" /></a>
+                <a href="history_videos.html" data-target="#modal2"><img src="history-grade11/Bonim_Medina.webp" class="row__poster row__posterLarge" /></a>
               </div>
     
             </div>
@@ -631,6 +631,25 @@ body{
             if (target !== null ) {
                 target.className = 'vis';
             }
+            var check = document.getElementById('target');
+            if(check.value == "Grade 6"){
+              window.location.href="history_videos.html";
+            }
+            if(check.value == "Grade 7"){
+              window.location.href="history_videos.html";
+            }
+            if(check.value == "Grade 8"){
+              window.location.href="history_videos.html";
+            }
+            if(check.value == "Grade 9"){
+              window.location.href="history_videos.html";
+            }
+            if(check.value == "Grade 10"){
+              window.location.href="history_videos.html";
+            }
+            if(check.value == "Grade 12"){
+              window.location.href="history_videos.html";
+            }
     });
 
 const btns = document.querySelectorAll("[data-target]");
@@ -674,6 +693,10 @@ document
             if (target !== null ) {
                 target.className = 'topics';
             }
+
+            if(document.getElementById('Hero').value == 'chap2'){
+              window.location.href="history_videos.html";
+            }
     });
 
 
@@ -705,18 +728,18 @@ document
           }else{
               document.getElementById(id).style.display = 'none';
           }
-          location.href = "timer.html";
+          location.href = "history_videos.html";
 
       }
 
       function refer(selectedValue){
         localStorage.setItem("Pages", selectedValue);
         if(localStorage.getItem("Pages") == "page 13"){
-          location.href = "timer.html";
+          window.location.href="history_videos.html";
         }
 
         if(localStorage.getItem("Pages") == "page 14"){
-          location.href = "timer.html";
+          window.location.href="history_videos.html";
         }
 
         if(localStorage.getItem("Pages") == "page 10"){
