@@ -535,7 +535,7 @@ body{
                 <h2>Grade 11</h2>
                 <a onclick="gotopage()" href="#"><img src="language-grade11/Group-1.webp" class="row__poster row__posterLarge" /></a>
                 <a onclick="gotopage1()" href="#"><img src="language-grade11/Group-2.webp" class="row__poster row__posterLarge" /></a>
-                <a href="timer.html"><img src="language-grade11/Group-3.webp" class="row__poster row__posterLarge" /></a>
+                <a href="language_videos.html"><img src="language-grade11/Group-3.webp" class="row__poster row__posterLarge" /></a>
               </div>
     
             </div>
@@ -558,6 +558,25 @@ body{
             }
             if (target !== null ) {
                 target.className = 'vis';
+            }
+            var check = document.getElementById('target');
+            if(check.value == "Grade 6"){
+              window.location.href="language_videos.html";
+            }
+            if(check.value == "Grade 7"){
+              window.location.href="language_videos.html";
+            }
+            if(check.value == "Grade 8"){
+              window.location.href="language_videos.html";
+            }
+            if(check.value == "Grade 9"){
+              window.location.href="language_videos.html";
+            }
+            if(check.value == "Grade 10"){
+              window.location.href="language_videos.html";
+            }
+            if(check.value == "Grade 12"){
+              window.location.href="language_videos.html";
             }
     });
 
