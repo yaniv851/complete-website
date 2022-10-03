@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoLstudy</title>
+    <link rel="icon" href="/images/logo.webp">
+
+    <style>
+       *{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    /*   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+    font-family: "Roboto", sans-serif;
+    background: #181818;
+}
+
+.nav__logo{
+    width: 80px;
+    object-fit: contain;
+}
+
+.nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    z-index: 1;
+    transition-timing-function: ease-in;
+    transition: all 0.5s;
+}
+
+
+.banner {
+    background-image: url(/images/languagelogo.webp);
+    background-size: cover;
+    background-position: center center;
+    color: white;
+    object-fit: contain;
+    height: 448px;
+    margin-bottom: 50px;
+}
+
+.banner__contents{
+    padding-top: 140px;
+    height: 190px;
+}
+
+.banner__title{
+    font-size: 3rem;
+    font-weight: 800;
+    padding-bottom: 0.3rem;
+}
+
+.banner__description{
+    width: 10rem;
+    line-height: 1.3;
+    padding-top: 1rem;
+    font-size: 1rem;
+    max-width: 360px;
+    height: 180px;
+}
+
+.banner__button{
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    font-size: 1em;
+    border-radius: 1vw;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin-right: 1rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    background-color: rgba(51, 51, 51, 0.5);
+}
+
+.banner__button:hover, .banner__button:focus{
+    color: #000;
+    background-color: #e6e6e6;
+    transition: all 0.2s;
+}
+
+
+/* The container must be positioned relative: */
+    .custom-select {
+    position: relative;
+    display: inline-block;
+    width:200px;
+    height: 35px;
+    font-family: Arial;
+    font-size: large;
+  }
+
+  .inv {
+      display: none;
+    }
+
+    h2{
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+  
+    .custom-select select {
+      cursor: pointer;
+      color: white;
+      text-align: center;
+      outline: none;
+      border: none;
+      width: 200px;
+      height: 34px;
+      padding: 5px;
+      background-color: rgba(51, 51, 51, 0.5);
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 10px;
+      transition: all 0.9s ease-in-out;
+     }
+  
+   .custom-select select:hover{
+    color: #000;
+    background-color: #e6e6e6;
+    transition: all 0.2s ease-in;
+  }
+
+  .custom-select select option {
+  background-color: rgba(51, 51, 51, 0.5);
+  color: white;
+  width: 200px;
+  padding: 5px;
+  font-size: 16px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.custom-select option:not(:checked) {
+  background-color: rgba(51, 51, 51, 0.5);
+}
+
+
+.banner--fadeButtom{
+    margin-top: -65px;
+    /* if it interupts the user than  change the height to 5 or more */
+    height: 2rem;
+    background-image: linear-gradient(180deg, transparent, rgba(37,37,37,0.61), #181818);
+}
+
+.row .row__posters .inv {
+  display: none;
+}
+
+::-webkit-scrollbar{
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track{
+    border: 5px solid #283a4d;
+    box-shadow: inset 0 0 15px #283a4d;
+  }
+  
+  ::-webkit-scrollbar-thumb{
+    background: linear-gradient(#eecda3, #da1e6f);
+    border-radius: 50px;
+  }
+
+.row__poster{
+    width: 100%;
+    object-fit: contain;
+    max-height: 250px;
+    margin-right: 10px;
+    transition: transform 450ms;
+}
+
+.row__posters{
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 20px;
+}
+
+.row__poster:hover{
+    transform: scale(1.08);
+}
+
+.row__posters::-webkit-scrollbar{
+    display: none;
+}
+
+.row__posterLarge{
+  height: 190px;
+  width: 150px;
+  overflow: hidden;
+}
+
+.row__posterLarge img{
+  height: auto;
+ width: 140px;
+}
+
+.row__posterLarge:hover{
+    transform: scale(1.09);
+}
+
+.row{
+    color: white;
+    margin-left: 20px;
+}
+
+.container {
+  width: 992px;
+  margin: 0 auto;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.9);
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  transition: ease-out 1s;
+}
+
+.close-modal:hover{
+  transition: ease-in 0.5s;
+  color: rgb(78, 75, 75);
+}
+
+.modal {
+  max-width:700px;
+  width: 95%;
+  height: 540px;
+  position: fixed;
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: top 0.3s ease-in-out;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  z-index: 2;
+  background-color: #181818;
+  color: white;
+}
+
+.modal.active {
+  top: 50%;
+}
+
+.modal .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.modal .header .title strong{
+  font-size: 20px;
+}
+
+.modal .body {
+  padding: 0.75rem;
+  font-size: large;
+  min-height:300px;
+  height:350px;
+  overflow-y: scroll;
+}
+
+.modal .body::-webkit-scrollbar{
+  width: 12px;
+}
+
+.modal .body::-webkit-scrollbar-track {
+    border: 5px solid #283a4d;
+    box-shadow: inset 0 0 15px #283a4d;
+    border-radius: 50px;
+}
+
+.modal .body h1{
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.modal .body input{
+  margin-bottom: 20px;
+}
+
+#overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+#overlay.active {
+  display: block;
+}
+
+.cards {
+    margin: 0 auto;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+    grid-auto-rows: auto;
+    gap: 20px;
+    font-family: sans-serif;
+    padding-top: 30px;
+}
+
+.body form .cards * {
+    box-sizing: border-box;
+    color: black;
+    width: 100%;
+}
+
+
+.card__image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    border-top: 2px solid #333333;
+    border-right: 2px solid #333333;
+    border-left: 2px solid #333333;
+}
+
+.card__content {
+    height: 190px;
+    line-height: 1.5;
+    font-size: 0.9em;
+    padding: 15px;
+    background: #fafafa;
+    border-right: 2px solid #333333;
+    border-left: 2px solid #333333;
+}
+
+.card__content > p:first-of-type {
+    margin-top: 0;
+}
+
+.card__content > p:last-of-type {
+    margin-bottom: 0;
+}
+
+.card__info {
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #555555;
+    background: #eeeeee;
+    font-size: 0.8em;
+    border-bottom: 2px solid #333333;
+    border-right: 2px solid #333333;
+    border-left: 2px solid #333333;
+}
+
+.card__info i {
+    font-size: 0.9em;
+    margin-right: 8px;
+}
+
+.card__link {
+    color: #64968c;
+    text-decoration: none;
+}
+
+.card__link:hover {
+    text-decoration: underline;
+}
+
+/* The container must be positioned relative: */
+.title {
+    display: inline-block;
+    width:200px;
+    height: 35px;
+    position: relative;
+    font-family: Arial;
+    font-size: large;
+  }
+  
+.title select {
+      cursor: pointer;
+      color: white;
+      text-align: center;
+      outline: none;
+      border: none;
+      width: 200px;
+      height: 34px;
+      padding: 5px;
+      background-color: rgba(51, 51, 51, 0.5);
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 10px;
+      transition: all 0.9s ease-in-out;
+     }
+  
+   .title select:hover{
+    color: #000;
+    background-color: #e6e6e6;
+    transition: all 0.2s ease-in;
+  }
+
+  .title select option {
+  background-color: rgba(51, 51, 51, 0.5);
+  color: white;
+  width: 200px;
+  padding: 5px;
+  font-size: 16px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.title option:not(:checked) {
+  background-color: rgba(51, 51, 51, 0.5);
+}
+
+.body .pages{
+  position: absolute;
+  top: 40%;
+  left: 5%;
+}
+
+.body .pages .dropdown {
+  display: none;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  padding: 5px;
+  background-color: rgba(51, 51, 51, 0.5);
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  transition: all 0.9s ease-in-out;
+}
+
+@media screen and (min-width: 768px){
+  .banner__description{
+    width: 10rem;
+    font-size: 16px;
+  }
+  
+  .banner__contents{
+    margin-left: 30px;
+  }
+}
+  
+
+
+@media screen and (max-width: 425px) {
+
+  .banner__title{
+    text-align: center;
+  }
+
+  .banner__description {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .custom-select select{
+    position: relative;
+    margin-left: 30px;
+  }
+  
+}
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="nav" id="nav">
+        <a href="index.html"><img src="/images/logo.webp" alt="" class="nav__logo"></a>
+      </div>
+    
+           
+          <!--header-->
+          <div class="banner">
+            <div class="banner__contents">
+              <h1 class="banner__title">Language</h1>
+              <div class="banner__description">
+                <p><b>Did you know?</b> <br/>
+                    Over 300 languages are spoken in the US</p>
+              </div>
+              <div class="custom-select">
+                <select id="target">
+                  <option value="All">Select a Grade</option>
+                  <option value="Grade 6">Grade 6</option>
+                  <option value="Grade 7">Grade 7</option>
+                  <option value="Grade 8">Grade 8</option>
+                  <option value="Grade 9">Grade 9</option>
+                  <option value="Grade 10">Grade 10</option>
+                  <option value="Grade 11">Grade 11</option>
+                  <option value="Grade 12">Grade 12</option>
+                <select>
+              </div>
+        
+              </div>
+            </div>
+            <div class="banner--fadeButtom"></div>
+          </div>
+    
+         <!--Top Rated videos-->
+         <div class="row">
+            <div class="row__posters">
+              <!--להוריד מפה את הסרטונים ולשים כריכות של ספרים בתוך לינק שיובל לדף של בחירת תוכן עיניינים-->
+              <!--אחר כך להוסיף דף של הסרטונים ולעשות פופאפ לכל סרטון בעת לחיצה -רמז קטן, זה קשור לג'אבא סקריפט-->
+              <div id="Grade 11" class="inv">
+                <h2>Grade 11</h2>
+                <a onclick="gotopage()" href="#"><img src="language-grade11/Group-1.webp" class="row__poster row__posterLarge" /></a>
+                <a onclick="gotopage1()" href="#"><img src="language-grade11/Group-2.webp" class="row__poster row__posterLarge" /></a>
+                <a href="language_videos.html"><img src="language-grade11/Group-3.webp" class="row__poster row__posterLarge" /></a>
+              </div>
+    
+            </div>
+          </div> 
+    
+     
+    
+          <div id="overlay"></div>
+
+    <script>
+
+                document
+        .getElementById('target')
+        .addEventListener('change', function () {
+            'use strict';
+            var vis = document.querySelector('.vis'),   
+                target = document.getElementById(this.value);
+            if (vis !== null) {
+                vis.className = 'inv';
+            }
+            if (target !== null ) {
+                target.className = 'vis';
+            }
+            var check = document.getElementById('target');
+            if(check.value == "Grade 6"){
+              window.location.href="language_videos.html";
+            }
+            if(check.value == "Grade 7"){
+              window.location.href="language_videos.html";
+            }
+            if(check.value == "Grade 8"){
+              window.location.href="language_videos.html";
+            }
+            if(check.value == "Grade 9"){
+              window.location.href="language_videos.html";
+            }
+            if(check.value == "Grade 10"){
+              window.location.href="language_videos.html";
+            }
+            if(check.value == "Grade 12"){
+              window.location.href="language_videos.html";
+            }
+    });
+
+const btns = document.querySelectorAll("[data-target]");
+const close_modals = document.querySelectorAll(".close-modal");
+const overlay = document.getElementById("overlay");
+
+btns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.querySelector(btn.dataset.target).classList.add("active");
+    overlay.classList.add("active");
+  });
+});
+
+close_modals.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const modal = btn.closest(".modal");
+    modal.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+});
+
+window.onclick = (event) => {
+  if (event.target == overlay) {
+    const modals = document.querySelectorAll(".modal");
+    modals.forEach((modal) => modal.classList.remove("active"));
+    overlay.classList.remove("active");
+  }
+};
+
+
+      let btn = document.querySelector('.cards');
+      let heading = document.querySelector('.relativeTopic');
+
+
+      function button1function(id){
+      
+          if(document.getElementById(id).style.display == 'none'){
+              document.getElementById(id).style.display = 'initial';
+          }else{
+              document.getElementById(id).style.display = 'none';
+          }
+      }
+      function button2function(id){
+          if(document.getElementById(id).style.display == 'none'){
+              document.getElementById(id).style.display = 'initial';
+          }else{
+              document.getElementById(id).style.display = 'none';
+          }
+          location.href = "timer.html";
+      }
+
+
+      function gotopage() {
+        localStorage.setItem("topics", "pronouncing");
+        location.href = "language_videos.html";
+      }
+
+      function gotopage1() {
+        localStorage.setItem("topics", "number");
+        location.href = "language_videos.html";
+      }
+      
+
+
+    //   function refer(selectedValue){
+    //     localStorage.setItem("Pages", selectedValue);
+    //     if(localStorage.getItem("Pages") == "page 13"){
+    //       location.href = "timer.html";
+    //     }
+
+    //     if(localStorage.getItem("Pages") == "page 14"){
+    //       location.href = "timer.html";
+    //     }
+
+    //     if(localStorage.getItem("Pages") == "page 10"){
+    //       window.location.href="language_videos.html";
+    //     }
+    //   }
+
+    </script>
+</body>
+</html>
